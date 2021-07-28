@@ -353,4 +353,49 @@ header {
 .explore__image {
   padding-top: 15px;
 }
-/*end explore*/
+/* end explore */
+/* start video */
+.video {
+  background-color: #E5E5E5;
+}
+.video__container {
+  padding: 75px 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.video__player {
+  padding-bottom: 40px;
+}
+
+.video__description {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.video__title {
+  font-family: "Forum";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 80px;
+  line-height: 90px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #9D8665;
+  flex-basis: 720px;
+}
+
+.video__text {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 38px;
+  color: #000000;
+  flex-basis: 720px;
+}
+/* end video */
