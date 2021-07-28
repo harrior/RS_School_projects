@@ -4,16 +4,128 @@
   font-style: normal;
   font-weight: 400;
   src: local(''),
-  url('../fonts/forum-v11-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('../fonts/forum-v11-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  url('../assets/fonts/forum-v11-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../assets/fonts/forum-v11-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-/* roboto-regular - latin */
+/* roboto-100 - latin */
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 100;
   src: local(''),
-  url('../fonts/roboto-v27-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('../fonts/roboto-v27-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  url('../assets/fonts/roboto-v27-latin-100.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../assets/fonts/roboto-v27-latin-100.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+/* roboto-300 - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local(''),
+  url('../assets/fonts/roboto-v27-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../assets/fonts/roboto-v27-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-500 - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''),
+  url('../assets/fonts/roboto-v27-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../assets/fonts/roboto-v27-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  /*font-family: 'Roboto', ant;*/
+  /*  font-style: normal;*/
+  /*  font-size: 16px;*/
+  /*  line-height: 1.2;*/
+  /*  font-weight: normal;*/
+  /*  color: #102746;*/
+  /*}*/
+}
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* start header */
+header {
+  position: fixed;
+  background-color: #030303;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.header {
+
+}
+.header__container {
+  padding-top: 76px;
+  display: flex;
+  justify-content: space-between;
+}
+.header__logo-text{
+  background: transparent url("../assets/svg/logo-icon.svg") no-repeat left center;
+  background-size: 50px;
+  position: relative;
+  padding-left:70px;
+  font-family: "Forum", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 50px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.header__logo-link {
+  text-decoration: none;
+}
+
+.nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 100;
+  font-size: 22px;
+  line-height: 50px;
+  letter-spacing: 2px;
+}
+
+
+.nav__item-link {
+  display: block;
+  height: 50px;
+  color: #FFFFFF;
+  text-decoration: none;
+  margin-left: 75px;
+}
+.nav__item-link:hover,
+.nav__item-link:active,
+.nav__item-link:focus {
+  color: #9d8665;
+}
+
+/* end header */
+
+/* start welcome */
+.welcome {
+  /* TODO: remove this */
+  background-color: #030303;
+  height: 100vh;
+  /*  */
+}
+/* end welcome*/
