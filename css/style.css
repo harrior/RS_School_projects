@@ -105,7 +105,7 @@ header {
 .nav__list {
   display: flex;
   flex-wrap: wrap;
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 100;
   font-size: 22px;
@@ -153,7 +153,7 @@ header {
 
 .welcome__subtitle {
   margin-bottom: 76px;
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 28px;
@@ -169,7 +169,7 @@ header {
   width: 360px;
   height: 75px;
   padding-top: 25px;
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 22px;
@@ -200,7 +200,7 @@ header {
 .visiting__title {
   position: relative;
   padding-bottom: 25px;
-  font-family: "Forum";
+  font-family: 'Forum';
   font-style: normal;
   font-weight: normal;
   font-size: 80px;
@@ -284,3 +284,73 @@ header {
   color: #000000;
 }
 /* end visiting*/
+
+/* start explore */
+.explore {
+  background: #030303;
+  padding: 75px 0;
+}
+
+.explore__container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  column-gap: 60px;
+  justify-content: space-between;
+}
+
+.explore__column{
+  max-width: 720px;
+}
+
+.explore__title {
+  position: relative;
+  font-family: 'Forum';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 80px;
+  line-height: 90px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 75px;
+  padding-bottom: 25px;
+
+}
+.explore__title::after {
+  display: block;
+  content: '';
+  width: 660px;
+  height: 3px;
+  background: #710707;
+  border-radius: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.explore__text {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 38px;
+  color: #FFFFFF;
+  max-width: 660px;
+  margin-bottom: 25px;
+}
+
+.explore__link {
+  text-decoration: none;
+  color: #CAAA7D;
+}
+
+.explore__link:hover,
+.explore__link:active,
+.explore__link:focus {
+  color: #9D8665;
+}
+
+.explore__image {
+  padding-top: 15px;
+}
+/*end explore*/
