@@ -53,6 +53,12 @@ body {
   /*  color: #102746;*/
   /*}*/
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 .wrapper {
   max-width: 1440px;
   margin: 0 auto;
@@ -61,13 +67,15 @@ body {
 /* start header */
 header {
   position: fixed;
-  background-color: #030303;
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 5;
 }
 
 .header {
+  min-width: 200px;
+  background-color: #030303;
 
 }
 .header__container {
@@ -105,7 +113,6 @@ header {
   letter-spacing: 2px;
 }
 
-
 .nav__item-link {
   display: block;
   height: 50px;
@@ -123,9 +130,157 @@ header {
 
 /* start welcome */
 .welcome {
-  /* TODO: remove this */
-  background-color: #030303;
-  height: 100vh;
-  /*  */
+  min-height: 950px;
+  background: #030303 url("../assets/jpg/background.jpg") no-repeat right bottom;
+}
+.welcome__container {
+  padding-top: 314px;
+}
+
+.welcome__title {
+  margin-bottom: 26px;
+  font-family: "Forum", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 80px;
+  line-height: 90px;
+
+  letter-spacing: 5px;
+  text-transform: uppercase;
+
+  color: #FFFFFF;
+}
+
+.welcome__subtitle {
+  margin-bottom: 76px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 33px;
+
+  letter-spacing: 2px;
+
+  color: #FFFFFF;
+}
+
+.welcome__button {
+  display: block;
+  width: 360px;
+  height: 75px;
+  padding-top: 25px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 22px;
+  text-align: center;
+  letter-spacing: 2px;
+  text-decoration: none;
+  color: #FFFFFF;
+  border-radius: 10px;
+  background-color: #710707;
+}
+
+.welcome__button:hover,
+.welcome__button:active,
+.welcome__button:focus {
+    background-color: #9d8665;
+    font-weight: 300;
 }
 /* end welcome*/
+/* start visiting*/
+.visiting {
+  background: #E5E5E5;
+}
+
+.visiting__container {
+  padding: 75px 0;
+}
+
+.visiting__title {
+  position: relative;
+  padding-bottom: 25px;
+  font-family: "Forum";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 80px;
+  line-height: 90px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #9D8665;
+  margin-bottom: 75px;
+}
+
+.visiting__title::after {
+  display: block;
+  content: '';
+  width: 1440px;
+  height: 3px;
+  background: #710707;
+  border-radius: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.visiting__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 78px 60px;
+}
+
+
+.visiting__card-link {
+  text-decoration: none;
+}
+
+.visiting__card-image {
+  width: 440px;
+  height: 285px;
+  margin-bottom: 25px;
+}
+
+.visiting__card-title {
+  position: relative;
+  padding-bottom: 9px;
+  font-family: "Forum";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 35px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 10px;
+}
+.visiting__card-title::after {
+  display: block;
+  content: '';
+  width: 200px;
+  height: 2px;
+  background: #710707;
+  border-radius: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.visiting__card-desc {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 22px;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.visiting__card-copy {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+}
+/* end visiting*/
