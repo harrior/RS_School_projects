@@ -594,3 +594,65 @@ header {
 }
 
 /* end tickets */
+/* start contacts*/
+.contacts {
+  background-color: #E5E5E5;
+}
+
+.contacts__container {
+  padding: 75px 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.contacts__title {
+  position: relative;
+  padding-bottom: 25px;
+  font-family: 'Forum';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 80px;
+  line-height: 90px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #9D8665;
+  margin-bottom: 75px;
+  width: 100%;
+}
+
+.contacts__title::after {
+  display: block;
+  content: '';
+  width: 100%;
+  height: 3px;
+  background: #710707;
+  border-radius: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.contacts__address-title {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 33px;
+  color: #000000;
+  margin-bottom: 36px;
+}
+
+.contacts__address-text {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 26px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+/* end contacts*/
