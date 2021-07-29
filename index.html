@@ -140,13 +140,16 @@
       <div class="explore__container">
         <div class="explore__column">
           <h2 class="explore__title">Picture explore</h2>
-          <p class="explore__text">Las Meninas is a 1656 painting by Diego Velázquez, the leading artist of the Spanish Golden Age.</p>
-          <p class="explore__text">It was cleaned in 1984 to remove a <a href="#" class="explore__link">"yellow veil"</a> of dust that had gathered since the previous restoration in the 19th century.</p>
-          <p class="explore__text">The cleaning provoked furious protests, not because the picture had been damaged in any way, but because it looked different.</p>
+          <p class="explore__text">Las Meninas is a 1656 painting by Diego Velázquez, the leading artist of the Spanish
+            Golden Age.</p>
+          <p class="explore__text">It was cleaned in 1984 to remove a <a class="explore__link" href="#">"yellow
+            veil"</a> of dust that had gathered since the previous restoration in the 19th century.</p>
+          <p class="explore__text">The cleaning provoked furious protests, not because the picture had been damaged in
+            any way, but because it looked different.</p>
         </div>
         <div class="explore__column">
           <figure class="explore__image">
-            <img src="assets/img/image-explore.jpg" alt="Picture explore">
+            <img alt="Picture explore" src="assets/img/image-explore.jpg">
           </figure>
         </div>
       </div>
@@ -161,12 +164,13 @@
         <div class="video__player">
           <figure class="video__player-image">
             <!-- TODO: make normal video player framework -->
-            <img src="assets/img/image-player.jpg" alt="Video player temp image">
+            <img alt="Video player temp image" src="assets/img/image-player.jpg">
           </figure>
         </div>
         <div class="video__description">
           <h2 class="video__title">Video journey</h2>
-          <p class="video__text">Enter and visit one of the most famous museums in the world and enjoy masterpieces such as Mona Lisa or Hammurabi's Code</p>
+          <p class="video__text">Enter and visit one of the most famous museums in the world and enjoy masterpieces such
+            as Mona Lisa or Hammurabi's Code</p>
         </div>
       </div>
     </div>
@@ -175,7 +179,52 @@
   <!-- Video end -->
 
   <!-- Tickets start -->
-  <section class="tickets"></section>
+  <section class="tickets">
+    <div class="wrapper">
+      <div class="tickets__container">
+        <h2 class="tickets__title">Buy tickets</h2>
+        <figure class="tickets__img">
+          <img alt="Buy tickets" src="assets/img/image-tickets.jpg">
+        </figure>
+
+        <form class="tickets__form" method="post">
+          <div class="tickets__type__box">
+            <p class="tickets__type-title">Ticket Type</p>
+            <input class="tickets__type-item" id="type-1" name="ticket-type" type="radio" value="permanent">
+            <label class="tickets__type-text" for="type-1">Permanent exhibition</label>
+
+            <input class="tickets__type-item" id="type-2" name="ticket-type" type="radio" value="temporary">
+            <label class="tickets__type-text" for="type-2">Temporary exhibition</label>
+
+            <input class="tickets__type-item" id="type-3" name="ticket-type" type="radio" value="combined">
+            <label class="tickets__type-text" for="type-3">Combined Admission</label>
+          </div>
+
+          <div class="tickets__amount__box">
+            <p class="tickets__amount-title">Amount</p>
+            <div class="tickets__amount">
+              <label class="tickets__amount-text" for="age-1">Basic 18+</label>
+              <div class="tickets__numbers">
+                <button class="tickets__button">-</button>
+                <input class="tickets__number-value" id="age-1" min="0" name="amount-basic" type="number" value="1" readonly>
+                <button class="tickets__button">+</button>
+              </div>
+            </div>
+            <div class="tickets__amount">
+              <label class="tickets__amount-text" for="age-2">Senior 65+</label>
+              <div class="tickets__numbers">
+                <button class="tickets__button">-</button>
+                <input class="tickets__number-value" id="age-2" min="0" name="amount-senior" type="number" value="1" readonly>
+                <button class="tickets__button">+</button>
+              </div>
+            </div>
+            <p class="tickets__total">Total €220</p>
+            <button class="tickets__submit" type="submit">Buy Now</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
   <!-- Tickets end -->
 </main>
 
