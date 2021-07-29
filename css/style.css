@@ -66,7 +66,7 @@ img {
 
 /* start header */
 header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -83,7 +83,7 @@ header {
   display: flex;
   justify-content: space-between;
 }
-.header__logo-text{
+.header__logo-link{
   background: transparent url("../assets/svg/logo-icon.svg") no-repeat left center;
   background-size: 50px;
   position: relative;
@@ -96,10 +96,8 @@ header {
   letter-spacing: 5px;
   text-transform: uppercase;
   color: #FFFFFF;
-}
-
-.header__logo-link {
   text-decoration: none;
+  display: inline-block;
 }
 
 .nav__list {
@@ -498,7 +496,7 @@ header {
 }
 
 .tickets__amount-title {
-  font-family: Roboto;
+  font-family: Roboto,sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 28px;
@@ -656,3 +654,80 @@ header {
 }
 
 /* end contacts*/
+
+/* start Footer*/
+.footer {
+  background-color: #030303;
+}
+.footer__container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 75px 0;
+  flex-basis: 100%;
+}
+
+.footer_nav__list{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  list-style: none;
+  max-height: 150px;
+  column-gap: 150px;
+}
+.footer_nav {
+  margin-left: 145px;
+}
+.footer_nav__item-link {
+  display: block;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 100;
+  font-size: 22px;
+  height: 50px;
+  padding-top: 14px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  color: #FFFFFF;
+  align-content: center;
+}
+
+.footer_nav__item-link:hover,
+.footer_nav__item-link:active,
+.footer_nav__item-link:focus{
+  color: #9D8665;
+}
+
+.div__social {
+  margin-left: auto;
+  align-self: flex-end;
+}
+
+.div__social-list {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 14px;
+}
+
+.div__social-link {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+}
+
+.social--youtube {
+  background: transparent url("../assets/svg/youtube-icon.svg") no-repeat center;
+}
+.social--pinterest {
+  background: transparent url("../assets/svg/pinterest-icon.svg") no-repeat center;
+}
+.social--twitter {
+  background: transparent url("../assets/svg/twitter-icon.svg") no-repeat center;
+}
+.social--facebook {
+  background: transparent url("../assets/svg/facebook-icon.svg") no-repeat center;
+}
+.social--instagram {
+  background: transparent url("../assets/svg/instagram-icon.svg") no-repeat center;
+}
+/* end footer*/
