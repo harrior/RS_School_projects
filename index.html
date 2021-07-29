@@ -163,9 +163,17 @@
       <div class="video__container">
         <div class="video__player">
           <figure class="video__player-image">
-            <!-- TODO: make normal video player framework -->
             <img alt="Video player temp image" src="assets/img/image-player.jpg">
           </figure>
+          <div class="video__control">
+            <button class="video__control-button video--back"></button>
+            <button class="video__control-button video--play"></button>
+            <button class="video__control-button video--forward"></button>
+            <input class="video__control-progress" max="100" min="0" type="range">
+            <button class="video__control-button video--mute"></button>
+            <input class="video__control-volume" max="100" min="0" type="range">
+            <button class="video__control-button video--full"></button>
+          </div>
         </div>
         <div class="video__description">
           <h2 class="video__title">Video journey</h2>
@@ -205,19 +213,19 @@
             <div class="tickets__amount">
               <label class="tickets__amount-text" for="age-1">Basic 18+</label>
               <div class="tickets__numbers">
-                <button class="tickets__button">-</button>
+                <button class="tickets__button" type="button">-</button>
                 <input class="tickets__number-value" id="age-1" min="0" name="amount-basic" readonly type="number"
                        value="1">
-                <button class="tickets__button">+</button>
+                <button class="tickets__button" type="button">+</button>
               </div>
             </div>
             <div class="tickets__amount">
               <label class="tickets__amount-text" for="age-2">Senior 65+</label>
               <div class="tickets__numbers">
-                <button class="tickets__button">-</button>
+                <button class="tickets__button" type="button">-</button>
                 <input class="tickets__number-value" id="age-2" min="0" name="amount-senior" readonly type="number"
                        value="1">
-                <button class="tickets__button">+</button>
+                <button class="tickets__button" type="button">+</button>
               </div>
             </div>
             <p class="tickets__total">Total €220</p>
