@@ -575,31 +575,33 @@ header {
 .tickets__numbers {
   display: flex;
   justify-content: space-between;
+  flex-wrap: nowrap;
   align-items: center;
   margin-bottom: 35px;
   width: 150px;
   height: 50px;
   border: 3px solid #FFFFFF;
-  padding: 6px 14px;
+  /*padding: 6px 14px;*/
 }
 
 .tickets__button {
   background-color: transparent;
   border: none;
-  margin: 0;
   padding: 0;
-  flex-basis: 18px;
+  flex-shrink: 0;
 
   font-family: Roboto, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 32px;
   color: #FFFFFF;
-
+  margin: 0 14px;
 }
 
+
 .tickets__number-value {
-  width: 85px;
+  flex-basis: auto;
+  min-width: 20px;
   border: 0;
   background-color: transparent;
   text-align: center;
