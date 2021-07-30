@@ -4,8 +4,8 @@
   font-style: normal;
   font-weight: 400;
   src: local(''),
-  url('../assets/fonts/forum-v11-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('../assets/fonts/forum-v11-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  url('../../assets/fonts/forum-v11-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../../assets/fonts/forum-v11-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* roboto-100 - latin */
@@ -14,8 +14,8 @@
   font-style: normal;
   font-weight: 100;
   src: local(''),
-  url('../assets/fonts/roboto-v27-latin-100.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('../assets/fonts/roboto-v27-latin-100.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  url('../../assets/fonts/roboto-v27-latin-100.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../../assets/fonts/roboto-v27-latin-100.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* roboto-300 - latin */
 @font-face {
@@ -23,8 +23,8 @@
   font-style: normal;
   font-weight: 300;
   src: local(''),
-  url('../assets/fonts/roboto-v27-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('../assets/fonts/roboto-v27-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  url('../../assets/fonts/roboto-v27-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../../assets/fonts/roboto-v27-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* roboto-500 - latin */
 @font-face {
@@ -32,8 +32,8 @@
   font-style: normal;
   font-weight: 500;
   src: local(''),
-  url('../assets/fonts/roboto-v27-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-  url('../assets/fonts/roboto-v27-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  url('../../assets/fonts/roboto-v27-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+  url('../../assets/fonts/roboto-v27-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 *, *:before, *:after {
@@ -84,7 +84,7 @@ header {
   justify-content: space-between;
 }
 .header__logo-link{
-  background: transparent url("../assets/svg/logo-icon.svg") no-repeat left center;
+  background: transparent url("../../assets/svg/logo-icon.svg") no-repeat left center;
   background-size: 50px;
   position: relative;
   padding-left:70px;
@@ -129,7 +129,7 @@ header {
 /* start welcome */
 .welcome {
   min-height: 950px;
-  background: #030303 url("../assets/jpg/background.jpg") no-repeat right bottom;
+  background: #030303 url("../../assets/jpg/background.jpg") no-repeat right bottom;
 }
 .welcome__container {
   padding-top: 314px;
@@ -389,31 +389,31 @@ header {
   margin-left: 41px;
   width: 27px;
   height: 30px;
-  background: transparent url("../assets/svg/player-back.svg");
+  background: transparent url("../../assets/svg/player-back.svg");
 }
 .video--play {
   margin-left: 41px;
   width: 23px;
   height: 30px;
-  background: transparent url("../assets/svg/player-play.svg");
+  background: transparent url("../../assets/svg/player-play.svg");
 }
 .video--forward {
   margin-left: 41px;
   width: 27px;
   height: 30px;
-  background: transparent url("../assets/svg/player-forward.svg");
+  background: transparent url("../../assets/svg/player-forward.svg");
 }
 .video--mute {
   margin-left: 41px;
   width: 38px;
   height: 30px;
-  background: transparent url("../assets/svg/player-volume.svg");
+  background: transparent url("../../assets/svg/player-volume.svg");
 }
 .video--full {
   margin-left: 48px;
   width: 36px;
   height: 36px;
-  background: transparent url("../assets/svg/player-full.svg");
+  background: transparent url("../../assets/svg/player-full.svg");
 }
 
 .video__control-progress {
@@ -538,12 +538,12 @@ header {
   position: absolute;
   left: 0;
   top: 4px;
-  background: url("../assets/svg/radio-not-checked.svg") 0 0 no-repeat;
+  background: url("../../assets/svg/radio-not-checked.svg") 0 0 no-repeat;
 }
 
 .tickets__type-item:checked + .tickets__type-text:before {
   content: '';
-  background: url("../assets/svg/radio-checked.svg") 0 0 no-repeat;
+  background: url("../../assets/svg/radio-checked.svg") 0 0 no-repeat;
 }
 
 .tickets__amount__box {
@@ -777,18 +777,18 @@ header {
 }
 
 .social--youtube {
-  background: transparent url("../assets/svg/youtube-icon.svg") no-repeat center;
+  background: transparent url("../../assets/svg/youtube-icon.svg") no-repeat center;
 }
 .social--pinterest {
-  background: transparent url("../assets/svg/pinterest-icon.svg") no-repeat center;
+  background: transparent url("../../assets/svg/pinterest-icon.svg") no-repeat center;
 }
 .social--twitter {
-  background: transparent url("../assets/svg/twitter-icon.svg") no-repeat center;
+  background: transparent url("../../assets/svg/twitter-icon.svg") no-repeat center;
 }
 .social--facebook {
-  background: transparent url("../assets/svg/facebook-icon.svg") no-repeat center;
+  background: transparent url("../../assets/svg/facebook-icon.svg") no-repeat center;
 }
 .social--instagram {
-  background: transparent url("../assets/svg/instagram-icon.svg") no-repeat center;
+  background: transparent url("../../assets/svg/instagram-icon.svg") no-repeat center;
 }
 /* end footer*/
