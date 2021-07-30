@@ -222,9 +222,11 @@ header {
 }
 
 .visiting__cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  /*display: grid;*/
+  /*grid-template-columns: repeat(3, 1fr);*/
+  /*grid-template-rows: repeat(2, 1fr);*/
+  display: flex;
+  flex-wrap: wrap;
   gap: 78px 60px;
 }
 
@@ -721,6 +723,7 @@ header {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  flex-wrap: wrap;
   padding: 75px 0;
   flex-basis: 100%;
 }
