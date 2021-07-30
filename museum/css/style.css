@@ -77,6 +77,10 @@ img {
   background-color: #E5E5E5;
 }
 
+.inner-container {
+  padding: 75px 0;
+}
+
 .headers {
   position: relative;
 
@@ -128,7 +132,6 @@ img {
 .header__container {
   display: flex;
   justify-content: space-between;
-  padding-top: 76px;
 }
 
 .header__logo-link{
@@ -147,8 +150,9 @@ img {
   color: #FFFFFF;
   text-decoration: none;
 
-  background: transparent url("../assets/svg/logo-icon.svg") no-repeat left center;
-  background-size: 50px;
+  background-origin: border-box;
+  background: transparent url("../assets/svg/logo-icon.svg") no-repeat left top 8px;
+  /*background-size: 50px;*/
 }
 
 .nav__list {
@@ -161,12 +165,12 @@ img {
 }
 
 .nav__item-link {
-  display: block;
+  display: inline-block;
   height: 50px;
   color: #FFFFFF;
 
   text-decoration: none;
-  margin-left: 75px;
+  margin-left: 76px;
 }
 
 .nav__item-link:hover,
