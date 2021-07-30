@@ -85,7 +85,7 @@ img {
 .headers {
   position: relative;
 
-  display: inline-block;
+  /*display: inline-block;*/
   padding-bottom: 28px;
   margin-bottom: 75px;
 
@@ -354,14 +354,16 @@ img {
   flex-direction: column;
   max-width: 100%;
   height: auto;
+  margin-top: 15px;
   margin-bottom: 40px;
+  padding: 0;
 
   border: 1px solid #000000;
 }
 .video__control {
   display: flex;
   align-items: center;
-  height: 85px;
+  height: 83px;
 
   background-color: #000000;
 }
@@ -423,8 +425,13 @@ img {
   justify-content: space-between;
   align-items: center;
 }
+.video__title {
+  padding: 0;
+  margin: 0;
+}
 
 .video__text {
+  /*margin-top: 7px;*/
   flex-basis: 720px;
 
   line-height: 38px;
