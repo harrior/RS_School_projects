@@ -608,11 +608,12 @@ img {
 }
 
 .contacts__title {
-  width: 100%;
+  flex-basis: 100%;
 }
 
 .contacts__address-title {
-  margin-bottom: 36px;
+  margin-top: 10px;
+  margin-bottom: 37px;
 
   font-weight: 500;
   font-size: 28px;
@@ -620,7 +621,7 @@ img {
 }
 
 .contacts__address-text {
-  margin-bottom: 20px;
+  margin-bottom: 21px;
 
   color: #000000;
 }
