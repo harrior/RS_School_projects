@@ -46,6 +46,8 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   font-family: Roboto, sans-serif;
   font-style: normal;
   font-size: 22px;
@@ -60,7 +62,7 @@ img {
 }
 
 .wrapper {
-  max-width: 1440px;
+  max-width: calc(1440px);
   margin: 0 auto;
 }
 
@@ -79,7 +81,9 @@ img {
 }
 
 .inner-container {
+
   padding: 75px 0;
+
 }
 
 .headers {
@@ -171,6 +175,8 @@ img {
 
   text-decoration: none;
   margin-left: 76px;
+
+  transition: all 0.15s linear;
 }
 
 .nav__item-link:hover,
@@ -218,12 +224,14 @@ img {
 
   border-radius: 10px;
   background-color: #710707;
+
+  transition: all 0.15s linear;
 }
 
 .welcome__button:hover,
 .welcome__button:active,
 .welcome__button:focus {
-    background-color: #9d8665;
+  background-color: #9d8665;
 }
 /* end welcome*/
 
@@ -232,7 +240,6 @@ img {
 .visiting__container {
   display: flex;
   flex-direction: column;
-  padding: 75px 0;
 }
 
 .visiting__cards {
@@ -326,6 +333,8 @@ img {
 .explore__link {
   text-decoration: none;
   color: #CAAA7D;
+
+  transition: all 0.15s linear;
 }
 
 .explore__link:hover,
@@ -586,6 +595,8 @@ img {
   letter-spacing: 2px;
 
   color: #000000;
+
+  transition: all 0.15s linear;
 }
 
 .tickets__submit:hover,
@@ -635,6 +646,7 @@ img {
   align-items: flex-start;
   flex-wrap: wrap;
   flex-basis: 100%;
+  gap: 146px;
   padding: 75px 0;
 }
 
@@ -644,23 +656,25 @@ img {
   flex-wrap: wrap;
   list-style: none;
   max-height: 150px;
-  column-gap: 150px;
+  column-gap: 157px;
 }
 
 .footer_nav {
-  margin-left: 145px;
+  /*margin-left: 146px;*/
 }
 
 .footer_nav__item-link {
   display: block;
   height: 50px;
-  padding-top: 14px;
   align-content: center;
 
   font-weight: 100;
+  line-height: 50px;
   letter-spacing: 2px;
   text-decoration: none;
   color: #FFFFFF;
+
+  transition: all 0.15s linear;
 }
 
 .footer_nav__item-link:hover,
@@ -669,36 +683,26 @@ img {
   color: #9D8665;
 }
 
-.div__social {
+.social {
   align-self: flex-end;
   margin-left: auto;
 }
 
-.div__social-list {
+.social__list {
   display: flex;
-  gap: 24px;
-  margin-bottom: 14px;
+  column-gap: 24px;
+  margin-bottom: 8px;
 }
+.social__link {
 
-.div__social-link {
-  display: inline-block;
+}
+.social__icon {
   width: 48px;
   height: 48px;
-}
+  transition: all 0.15s linear;
 
-.social--youtube {
-  background: transparent url("../assets/svg/youtube-icon.svg") no-repeat center;
 }
-.social--pinterest {
-  background: transparent url("../assets/svg/pinterest-icon.svg") no-repeat center;
-}
-.social--twitter {
-  background: transparent url("../assets/svg/twitter-icon.svg") no-repeat center;
-}
-.social--facebook {
-  background: transparent url("../assets/svg/facebook-icon.svg") no-repeat center;
-}
-.social--instagram {
-  background: transparent url("../assets/svg/instagram-icon.svg") no-repeat center;
+.social__icon:hover{
+  filter: invert(59%) sepia(10%) saturate(1044%) hue-rotate(356deg) brightness(90%) contrast(90%);
 }
 /* end footer*/
