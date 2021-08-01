@@ -417,10 +417,25 @@ img {
 }
 
 .video__control-progress {
+  background: linear-gradient(to right, #24809E 0%, #24809E 50%, #C4C4C4 50%, #C4C4C4 100%);
+  border: solid 1px #000;
+  border-radius: 0;
+  height: 8px;
   width: 820px;
+  outline: none;
   margin-left: 41px;
 
-  border-radius: 0;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+}
+
+.video__control-progress::-webkit-slider-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  cursor: ew-resize;
+  background: #ffffff;
 }
 
 .video__control-volume {
