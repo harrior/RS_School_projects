@@ -473,7 +473,7 @@ img {
 .tickets__type-title {
   margin-bottom: 50px;
 
-  font-weight: bold;
+  font-weight: 500;
   font-size: 28px;
   color: #FFFFFF;
 }
@@ -521,7 +521,7 @@ img {
 .tickets__amount-title {
   margin-bottom: 11px;
 
-  font-weight: bold;
+  font-weight: 500;
   font-size: 28px;
   line-height: 33px;
   color: #FFFFFF;
@@ -539,7 +539,7 @@ img {
   justify-content: space-between;
   flex-wrap: nowrap;
   align-items: center;
-  margin-bottom: 35px;
+  margin-bottom: 36px;
   width: 150px;
   height: 50px;
 
@@ -551,7 +551,7 @@ img {
   border: none;
   padding: 0;
   flex-shrink: 0;
-  margin: 0 14px;
+  margin: 0 10px;
 
   font-family: Roboto, sans-serif;
   font-style: normal;
@@ -563,6 +563,7 @@ img {
 .tickets__number-value {
   flex-basis: auto;
   min-width: 20px;
+  margin-left: 10px;
 
   font-family: Roboto,sans-serif;
   font-style: normal;
@@ -579,20 +580,28 @@ img {
 .tickets__total {
   margin: 15px 0 50px;
 
-  font-weight: bold;
+  font-weight: 500;
   font-size: 28px;
   letter-spacing: 1.65px;
   color: #FFFFFF;
 }
 
 .tickets__submit {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 175px;
   height: 50px;
   background: #FFFFFF;
   border-radius: 2px;
+  border: none;
+  outline: none;
 
+  font-style: normal;
+  font-weight: 100;
+  font-size: 22px;
   letter-spacing: 2px;
+
 
   color: #000000;
 
