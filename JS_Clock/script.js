@@ -5,6 +5,9 @@ const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 const TIMER_DELAY = 25; //minutes
 const COLOR_DELTA = 255 / (TIMER_DELAY * 30)
 
+//
+showDescription();
+
 // clock
 const clock = document.querySelector('.clock');
 const hoursArrow = document.querySelector('.hours');
@@ -98,4 +101,14 @@ function showHint() {
 
 function hideHint() {
     notice.style['display'] = 'none'
+}
+
+function showDescription(){
+    console.log("Score: 30/30\n" +
+        "[x] Разобрался в исходном коде примера и воспроизвел его самостоятельно\n" +
+        "[x] Реализован таймер на 25 минут как Pomodoro\n" +
+        "[x] Дополнительный функционал:\n" +
+        "Воспроизведение звука при окончании таймера\n" +
+        "Изменение цвета фона таймера от зеленого к красному (по мере окончания времени, фон в начале желтеет, а потом краснеет, как зреющий помидор.\n" +
+        "Выведение оставшегося времени таймера при наведении на него.")
 }
