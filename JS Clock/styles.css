@@ -78,14 +78,6 @@ body {
   background: red;
 }
 
-.timer {
-  display: none;
-  height: 10em;
-  width: 0.01em;
-
-  background: purple;
-}
-
 .notice {
   z-index: 1;
 
@@ -94,8 +86,6 @@ body {
   max-height: 1em;
   border: black dot-dash 10px;
   margin: 0 auto;
-
-  /*background-color: white;*/
 
   font-size: 2em;
   color: #fff;
