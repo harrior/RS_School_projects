@@ -2,7 +2,7 @@
 
 const DAYS_OF_WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-const TIMER_DELAY = 25; //minutes
+const TIMER_DELAY = 2; //minutes // MUST BE 25!
 const COLOR_DELTA = 255 / (TIMER_DELAY * 30)
 
 //
@@ -110,5 +110,7 @@ function showDescription(){
         "[x] Дополнительный функционал:\n" +
         "Воспроизведение звука при окончании таймера\n" +
         "Изменение цвета фона таймера от зеленого к красному (по мере окончания времени, фон в начале желтеет, а потом краснеет, как зреющий помидор.\n" +
-        "Выведение оставшегося времени таймера при наведении на него.")
+        "Выведение оставшегося времени таймера при наведении на него.\n" +
+        "--Для удобства проверки таймер запускается на две минуты вместо 25--")
+
 }
