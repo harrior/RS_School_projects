@@ -7,11 +7,12 @@ const COLOR_DELTA = 255/(TIMER_DELAY*30)
 
 // clock
 const clock = document.querySelector('.clock');
-const hoursArrow = document.querySelector('.hours')
-const minutesArrow = document.querySelector('.minutes')
-const secondsArrow = document.querySelector('.seconds')
-const timerArrow = document.querySelector('.timer')
-const textTimeArea = document.querySelector('.plain-time')
+const hoursArrow = document.querySelector('.hours');
+const minutesArrow = document.querySelector('.minutes');
+const secondsArrow = document.querySelector('.seconds');
+const timerArrow = document.querySelector('.timer');
+const textTimeArea = document.querySelector('.plain-time');
+const notice = document.querySelector('.notice');
 
 setInterval(showCurrentTime,1000)
 
@@ -33,14 +34,14 @@ function showCurrentTime(){
     minutesArrow.style["transform"] = `rotate(${6*minutes + seconds/10}deg)`;
     secondsArrow.style["transform"] = `rotate(${6*seconds}deg)`;
 
-    textTimeArea.innerHTML = `<p>${hours}:${minutes }:${seconds}</p>
+    textTimeArea.innerHTML = `<p>${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}</p>
                               <p>${weekDay}</p>
                               <p>${day} ${month} ${year}</p>`;
 }
 
 
 //timer
-let timerMinutes = null;
+let timerSecondsLeft = null;
 let timerColorR = 0;
 let timerColorG = 255;
 
@@ -48,34 +49,34 @@ clock.addEventListener('click', startStopTimer);
 setInterval(checkTimer, 1000)
 
 function startStopTimer(){
-    if (!timerMinutes) {
-        //set timer for 25 minutes
-        const date = new Date()
-        timerMinutes = (date.getMinutes() + TIMER_DELAY) % 60
+    if (!timerSecondsLeft) {
+        timerSecondsLeft = TIMER_DELAY * 60 // 60 seconds
 
-        timerArrow.style["transform"] = `rotate(${6 * timerMinutes}deg)`;
-        timerArrow.style["display"] = 'block';
+        // timerArrow.style["transform"] = `rotate(${6 * TIMER_DELAY}deg)`;
+        // timerArrow.style["display"] = 'block';
         timerColorR = 0;
         timerColorG = 255;
         clock.style['opacity'] = '100%';
     }
     else {
         // stop timer
-        timerMinutes = null;
+        timerSecondsLeft = null;
         timerArrow.style["display"] = 'none';
         timerColorG = 255;
         timerColorR = 0;
         clock.style['opacity'] = '30%';
+        notice.innerHTML='Click to start timer';
     }
 }
 
 function checkTimer(){
     const date = new Date()
-    if (timerMinutes === date.getMinutes()){
-        alert('БЗЫНЬ!');
+    if (timerSecondsLeft === 1){
+        makeSomeNoise();
         startStopTimer();
     }
-    else if (timerMinutes) {
+    else if (timerSecondsLeft) {
+        notice.innerHTML = `${String(Math.floor(timerSecondsLeft / 60) ).padStart(2,'0')}:${String(timerSecondsLeft % 60).padStart(2,'0')}`;
         if ((timerColorR < 255) && (timerColorG === 255)){
             timerColorR += COLOR_DELTA;
         }
@@ -83,8 +84,25 @@ function checkTimer(){
             timerColorR = 255;
             timerColorG = timerColorG > 0 ? timerColorG - COLOR_DELTA : 0;
         }
+        timerSecondsLeft -= 1;
     }
 
     clock.style['backgroundImage'] = `radial-gradient(rgb(${timerColorR}, ${timerColorG}, 0), black)`;
 
+}
+
+function makeSomeNoise() {
+    let audio = new Audio();
+    audio.src = 'beep.mp3';
+    audio.autoplay = true;
+}
+
+//timer hint
+clock.addEventListener('mouseover', showHint)
+clock.addEventListener('mouseout', hideHint)
+function showHint () {
+    notice.style['display'] = 'block'
+}
+function hideHint () {
+    notice.style['display'] = 'none'
 }
