@@ -2,7 +2,7 @@
 
 const DAYS_OF_WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-const TIMER_DELAY = 1; //minutes
+const TIMER_DELAY = 25; //minutes
 const COLOR_DELTA = 255 / (TIMER_DELAY * 30)
 
 // clock
