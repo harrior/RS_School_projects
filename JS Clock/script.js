@@ -58,7 +58,7 @@ function startStopTimer() {
         timerSecondsLeft = null;
         timerColorG = 255;
         timerColorR = 0;
-        clock.style['opacity'] = '30%';
+        clock.style['opacity'] = '';
         notice.innerHTML = 'Click to start timer';
     }
 }

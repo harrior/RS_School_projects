@@ -48,6 +48,10 @@ body {
   transition-timing-function: ease-out;
 }
 
+.clock:hover {
+  opacity: 80%;
+}
+
 .arrow {
   position: absolute;
   width: 0.2em;
