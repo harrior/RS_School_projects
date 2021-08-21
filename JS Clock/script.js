@@ -2,6 +2,8 @@
 
 const DAYS_OF_WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday','Friday', 'Saturday']
 const MONTHS = ['January', 'February', 'March', 'April', 'May','June', 'July', 'August', 'September','October','November', 'December' ]
+const TIMER_DELAY = 1; //minutes
+const COLOR_DELTA = 255/(TIMER_DELAY*30)
 
 // clock
 const clock = document.querySelector('.clock');
@@ -12,6 +14,7 @@ const timerArrow = document.querySelector('.timer')
 const textTimeArea = document.querySelector('.plain-time')
 
 setInterval(showCurrentTime,1000)
+
 
 function showCurrentTime(){
     const date = new Date();
@@ -33,4 +36,55 @@ function showCurrentTime(){
     textTimeArea.innerHTML = `<p>${hours}:${minutes }:${seconds}</p>
                               <p>${weekDay}</p>
                               <p>${day} ${month} ${year}</p>`;
+}
+
+
+//timer
+let timerMinutes = null;
+let timerColorR = 0;
+let timerColorG = 255;
+
+clock.addEventListener('click', startStopTimer);
+setInterval(checkTimer, 1000)
+
+function startStopTimer(){
+    if (!timerMinutes) {
+        //set timer for 25 minutes
+        const date = new Date()
+        timerMinutes = (date.getMinutes() + TIMER_DELAY) % 60
+
+        timerArrow.style["transform"] = `rotate(${6 * timerMinutes}deg)`;
+        timerArrow.style["display"] = 'block';
+        timerColorR = 0;
+        timerColorG = 255;
+        clock.style['opacity'] = '100%';
+    }
+    else {
+        // stop timer
+        timerMinutes = null;
+        timerArrow.style["display"] = 'none';
+        timerColorG = 255;
+        timerColorR = 0;
+        clock.style['opacity'] = '30%';
+    }
+}
+
+function checkTimer(){
+    const date = new Date()
+    if (timerMinutes === date.getMinutes()){
+        alert('БЗЫНЬ!');
+        startStopTimer();
+    }
+    else if (timerMinutes) {
+        if ((timerColorR < 255) && (timerColorG === 255)){
+            timerColorR += COLOR_DELTA;
+        }
+        else if (timerColorR => 255){
+            timerColorR = 255;
+            timerColorG = timerColorG > 0 ? timerColorG - COLOR_DELTA : 0;
+        }
+    }
+
+    clock.style['backgroundImage'] = `radial-gradient(rgb(${timerColorR}, ${timerColorG}, 0), black)`;
+
 }
