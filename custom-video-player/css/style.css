@@ -4,15 +4,12 @@
 
 html {
   box-sizing: border-box;
-
 }
-
 
 .wrapper {
   max-width: calc(1440px);
   margin: 0 auto;
 }
-
 
 /* start video */
 .player {
@@ -27,6 +24,7 @@ html {
   border: 1px solid #000000;
   position: relative;
 }
+
 
 .player__control {
   display: flex;
@@ -53,6 +51,14 @@ html {
   margin-left: 41px;
   background: transparent url("../assets/svg/player-play.svg");
 }
+
+.player__pause {
+  width: 23px;
+  height: 30px;
+  margin-left: 41px;
+  background: transparent url("../assets/svg/player-pause.svg");
+}
+
 
 .player__forward {
   width: 27px;
@@ -102,7 +108,7 @@ html {
   margin-left: 20px;
 }
 
-.player__on_screen_button {
+.player__on_screen_play {
   background: transparent url("../assets/svg/player-big-play.svg");
   height: 220px;
   width: 220px;
@@ -112,4 +118,6 @@ html {
   top: calc((100% - 83px)/2 - 110px);
   left: calc(50% - 110px);
 }
+
+
 /* end video */
