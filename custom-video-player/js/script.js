@@ -1,5 +1,5 @@
-const progress = document.querySelector('.video__control-progress');
-const progress_volume = document.querySelector('.video__control-volume');
+const progress = document.querySelector('.player__progress-bar');
+const progress_volume = document.querySelector('.player__volume');
 
 progress.addEventListener('input', function() {
     const value = this.value;

@@ -2,36 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Custom video player by Harrior</title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/style.css">
+  <title>Custom video player by Sizov Sergey</title>
+  <link href="css/reset.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<!-- Video start -->
-<section class="video" id="video">
-  <div class="wrapper">
-    <div class="video__container">
-      <div class="video__player">
-        <video class="player"></video>
-        <div class="video__control">
-          <button class="video__control-button video--back"></button>
-          <button class="video__control-button video--play"></button>
-          <button class="video__control-button video--forward"></button>
-          <input class="video__control-progress" max="100" min="0" type="range">
-          <button class="video__control-button video--mute"></button>
-          <input class="video__control-progress video__control-volume" max="100" min="0" type="range">
-          <button class="video__control-button video--full"></button>
-          <!--            TODO will make player progress style-->
-        </div>
-      </div>
-      <div class="video__description">
-        <h2 class="headers headers--dark video__title">Video journey</h2>
-        <p class="video__text">Enter and visit one of the most famous museums in the world and enjoy masterpieces such
-          as Mona Lisa or Hammurabi's Code</p>
-      </div>
+<div class="wrapper">
+  <div class="player">
+    <video class="player__screen" src="assets/video/Rock Balance - 42470.mp4"></video>
+    <button class="player__on_screen_button"></button>
+    <div class="player__control">
+      <button class="player__button player__back"></button>
+      <button class="player__button player__play"></button>
+      <button class="player__button player__forward"></button>
+      <input class="player__bar player__progress-bar" max="100" min="0" type="range">
+      <button class="player__button player__mute"></button>
+      <input class="player__bar player__volume" max="100" min="0" type="range">
+      <button class="player__button player__fullscreen"></button>
+    </div>
+    <div>
+      Здесь будут превью других видео
     </div>
   </div>
+</div>
 
-</section>
+<script src="js/script.js"></script>
 </body>
 </html>
