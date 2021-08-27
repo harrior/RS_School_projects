@@ -91,7 +91,6 @@ html {
   border-radius: 0;
   height: 8px;
   outline: none;
-
   transition: background 450ms ease-in;
   -webkit-appearance: none;
 }
