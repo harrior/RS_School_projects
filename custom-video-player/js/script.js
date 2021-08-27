@@ -4,14 +4,19 @@ const player = document.querySelector('.player');
 const video = player.querySelector('.player__screen');
 
 const progressBar = player.querySelector('.player__progress-bar');
-const volumeBar = player.querySelector('.player__volume')
+const volumeBar = player.querySelector('.player__volume');
 
 const playButton = player.querySelector('.player__play');
 const muteButton = player.querySelector('.player__mute');
 const screenPlayButton = player.querySelector('.player__on_screen_play');
-const fullscreenButton = player.querySelector('.player__on_screen_play');
+const fullscreenButton = player.querySelector('.player__fullscreen');
 
 let volumeLevel = Number(volumeBar.value);
+
+window.addEventListener('load', function () {
+    updateBarPosition(progressBar, progressBar.value);
+    updateBarPosition(volumeBar, volumeBar.value);
+})
 
 // set play\pause listeners
 playButton.addEventListener('click', () => {
@@ -36,7 +41,7 @@ progressBar.addEventListener('input', function() {
 })
 
 video.addEventListener('timeupdate', function (){
-    updateProgressBarPosition(progressBar,100/video.duration *  video.currentTime);
+    updateBarPosition(progressBar,100/video.duration *  video.currentTime);
 })
 
 // sound listeners
@@ -57,6 +62,16 @@ volumeBar.addEventListener('input', function (){
         unmute();
         setVolumeLevel(volumeLevel);
     }
+})
+
+// fullscreen listener
+fullscreenButton.addEventListener('click', function (){
+    if (document.fullscreenElement === player){
+        document.exitFullscreen();
+    } else {
+        player.requestFullscreen();
+    }
+
 })
 
 // start/stop functions
@@ -85,7 +100,7 @@ function mute(){
     video.muted = true;
     volumeLevel = Number(volumeBar.value);
     muteButton.classList.add('player__mute__on');
-    updateProgressBarPosition(volumeBar, 0)
+    updateBarPosition(volumeBar, 0)
 }
 
 function unmute(){
@@ -98,18 +113,18 @@ function setVolumeLevel(level) {
     volumeLevel = level;
     video.volume = level/100;
     volumeLevel.value = level;
-    updateProgressBarPosition(volumeBar, level)
+    updateBarPosition(volumeBar, level)
 }
 
 // video position functions
 function setVideoPosition(position){
     progressBar.value = position;
     video.currentTime = video.duration/100 * position;
-    updateProgressBarPosition(progressBar, position);
+    updateBarPosition(progressBar, position);
 }
 
 // progress bar update
-function updateProgressBarPosition(bar, position){
+function updateBarPosition(bar, position){
     position = Math.floor(position)
     bar.style.background = `linear-gradient(to right, var(--progress-bar-full) 0%, var(--progress-bar-full) ${position}%, var(--progress-bar-empty) ${position}%, var(--progress-bar-empty) 100%)`
     bar.value = position;

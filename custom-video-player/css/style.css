@@ -25,16 +25,17 @@ html {
   margin-top: 15px;
   margin-bottom: 40px;
   padding: 0;
-  border: 1px solid #000000;
+  border: 0px solid #000000;
   position: relative;
 }
 
 .player__control {
   display: flex;
   align-items: center;
-  height: 83px;
+  justify-content: space-around;
+  height: 85px;
   gap: 50px;
-
+  padding: 0 30px;
   background-color: #000000;
 }
 
@@ -52,14 +53,12 @@ html {
 .player__play {
   width: 23px;
   height: 30px;
-  margin-left: 30px;
   background: transparent url("../assets/svg/player-play.svg");
 }
 
 .player__pause {
   width: 23px;
   height: 30px;
-  margin-left: 30px;
   background: transparent url("../assets/svg/player-pause.svg");
 }
 
