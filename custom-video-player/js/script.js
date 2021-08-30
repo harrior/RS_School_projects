@@ -12,12 +12,15 @@ const screenPlayButton = player.querySelector('.player__on_screen_play');
 const fullscreenButton = player.querySelector('.player__fullscreen');
 
 let volumeLevel = Number(volumeBar.value);
-let playbackRate = video.playbackRate * 100;
+let playbackRate = 100;
 
 window.addEventListener('load', function () {
     updateBarPosition(progressBar, progressBar.value);
     updateBarPosition(volumeBar, volumeBar.value);
 })
+
+// Show help in console.log
+help();
 
 // set play\pause listeners
 playButton.addEventListener('click', () => {
@@ -96,11 +99,9 @@ document.addEventListener('keydown', (e) => {
             setVideoPosition(Number(e.key * 10));
             break;
         case "ArrowUp":
-            unmute();
             setVolumeLevel(volumeLevel + 10)
             break;
         case "ArrowDown":
-            unmute();
             setVolumeLevel(volumeLevel - 10)
             break;
         case "<":
@@ -149,20 +150,26 @@ function switchMute() {
 
 function mute() {
     video.muted = true;
-    volumeLevel = Number(volumeBar.value);
+    //volumeLevel = Number(volumeBar.value);
     muteButton.classList.add('player__mute__on');
-    updateBarPosition(volumeBar, 0)
+    //updateBarPosition(volumeBar, 0)
 }
 
 function unmute() {
     video.muted = false;
     muteButton.classList.remove('player__mute__on');
-    setVolumeLevel(volumeLevel)
+    //setVolumeLevel(volumeLevel)
 }
 
 function setVolumeLevel(level) {
     level = Number(level);
     level = level > 100 ? 100 : level < 0 ? 0 : level;
+
+    if (level === 0)
+        mute();
+    else
+        unmute()
+
     volumeLevel = level;
     video.volume = level / 100;
     volumeLevel.value = level;
@@ -199,4 +206,19 @@ function updateBarPosition(bar, position) {
     position = Math.floor(position);
     bar.style.background = `linear-gradient(to right, var(--progress-bar-full) 0%, var(--progress-bar-full) ${position}%, var(--progress-bar-empty) ${position}%, var(--progress-bar-empty) 100%)`;
     bar.value = position;
+}
+
+function help() {
+    console.log('управление плеером с клавиатуры: \n' +
+        '1) клавиша Пробел — пауза, \n' +
+        '2) Клавиша Home — переход в начало видео, \n' +
+        '3) Клавиша End — переход в конец видео, \n' +
+        '4) Клавиши 1-9 — переход к фрагментам видео в процентах 10-90%, \n' +
+        '5) Клавиша M (англ) — отключение/включение звука, \n' +
+        '6) Клавиша Стрелка вверх — увеличение громкости, \n' +
+        '7) Клавиша Стрелка вниз — уменьшение громкости, \n' +
+        '8) Клавиша F — включение/выключение полноэкранного режима, \n' +
+        '9) Клавиша > — ускорение воспроизведения ролика, \n' +
+        '10) Клавиша < — замедление воспроизведения ролика, \n' +
+        '11) Клавиша / - стандартная скорость воспроизведения ролика,')
 }
