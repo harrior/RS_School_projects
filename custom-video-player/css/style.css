@@ -25,10 +25,11 @@ html {
   margin-top: 15px;
   margin-bottom: 40px;
   padding: 0;
-  border: 0px solid #000000;
   position: relative;
 }
-
+.player__screen {
+  min-height: 810px;
+}
 .player__control {
   display: flex;
   align-items: center;
@@ -125,3 +126,26 @@ html {
 
 
 /* end video */
+/* playlist */
+.playlist {
+  display: flex;
+  justify-content: space-between;
+  gap: 42px;
+  align-items: center;
+}
+
+.playlist_item {
+  block-size: border-box;
+  width: 452px;
+  height: 254px;
+  margin: 0;
+  padding: 0;
+  opacity: 0.8;
+  background: #000;
+}
+
+.playlist_item:hover{
+  opacity: 1;
+  transition: opacity 124ms linear, transform 124ms
+}
+/* end playlist */

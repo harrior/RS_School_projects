@@ -9,7 +9,7 @@
 <body>
 <div class="wrapper">
   <div class="player">
-    <video class="player__screen" src="assets/video/Rock Balance - 42470.mp4"></video>
+    <video class="player__screen"></video>
     <button class="player__on_screen_play"></button>
     <div class="player__control">
       <button class="player__button player__play"></button>
@@ -19,8 +19,10 @@
       <button class="player__button player__fullscreen"></button>
     </div>
   </div>
-  <div>
-    Здесь будут превью других видео
+  <div class="playlist">
+    <div class="playlist_item"><video class="playlist__video" data-position="0" src="assets/video/Rock Balance - 42470.mp4" muted loop></video></div>
+    <div class="playlist_item"><video class="playlist__video" data-position="1" src="assets/video/Squirrel - 2717.mp4" muted loop></video></div>
+    <div class="playlist_item"><video class="playlist__video" data-position="2" src="assets/video/Bullfinch - 2797.mp4" muted loop></video></div>
   </div>
 </div>
 

@@ -11,8 +11,15 @@ const muteButton = player.querySelector('.player__mute');
 const screenPlayButton = player.querySelector('.player__on_screen_play');
 const fullscreenButton = player.querySelector('.player__fullscreen');
 
+const playlistItems = document.querySelectorAll('.playlist__video')
+
 let volumeLevel = Number(volumeBar.value);
 let playbackRate = 100;
+
+//load first video from playlist
+let currentVideoNumber = 0
+video.src = playlistItems[currentVideoNumber].src;
+video.load();
 
 window.addEventListener('load', function () {
     updateBarPosition(progressBar, progressBar.value);
@@ -76,9 +83,11 @@ document.addEventListener('keydown', (e) => {
             switchPlayback();
             break;
         case 'f':
+        case 'F':
             switchFullscreen();
             break;
         case 'm':
+        case 'M':
             switchMute();
             break;
         case 'Home':
@@ -113,8 +122,14 @@ document.addEventListener('keydown', (e) => {
         case "/":
             setPlaybackRate(100);
             break;
+        case "p":
+            playPreviousVideo();
+            break;
+        case "n":
+            PlayNextVideo();
+            break;
         default:
-            console.log(e)
+            // console.log(e)
     }
 })
 
@@ -150,15 +165,12 @@ function switchMute() {
 
 function mute() {
     video.muted = true;
-    //volumeLevel = Number(volumeBar.value);
     muteButton.classList.add('player__mute__on');
-    //updateBarPosition(volumeBar, 0)
 }
 
 function unmute() {
     video.muted = false;
     muteButton.classList.remove('player__mute__on');
-    //setVolumeLevel(volumeLevel)
 }
 
 function setVolumeLevel(level) {
@@ -180,7 +192,9 @@ function setVolumeLevel(level) {
 function setVideoPosition(position) {
     position = Number(position);
     position = position > 100 ? 100 : position < 0 ? 0 : position;
-    video.currentTime = video.duration / 100 * position;
+
+    video.currentTime = video.duration / 100 * position ;
+
     updateBarPosition(progressBar, position);
 }
 
@@ -204,12 +218,15 @@ function setPlaybackRate(rate){
 // progress bar update
 function updateBarPosition(bar, position) {
     position = Math.floor(position);
+    position = isNaN(position) ? 0 : position;
     bar.style.background = `linear-gradient(to right, var(--progress-bar-full) 0%, var(--progress-bar-full) ${position}%, var(--progress-bar-empty) ${position}%, var(--progress-bar-empty) 100%)`;
     bar.value = position;
 }
 
 function help() {
-    console.log('управление плеером с клавиатуры: \n' +
+    console.log('Привет!\n ' +
+        'Реализован базовый функционал плеера + горячие клавиши + простой playlist\n' +
+        'Управление плеером с клавиатуры: \n' +
         '1) клавиша Пробел — пауза, \n' +
         '2) Клавиша Home — переход в начало видео, \n' +
         '3) Клавиша End — переход в конец видео, \n' +
@@ -220,5 +237,40 @@ function help() {
         '8) Клавиша F — включение/выключение полноэкранного режима, \n' +
         '9) Клавиша > — ускорение воспроизведения ролика, \n' +
         '10) Клавиша < — замедление воспроизведения ролика, \n' +
-        '11) Клавиша / - стандартная скорость воспроизведения ролика,')
+        '11) Клавиша / - стандартная скорость воспроизведения ролика,\n' +
+        '12) Клавиша N - включить следующий ролик,\n' +
+        '13) Клавиша P - включить предыдущий ролик')
 }
+
+//Playlist
+function playVideoFromPlaylist(position){
+    video.src = playlistItems[position].src;
+    video.load();
+    stopPlayback()
+    currentVideoNumber = position
+}
+
+function playPreviousVideo(){
+    let newNumber = currentVideoNumber - 1;
+    newNumber = newNumber < 0 ? 0 : newNumber;
+    playVideoFromPlaylist(newNumber);
+}
+
+function PlayNextVideo(){
+    let newNumber = currentVideoNumber + 1;
+    newNumber = newNumber > 2 ? 2 : newNumber;
+    playVideoFromPlaylist(newNumber);
+}
+
+playlistItems.forEach((item)=>{
+    item.addEventListener('mouseover',()=>{
+        item.play();
+    })
+    item.addEventListener('mouseout',()=>{
+        item.pause();
+    })
+    item.addEventListener('click',()=>{
+        playVideoFromPlaylist(item.dataset.position);
+    })
+})
+
