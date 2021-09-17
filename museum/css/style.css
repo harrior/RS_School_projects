@@ -105,6 +105,7 @@ h1 {
 
 /* SECTION TITLES */
 .section-title {
+  position: relative;
   font-family: "Forum", sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -122,6 +123,22 @@ h1 {
 
 .dark-title {
   color: var(--section-header-light);
+}
+
+.header-underline {
+  padding-bottom: 28px;
+}
+.header-underline:after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  display: block;
+  width: 100%;
+  height: 3px;
+  content: '';
+
+  background: #710707;
 }
 
 /* HEADER */
@@ -297,4 +314,82 @@ h1 {
   height: 8px;
   width: 30px;
   background: transparent url("../assets/svg/arrow-rigth.svg") no-repeat;
+}
+
+/* EXPLORE */
+.container-explore {
+  display: flex;
+  flex-direction: column;
+  padding: 75px 0;
+  width: 100%;
+}
+
+.tour-cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 76px 60px;
+  padding-top: 75px;
+}
+
+.tour-card__title {
+  position: relative;
+  font-family: Forum, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 35px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+
+  color: #000000;
+  padding-top: 23px;
+  padding-bottom: 9px;
+}
+.tour-card__title::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  display: block;
+  content: '';
+  min-width: 300px;
+  transition: all 0.5s linear;
+  height: 2px;
+
+  background: #710707;
+  border-radius: 0;
+}
+
+.tour-card__link:hover .tour-card__title::after{
+  min-width: 100%;
+}
+
+.tour-card__link {
+  color: #000000;
+  text-decoration: none;
+}
+
+.tour-card__image {
+  width: 440px;
+  height: 285px;
+}
+
+.tour-card__subtitle1 {
+  padding: 10px 0;
+  font-family: Roboto, serif;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 22px;
+  line-height: 26px;
+  color: #000000;
+}
+
+.tour-card__subtitle2{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
 }
