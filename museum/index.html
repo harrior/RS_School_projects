@@ -7,6 +7,7 @@
   <meta content="ie=edge" http-equiv="X-UA-Compatible">
   <link href="css/normalize.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
   <title>Louvre Museum</title>
 </head>
 <body>
@@ -25,14 +26,14 @@
           <li class="nav__item"><a class="nav__item__text" href="#explore">Explore</a></li>
           <li class="nav__item"><a class="nav__item__text" href="#video">Video</a></li>
           <li class="nav__item"><a class="nav__item__text" href="#gallery">Gallery </a></li>
-          <li class="nav__item"><a class="nav__item__text" href="#tickets">Tickets</a></li>
+          <li class="nav__item"><a class="nav__item__text" href="#tickets"> Tickets</a></li>
           <li class="nav__item"><a class="nav__item__text" href="#contacts">Contacts</a></li>
         </ul>
       </nav>
     </div>
   </div>
 </header>
-<!-- end header logo && menu -->
+
 <!--  welcome -->
 <section class="section section-dark">
   <div class="container">
@@ -60,8 +61,7 @@
     </div>
   </div>
 </section>
-<!-- end welcome -->
-<!-- virtual tour -->
+<!-- Visiting -->
 <section class="section section-light">
   <div class="container">
     <div class="container-tour">
@@ -118,21 +118,22 @@
       </div>
     </div>
 </section>
-<!-- end virtual tour -->
-<!-- Picture Explorer -->
+<!-- Explore -->
 <section class="section section-dark">
   <div class="container">
     <div class="container-explore">
       <div class="explore-textbox">
         <h2 class="section-title light-title title-underline">Picture explore</h2>
         <div class="explore-text">
-          <p class="explore-paragraph">Las Meninas is a 1656 painting by Diego Velázquez, the leading<br> artist of the Spanish
+          <p class="explore-paragraph">Las Meninas is a 1656 painting by Diego Velázquez, the leading<br> artist of the
+            Spanish
             Golden Age.</p>
           <p class="explore-paragraph">It was cleaned in 1984 to remove a <span
                   class="explore-paragraph-highlight">"yellow veil"</span> of dust that had gathered since the previous
             restoration in
             the 19th century.</p>
-          <p class="explore-paragraph">The cleaning provoked furious protests, not because the picture had been damaged in
+          <p class="explore-paragraph">The cleaning provoked furious protests, not because the picture had been damaged
+            in
             any way, but because it
             looked different.</p>
         </div>
@@ -143,45 +144,46 @@
     </div>
   </div>
 </section>
-<!-- end Picture Explorer -->
-<!-- Video Journey -->
+<!-- Video  -->
 <section class="section section-light">
   <div class="container">
-    <div>
-      <h2>Video journey</h2>
-      <p>Enter and visit one of the most famous museums in the world and enjoy masterpieces such as Mona Lisa or
-        Hammurabi's Code</p>
-    </div>
-    <div class="player">
-      <video></video>
-      <div class="player-control">
-        <button>Play</button>
-        <input type="range">
-        <button>Mute</button>
-        <input type="range">
-        <button>fullscreen</button>
+    <div class="container-video">
+      <div class="video-textbox">
+        <h2 class="section-title dark-title">Video journey</h2>
+        <p>Enter and visit one of the most famous museums in the world and enjoy masterpieces such as Mona Lisa or
+          Hammurabi's Code</p>
       </div>
-    </div>
-    <div class="playlist">
-      <div class="playlist-slider">
-        <div class="playlist-item"><img src="assets/img/player/preview1.png"></div>
-        <div class="playlist-item"><img src="assets/img/player/preview2.png"></div>
-        <div class="playlist-item"><img src="assets/img/player/preview3.png"></div>
+      <div class="player">
+        <button class="player-screen_button"></button>
+        <video class="player-video" poster="assets/video/poster0.jpg"></video>
+        <div class="player-control">
+          <button class="player-play"></button>
+          <input class="player-progress" type="range">
+          <button class="player-mute"></button>
+          <input class="player-volume" type="range">
+          <button class="player-fullscreen"></button>
+        </div>
       </div>
-      <ul>
-        <li><a href=""><-</a></li>
-        <li><a href="">X</a></li>
-        <li><a href="">0</a></li>
-        <li><a href="">0</a></li>
-        <li><a href="">0</a></li>
-        <li><a href="">0</a></li>
-        <li><a href="">-></a></li>
-      </ul>
+      <div class="playlist">
+        <div class="playlist-slider">
+          <div class="playlist-preview"><img src="assets/img/player/preview1.png"></div>
+          <div class="playlist-preview"><img src="assets/img/player/preview2.png"></div>
+          <div class="playlist-preview"><img src="assets/img/player/preview3.png"></div>
+        </div>
+        <ul class="playlist__items">
+          <li class="playlist__item"></li>
+          <li class="playlist__item playlist__item-checked"></li>
+          <li class="playlist__item"></li>
+          <li class="playlist__item"></li>
+          <li class="playlist__item"></li>
+          <li class="playlist__item"></li>
+          <li class="playlist__item"></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
-<!-- end Video Journey -->
-<!-- Art Gallery -->
+<!-- Gallery -->
 <section class="section section-dark">
   <div class="container">
     <h2 class="section-title">Art Gallery</h2>
@@ -194,8 +196,7 @@
     </div>
   </div>
 </section>
-<!-- end Art Gallery -->
-<!-- Buy Tickets -->
+<!-- Tickets -->
 <section class="section section-light">
   <div class="container">
     <h2 class="section-header">Buy Tickets</h2>
