@@ -125,10 +125,10 @@ h1 {
   color: var(--section-header-light);
 }
 
-.header-underline {
+.title-underline {
   padding-bottom: 28px;
 }
-.header-underline:after {
+.title-underline:after {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -316,8 +316,8 @@ h1 {
   background: transparent url("../assets/svg/arrow-rigth.svg") no-repeat;
 }
 
-/* EXPLORE */
-.container-explore {
+/* Tour */
+.container-tour {
   display: flex;
   flex-direction: column;
   padding: 75px 0;
@@ -392,4 +392,31 @@ h1 {
   font-size: 18px;
   line-height: 21px;
   color: #000000;
+}
+
+/* EXPLORE */
+.container-explore {
+  display: flex;
+  flex-direction: row;
+  padding: 75px 0;
+  gap: 60px;
+}
+
+.explore-paragraph {
+  font-family: Roboto, serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 38px;
+  color: #FFFFFF;
+  padding-bottom: 25px;
+}
+.explore-paragraph-highlight {
+  color: #CAAA7D;
+}
+.explore-text {
+  margin: 75px 0;
+}
+.explore-image {
+  margin-top: 15px;
 }
