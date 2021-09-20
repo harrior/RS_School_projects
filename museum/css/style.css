@@ -639,3 +639,39 @@ h1 {
   background-size: cover;
   background-attachment: fixed;
 }
+
+/* CONTACTS */
+.container-contacts {
+  width: 100%;
+  padding: 75px 0;
+}
+.contacts-content {
+  margin-top: 75px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.contacts-textbox {
+  font-family: Roboto, serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 26px;
+  color: #000000;
+}
+
+.contacts-header {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 33px;
+  margin-bottom: 50px;
+}
+
+.contacts-text {
+  margin-bottom: 25px;
+}
+
+.contacts-map {
+  /*width: 960px;*/
+}
