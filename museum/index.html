@@ -206,23 +206,36 @@
 <section class="section section-light">
   <div class="container">
     <div class="container-tickets">
-      <h2 class="section-header">Buy Tickets</h2>
-      <div>
-        <img src="">
-        <div class="ticket-form">
-          <form>
-            <p>Ticket Type</p>
-            <ul>
-              <li><input checked type="radio">Permanent exhibition</li>
-              <li><input type="radio">Temporary exhibition</li>
-              <li><input type="radio">Combined Admission</li>
+      <h2 class="section-title dark-title title-underline">Buy Tickets</h2>
+      <div class="tickets-inner-container">
+        <img alt="Tickets" src="assets/jpg/tickets.jpg">
+        <div class="ticket-form-container">
+          <form action="#" method="post">
+
+            <ul class="ticket-type__box">
+              <li>
+                <p class="ticket-header">Ticket Type</p>
+              </li>
+              <li>
+                <input class="ticket-type__item" id="type-1" name="ticket-type" type="radio" value="permanent" checked>
+                <label class="tickets-type__text" for="type-1">Permanent exhibition</label>
+              </li>
+              <li class="ticket-type__item">
+                <input class="ticket-type__item" id="type-1" name="ticket-type" type="radio" value="temporary">
+                <label class="tickets-type__text" for="type-1">Temporary exhibition</label>
+              </li>
+              <li class="ticket-type__item">
+                <input class="ticket-type__item" id="type-1" name="ticket-type" type="radio" value="combined">
+                <label class="tickets-type__text" for="type-1">Combined exhibition</label>
+              </li>
             </ul>
-            <p>Amount</p>
+
+            <p class="ticket-header">Amount</p>
             Basic 18+
             <input type="number">
             Basic 18+
             <input type="number">
-            Total €220
+            <p class="ticket-header ticket-price">Total €220</p>
             <button type="submit">Buy Now</button>
           </form>
         </div>
