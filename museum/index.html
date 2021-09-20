@@ -7,7 +7,7 @@
   <meta content="ie=edge" http-equiv="X-UA-Compatible">
   <link href="css/normalize.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
-  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+  <link href="assets/favicon.ico" rel="shortcut icon" type="image/x-icon">
   <title>Louvre Museum</title>
 </head>
 <body>
@@ -186,38 +186,46 @@
 <!-- Gallery -->
 <section class="section section-dark">
   <div class="container">
-    <h2 class="section-title">Art Gallery</h2>
-    <div class="gallery-container">
-      <img>
-      <img>
-      <img>
-      <img>
-      <img>
+    <div class="container-gallery">
+      <h2 class="section-title light-title">Art Gallery</h2>
+      <div class="gallery-wrapper">
+        <div class="gallery-inner-wrapper">
+        </div>
+      </div>
+      <div class="gallery__shadow"></div>
     </div>
+    <template id="img-template">
+      <div class="gallery__pic">
+        <img alt="" src="">
+      </div>
+    </template>
+    <script src="js/gallery.js"></script>
   </div>
 </section>
 <!-- Tickets -->
 <section class="section section-light">
   <div class="container">
-    <h2 class="section-header">Buy Tickets</h2>
-    <div>
-      <img src="">
-      <div class="ticket-form">
-        <form>
-          <p>Ticket Type</p>
-          <ul>
-            <li><input checked type="radio">Permanent exhibition</li>
-            <li><input type="radio">Temporary exhibition</li>
-            <li><input type="radio">Combined Admission</li>
-          </ul>
-          <p>Amount</p>
-          Basic 18+
-          <input type="number">
-          Basic 18+
-          <input type="number">
-          Total €220
-          <button type="submit">Buy Now</button>
-        </form>
+    <div class="container-tickets">
+      <h2 class="section-header">Buy Tickets</h2>
+      <div>
+        <img src="">
+        <div class="ticket-form">
+          <form>
+            <p>Ticket Type</p>
+            <ul>
+              <li><input checked type="radio">Permanent exhibition</li>
+              <li><input type="radio">Temporary exhibition</li>
+              <li><input type="radio">Combined Admission</li>
+            </ul>
+            <p>Amount</p>
+            Basic 18+
+            <input type="number">
+            Basic 18+
+            <input type="number">
+            Total €220
+            <button type="submit">Buy Now</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
