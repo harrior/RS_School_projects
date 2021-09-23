@@ -205,45 +205,61 @@
 <!-- Tickets -->
 <section class="section section-light">
   <div class="container">
-    <div class="container-tickets">
-      <h2 class="section-title dark-title title-underline">Buy Tickets</h2>
-      <div class="tickets-inner-container">
-        <img alt="Tickets" src="assets/jpg/tickets.jpg">
-        <div class="ticket-form-container">
-          <form action="#" method="post">
+    <div class="tickets">
+      <form action="#" class="tickets__form" method="post">
+        <h2 class="tickets__header section-title title-underline">Buy Tickets</h2>
+        <div class="tickets__wrapper">
+          <img alt="Tickets" class="tickets__image" src="assets/jpg/tickets.jpg">
+          <div class="tickets__form-wrapper">
+            <div class="tickets__left-column">
 
-            <ul class="ticket-type__box">
-              <li>
-                <p class="ticket-header">Ticket Type</p>
-              </li>
-              <li>
-                <input checked class="ticket-type__item" id="type-1" name="ticket-type" type="radio" value="permanent">
-                <label class="tickets-type__text" for="type-1">Permanent exhibition</label>
-              </li>
-              <li class="ticket-type__item">
-                <input class="ticket-type__item" id="type-1" name="ticket-type" type="radio" value="temporary">
-                <label class="tickets-type__text" for="type-1">Temporary exhibition</label>
-              </li>
-              <li class="ticket-type__item">
-                <input class="ticket-type__item" id="type-1" name="ticket-type" type="radio" value="combined">
-                <label class="tickets-type__text" for="type-1">Combined exhibition</label>
-              </li>
-            </ul>
-
-            <p class="ticket-header">Amount</p>
-            Basic 18+
-            <input type="number">
-            Basic 18+
-            <input type="number">
-            <p class="ticket-header ticket-price">Total €220</p>
-            <button type="submit">Buy Now</button>
-          </form>
+              <p class="tickets__form-header">Ticket Type</p>
+              <ul class="tickets__type-items">
+                <li class="tickets__type-item">
+                  <input checked class="tickets__type-checkbox" id="type-1" name="ticket-type" type="radio"
+                         value="permanent">
+                  <label class="tickets__type-text" for="type-1">Permanent exhibition</label>
+                </li>
+                <li class="tickets__type-item">
+                  <input class="tickets__type-checkbox" id="type-2" name="ticket-type" type="radio" value="temporary">
+                  <label class="tickets__type-text" for="type-2">Temporary exhibition</label>
+                </li>
+                <li class="tickets__type-item">
+                  <input class="tickets__type-checkbox" id="type-3" name="ticket-type" type="radio" value="combined">
+                  <label class="tickets__type-text" for="type-3">Combined Admission</label>
+                </li>
+              </ul>
+            </div>
+            <div class="tickets__right-column">
+              <p class="tickets__amount-header">Amount</p>
+              <div class="tickets__amount-box">
+                <label class="tickets__amount-text" for="basic-amount">Basic 18+</label>
+                <div class="tickets__amount">
+                  <button class="tickets__amount-minus">–</button>
+                  <input class="tickets__amount-value" disabled id="basic-amount" min="1" name="basic-amount" readonly
+                         type="number" value="1">
+                  <button class="tickets__amount-plus">+</button>
+                </div>
+              </div>
+              <div class="tickets__amount-box">
+                <label class="tickets__amount-text" for="senior-amount">Senior 65+</label>
+                <div class="tickets__amount">
+                  <button class="tickets__amount-minus">–</button>
+                  <input class="tickets__amount-value" disabled id="senior-amount" min="1" name="senior-amount"
+                         readonly type="number" value="1">
+                  <button class="tickets__amount-plus">+</button>
+                </div>
+              </div>
+              <p class="tickets__total-text">Total €220</p>
+              <button class="tickets__submit-button" type="submit">Buy Now</button>
+            </div>
+          </div>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </section>
-<!-- end Buy Tickets -->
+<!-- PARALLAX -->
 <section class="section section-parallax">
 </section>
 <!-- Contacts -->
@@ -295,9 +311,9 @@
   </div>
   <div class="footer-separator"></div>
   <div class="container footer-copyright">
-      <p>© 2021</p>
-      <p>The Rolling Scopes School</p>
-      <p>Harrior</p>
+    <p>© 2021</p>
+    <p>The Rolling Scopes School</p>
+    <p>Harrior</p>
   </div>
 
 </footer>
