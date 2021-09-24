@@ -13,7 +13,7 @@
 <body>
 <h1>Louvre Museum - Official Site</h1>
 <!--  header logo && menu-->
-<header class="section-dark" id="header">
+<header id="header">
   <div class="container">
     <div class="header__wrapper">
       <div class="logo">
@@ -35,15 +35,16 @@
 </header>
 
 <main>
-
   <!--  welcome -->
-  <section class="section-dark" id="welcome">
+  <section id="welcome">
     <div class="container">
       <div class="welcome__wrapper">
         <div class="welcome__textbox">
           <h2 class="welcome__header section-title">Welcome<br>to the Louvre</h2>
           <p class="welcome__text">From the castle to the museum</p>
-          <button class="welcome__button"><p class="welcome__button-text">Discover the Louvre</p></button>
+          <button class="welcome__button">
+            <p class="welcome__button-text">Discover the Louvre</p>
+          </button>
         </div>
 
         <div class="slider">
@@ -64,7 +65,7 @@
     </div>
   </section>
   <!-- Visiting -->
-  <section class="section-light" id="visiting">
+  <section id="visiting">
     <div class="container">
       <div class="visiting__wrapper">
         <h2 class="visiting__header section-title title-underline">Virtual tour</h2>
@@ -121,7 +122,7 @@
       </div>
   </section>
   <!-- Explore -->
-  <section class="section-dark" id="explore">
+  <section id="explore">
     <div class="container">
       <div class="explore__wrapper">
         <div class="explore__column">
@@ -150,7 +151,7 @@
     </div>
   </section>
   <!-- Video  -->
-  <section class="section-light" id="video">
+  <section id="video">
     <div class="container">
       <div class="video__wrapper">
         <div class="video__textbox">
@@ -202,7 +203,7 @@
     <script src="js/video.js"></script>
   </section>
   <!-- Gallery -->
-  <section class="section-dark" id="gallery">
+  <section id="gallery">
     <div class="container">
       <div class="gallery__wrapper">
         <h2 class="gallery__header section-title">Art Gallery</h2>
@@ -221,7 +222,7 @@
     </div>
   </section>
   <!-- Tickets -->
-  <section class="section-light" id="tickets">
+  <section id="tickets">
     <div class="container">
       <div class="tickets-wrapper">
         <form action="#" class="tickets__form" method="post">
@@ -254,8 +255,8 @@
                   <label class="tickets__amount-text" for="basic-amount">Basic 18+</label>
                   <div class="tickets__amount">
                     <button class="tickets__amount-minus">–</button>
-                    <input class="tickets__amount-value" disabled id="basic-amount" min="1" name="basic-amount" readonly
-                           type="number" value="1">
+                    <input class="tickets__amount-value" disabled id="basic-amount" min="0" max="20" name="basic-amount" readonly
+                           type="number" value="0">
                     <button class="tickets__amount-plus">+</button>
                   </div>
                 </div>
@@ -263,8 +264,8 @@
                   <label class="tickets__amount-text" for="senior-amount">Senior 65+</label>
                   <div class="tickets__amount">
                     <button class="tickets__amount-minus">–</button>
-                    <input class="tickets__amount-value" disabled id="senior-amount" min="1" name="senior-amount"
-                           readonly type="number" value="1">
+                    <input class="tickets__amount-value" disabled id="senior-amount" min="0" max="20" name="senior-amount"
+                           readonly type="number" value="0">
                     <button class="tickets__amount-plus">+</button>
                   </div>
                 </div>
@@ -276,11 +277,12 @@
         </form>
       </div>
     </div>
+    <script src="js/tickets.js"></script>
   </section>
   <!-- PARALLAX -->
   <div class="parallax"></div>
   <!-- Contacts -->
-  <section class="section-light" id="contacts">
+  <section id="contacts">
     <div class="container">
       <div class="contacts__wrapper">
         <h2 class="contacts__header section-title title-underline">Contacts</h2>
@@ -288,8 +290,8 @@
           <div class="contacts__textbox">
             <h3 class="contacts__textbox-header">Palais Royal<br>Musee du Louvre</h3>
             <p class="contacts__textbox-text">address: 75001 Paris, France</p>
-            <p class="contacts__textbox-text">phone: +33(0) 1 40 20 50 50</p>
-            <p class="contacts__textbox-text">mail: info@louvre.fr</p>
+            <p class="contacts__textbox-text">phone: <a href="tel:+330140205050">+33(0) 1 40 20 50 50</a></p>
+            <p class="contacts__textbox-text">mail: <a href="mailto:info@louvre.fr">info@louvre.fr</a></p>
           </div>
           <div class="contacts__map">
             <img alt="" src="assets/jpg/map.jpg">
@@ -302,7 +304,7 @@
   <!-- end Contacts -->
 </main>
 <!-- Footer -->
-<footer class="section-dark" id="footer">
+<footer id="footer">
   <div class="container">
     <div class="footer__wrapper">
       <div class="logo">
@@ -319,11 +321,11 @@
         </ul>
       </nav>
       <ul class="social">
-        <li><a class="social__youtube" href=""></a></li>
-        <li><a class="social__instagram" href=""></a></li>
-        <li><a class="social__facebook" href=""></a></li>
-        <li><a class="social__twitter" href=""></a></li>
-        <li><a class="social__pinterest" href=""></a></li>
+        <li><a class="social__youtube" href="https://www.youtube.com/user/louvre" target="_blank"></a></li>
+        <li><a class="social__instagram" href="https://www.instagram.com/museelouvre/" target="_blank"></a></li>
+        <li><a class="social__facebook" href="https://www.facebook.com/museedulouvre" target="_blank"></a></li>
+        <li><a class="social__twitter" href="http://twitter.com/museelouvre" target="_blank"></a></li>
+        <li><a class="social__pinterest" href="https://www.pinterest.fr/museedulouvre/" target="_blank"></a></li>
       </ul>
     </div>
   </div>
