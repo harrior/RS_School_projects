@@ -204,17 +204,17 @@
   <!-- Gallery -->
   <section class="section-dark" id="gallery">
     <div class="container">
-      <div class="container-gallery">
-        <h2 class="section-title light-title">Art Gallery</h2>
-        <div class="gallery-wrapper">
-          <div class="gallery-inner-wrapper">
+      <div class="gallery__wrapper">
+        <h2 class="gallery__header section-title">Art Gallery</h2>
+        <div class="gallery__inner">
+          <div class="gallery__inner-wrapper">
           </div>
         </div>
         <div class="gallery__shadow"></div>
       </div>
-      <template id="img-template">
-        <div class="gallery__pic">
-          <img alt="" src="">
+      <template id="gallery__image-template">
+        <div class="gallery__image-container">
+          <img class="gallery__image" alt="" src="">
         </div>
       </template>
       <script src="js/gallery.js"></script>
