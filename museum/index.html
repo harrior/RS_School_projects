@@ -152,32 +152,32 @@
   <!-- Video  -->
   <section class="section-light" id="video">
     <div class="container">
-      <div class="container-video">
-        <div class="video-textbox">
-          <h2 class="section-title dark-title">Video journey</h2>
+      <div class="video__wrapper">
+        <div class="video__textbox">
+          <h2 class="video__header section-title">Video journey</h2>
           <p>Enter and visit one of the most famous museums in the world and enjoy masterpieces such as Mona Lisa or
             Hammurabi's Code</p>
         </div>
         <div class="player">
-          <button class="player-screen_button"></button>
-          <video class="player-video" poster="assets/video/poster0.jpg"></video>
-          <div class="player-control">
-            <button class="player-play"></button>
-            <input class="player-progress player-range" type="range">
-            <button class="player-mute"></button>
-            <input class="player-volume player-range" type="range">
-            <button class="player-fullscreen"></button>
+          <button class="player__screen-button"></button>
+          <video class="player__video" poster="assets/video/poster0.jpg"></video>
+          <div class="player__controls">
+            <button class="player__play"></button>
+            <input class="player__progress player__range" type="range">
+            <button class="player__mute"></button>
+            <input class="player__volume player__range" type="range">
+            <button class="player__fullscreen"></button>
           </div>
         </div>
         <div class="playlist">
-          <div class="playlist-slider">
-            <div class="playlist-preview">
+          <div class="playlist__slider">
+            <div class="playlist__preview">
               <iframe src="https://www.youtube.com/embed/aWmJ5DgyWPI" title="YouTube video player" frameborder="0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <div class="playlist-preview">
+            <div class="playlist__preview">
               <iframe src="https://www.youtube.com/embed/Vi5D6FKhRmo" title="YouTube video player" frameborder="0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <div class="playlist-preview">
+            <div class="playlist__preview">
               <iframe src="https://www.youtube.com/embed/NOhDysLnTvY" title="YouTube video player" frameborder="0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 <!--            <div class="playlist-preview">-->
@@ -189,7 +189,7 @@
           </div>
           <ul class="playlist__items">
             <li class="playlist__item"></li>
-            <li class="playlist__item playlist__item-checked"></li>
+            <li class="playlist__item playlist__item--checked"></li>
             <li class="playlist__item"></li>
             <li class="playlist__item"></li>
             <li class="playlist__item"></li>
@@ -199,6 +199,7 @@
         </div>
       </div>
     </div>
+    <script src="js/video.js"></script>
   </section>
   <!-- Gallery -->
   <section class="section-dark" id="gallery">
