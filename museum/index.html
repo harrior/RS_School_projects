@@ -20,7 +20,7 @@
         <a class="logo__link" href="#">Louvre</a>
       </div>
       <nav class="nav">
-        <button class="nav__button"></button>
+<!--        <a class="nav__button"></button>-->
         <ul class="nav__list">
           <li class="nav__item"><a class="nav__item__text" href="#visiting">Visiting</a></li>
           <li class="nav__item"><a class="nav__item__text" href="#explore">Explore</a></li>
@@ -42,9 +42,9 @@
         <div class="welcome__textbox">
           <h2 class="welcome__header section-title">Welcome<br>to the Louvre</h2>
           <p class="welcome__text">From the castle to the museum</p>
-          <button class="welcome__button">
-            <p class="welcome__button-text">Discover the Louvre</p>
-          </button>
+          <a class="welcome__button" href="tours/tour1.html" target="_blank">
+            Discover the Louvre
+          </a>
         </div>
 
         <div class="slider">
@@ -71,7 +71,7 @@
         <h2 class="visiting__header section-title title-underline">Virtual tour</h2>
         <div class="visiting__cards">
           <div class="visiting__card">
-            <a class="visiting__card-link" href="#">
+            <a class="visiting__card-link" href="tours/tour2.html" target="_blank">
               <img alt="Royal Palace" class="visiting__card-image" src="assets/img/tour/royal.jpg">
               <h3 class="visiting__card-title">Royal Palace</h3>
               <p class="visiting__card-subtitle1">360° Virtual Tour</p>
@@ -79,7 +79,7 @@
             </a>
           </div>
           <div class="tour-card">
-            <a class="visiting__card-link" href="#">
+            <a class="visiting__card-link" href="tours/tour3.html" target="_blank">
               <img alt="Denon Wing" class="visiting__card-image" src="assets/img/tour/denon.jpg">
               <h3 class="visiting__card-title">Denon Wing</h3>
               <p class="visiting__card-subtitle1">360° Virtual Tour</p>
@@ -87,7 +87,7 @@
             </a>
           </div>
           <div class="tour-card">
-            <a class="visiting__card-link" href="#">
+            <a class="visiting__card-link" href="tours/tour4.html" target="_blank">
               <img alt="Colonnade Perrault" class="visiting__card-image" src="assets/img/tour/colonnade.jpg">
               <h3 class="visiting__card-title">Colonnade Perrault</h3>
               <p class="visiting__card-subtitle1">360° Virtual Tour</p>
@@ -95,7 +95,7 @@
             </a>
           </div>
           <div class="tour-card">
-            <a class="visiting__card-link" href="#">
+            <a class="visiting__card-link" href="tours/tour5.html" target="_blank">
               <img alt="Greek hall" class="visiting__card-image" src="assets/img/tour/greek.jpg">
               <h3 class="visiting__card-title">Greek hall</h3>
               <p class="visiting__card-subtitle1">360° Virtual Tour</p>
@@ -103,7 +103,7 @@
             </a>
           </div>
           <div class="tour-card">
-            <a class="visiting__card-link" href="#">
+            <a class="visiting__card-link" href="tours/tour6.html" target="_blank">
               <img alt="Mona Lisa" class="visiting__card-image" src="assets/img/tour/mona.jpg">
               <h3 class="visiting__card-title">Mona Lisa</h3>
               <p class="visiting__card-subtitle1">360° Virtual Tour</p>
@@ -111,7 +111,7 @@
             </a>
           </div>
           <div class="tour-card">
-            <a class="visiting__card-link" href="#">
+            <a class="visiting__card-link" href="tours/tour7.html" target="_blank">
               <img alt="Night Palace" class="visiting__card-image" src="assets/img/tour/night.jpg">
               <h3 class="visiting__card-title">Night Palace</h3>
               <p class="visiting__card-subtitle1">360° Virtual Tour</p>
@@ -202,13 +202,13 @@
             <!--            </div>-->
           </div>
           <ul class="playlist__items">
-            <li class="playlist__item"></li>
+            <li class="playlist__arrow"><button class="playlist__arrow-left"></button></li>
             <li class="playlist__item playlist__item--checked"></li>
             <li class="playlist__item"></li>
             <li class="playlist__item"></li>
             <li class="playlist__item"></li>
             <li class="playlist__item"></li>
-            <li class="playlist__item"></li>
+            <li class="playlist__arrow"><button class="playlist__arrow-right"></button></li>
           </ul>
         </div>
       </div>
@@ -292,6 +292,9 @@
         </form>
       </div>
     </div>
+    <div class="booking">
+
+    </div>
     <script src="js/tickets.js"></script>
   </section>
   <!-- PARALLAX -->
@@ -303,7 +306,7 @@
         <h2 class="contacts__header section-title title-underline">Contacts</h2>
         <div class="contacts__inner">
           <div class="contacts__textbox">
-            <h3 class="contacts__textbox-header">Palais Royal<br>Musee du Louvre</h3>
+            <p class="contacts__textbox-header">Palais Royal<br>Musee du Louvre</p>
             <p class="contacts__textbox-text">address: 75001 Paris, France</p>
             <p class="contacts__textbox-text">phone: <a href="tel:+330140205050">+33(0) 1 40 20 50 50</a></p>
             <p class="contacts__textbox-text">mail: <a href="mailto:info@louvre.fr">info@louvre.fr</a></p>

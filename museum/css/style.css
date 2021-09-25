@@ -246,6 +246,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
 
   font-weight: 200;
   font-size: 22px;
@@ -616,11 +617,12 @@ video[poster]{
   align-self: center;
   display: flex;
   gap: 20px;
+  font-size: 0;
 }
 
 .playlist__item {
-  list-style: none;
   display: block;
+  list-style: none;
   width: 12px;
   height: 12px;
   background: #999999;
@@ -631,21 +633,29 @@ video[poster]{
   background: #333333;
 }
 
-.playlist__items .playlist__item:first-child {
+.playlist__arrow {
+  list-style: none;
+}
+
+.playlist__arrow-left,
+.playlist__arrow-right {
+  height: 12px;
   width: 10px;
+  border: none;
+}
+
+.playlist__arrow-left {
   background: transparent url("../assets/svg/player/arrow-left.svg") no-repeat;
-  filter: invert(64%) sepia(0%) saturate(624%) hue-rotate(273deg) brightness(98%) contrast(79%);
+}
+.playlist__arrow-right {
+  background: transparent url("../assets/svg/player/arrow-right.svg") no-repeat;
 }
 
-.playlist__items .playlist__item:last-child {
-  width: 10px;
-  background: url("../assets/svg/player/arrow-right.svg") no-repeat;
-  filter: invert(64%) sepia(0%) saturate(624%) hue-rotate(273deg) brightness(98%) contrast(79%);
+.playlist__arrow-left:hover {
+  background: transparent url("../assets/svg/player/arrow-left-active.svg") no-repeat;
 }
-
-.playlist__items .playlist__item:first-child:hover,
-.playlist__items .playlist__item:last-child:hover {
-  filter: invert(11%) sepia(49%) saturate(4678%) hue-rotate(359deg) brightness(93%) contrast(114%);
+.playlist__arrow-right:hover {
+  background: transparent url("../assets/svg/player/arrow-right-active.svg") no-repeat;
 }
 
 .playlist__item:hover {
@@ -887,6 +897,14 @@ video[poster]{
 
 .tickets__submit-button:hover {
   background-color: var(--font-gold);
+}
+
+/* BOOKING TICKETS*/
+.booking {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 /* PARALLAX */
