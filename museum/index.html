@@ -128,7 +128,8 @@
         <div class="explore__column">
           <h2 class="explore__header section-title title-underline">Picture explore</h2>
           <div class="explore__textbox">
-            <p class="explore__textbox-text">Las Meninas is a 1656 painting by Diego Velázquez, the leading<br> artist of
+            <p class="explore__textbox-text">Las Meninas is a 1656 painting by Diego Velázquez, the leading<br> artist
+              of
               the
               Spanish
               Golden Age.</p>
@@ -173,20 +174,32 @@
         <div class="playlist">
           <div class="playlist__slider">
             <div class="playlist__preview">
-              <iframe src="https://www.youtube.com/embed/aWmJ5DgyWPI" title="YouTube video player" frameborder="0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen frameborder="0"
+                      loading="lazy"
+                      src="https://www.youtube.com/embed/aWmJ5DgyWPI"
+                      title="YouTube video player"></iframe>
             </div>
             <div class="playlist__preview">
-              <iframe src="https://www.youtube.com/embed/Vi5D6FKhRmo" title="YouTube video player" frameborder="0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen frameborder="0"
+                      loading="lazy"
+                      src="https://www.youtube.com/embed/Vi5D6FKhRmo"
+                      title="YouTube video player"></iframe>
             </div>
             <div class="playlist__preview">
-              <iframe src="https://www.youtube.com/embed/NOhDysLnTvY" title="YouTube video player" frameborder="0" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen frameborder="0"
+                      loading="lazy"
+                      src="https://www.youtube.com/embed/NOhDysLnTvY"
+                      title="YouTube video player"></iframe>
             </div>
-<!--            <div class="playlist-preview">-->
-<!--              <iframe src="https://www.youtube.com/embed/zp1BXPX8jcU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-<!--            </div>-->
-<!--            <div class="playlist-preview">-->
-<!--              <iframe src="https://www.youtube.com/embed/2OR0OCr6uRE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-<!--            </div>-->
+            <!--            <div class="playlist-preview">-->
+            <!--              <iframe src="https://www.youtube.com/embed/zp1BXPX8jcU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+            <!--            </div>-->
+            <!--            <div class="playlist-preview">-->
+            <!--              <iframe src="https://www.youtube.com/embed/2OR0OCr6uRE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+            <!--            </div>-->
           </div>
           <ul class="playlist__items">
             <li class="playlist__item"></li>
@@ -215,7 +228,7 @@
       </div>
       <template id="gallery__image-template">
         <div class="gallery__image-container">
-          <img class="gallery__image" alt="" src="">
+          <img alt="" class="gallery__image" src="">
         </div>
       </template>
       <script src="js/gallery.js"></script>
@@ -255,7 +268,8 @@
                   <label class="tickets__amount-text" for="basic-amount">Basic 18+</label>
                   <div class="tickets__amount">
                     <button class="tickets__amount-minus">–</button>
-                    <input class="tickets__amount-value" disabled id="basic-amount" min="0" max="20" name="basic-amount" readonly
+                    <input class="tickets__amount-value" disabled id="basic-amount" max="20" min="0" name="basic-amount"
+                           readonly
                            type="number" value="0">
                     <button class="tickets__amount-plus">+</button>
                   </div>
@@ -264,7 +278,8 @@
                   <label class="tickets__amount-text" for="senior-amount">Senior 65+</label>
                   <div class="tickets__amount">
                     <button class="tickets__amount-minus">–</button>
-                    <input class="tickets__amount-value" disabled id="senior-amount" min="0" max="20" name="senior-amount"
+                    <input class="tickets__amount-value" disabled id="senior-amount" max="20" min="0"
+                           name="senior-amount"
                            readonly type="number" value="0">
                     <button class="tickets__amount-plus">+</button>
                   </div>
@@ -321,11 +336,20 @@
         </ul>
       </nav>
       <ul class="social">
-        <li><a class="social__youtube" href="https://www.youtube.com/user/louvre" target="_blank"></a></li>
-        <li><a class="social__instagram" href="https://www.instagram.com/museelouvre/" target="_blank"></a></li>
-        <li><a class="social__facebook" href="https://www.facebook.com/museedulouvre" target="_blank"></a></li>
-        <li><a class="social__twitter" href="http://twitter.com/museelouvre" target="_blank"></a></li>
-        <li><a class="social__pinterest" href="https://www.pinterest.fr/museedulouvre/" target="_blank"></a></li>
+        <li class="social__item social--youtube">
+          <a class="social__link" href="https://www.youtube.com/user/louvre" target="_blank"></a>
+        </li>
+        <li class="social__item social--instagram">
+          <a class="social__link" href="https://www.instagram.com/museelouvre/" target="_blank"></a>
+        </li>
+        <li class="social__item social--facebook">
+          <a class="social__link" href="https://www.facebook.com/museedulouvre" target="_blank"></a>
+        <li class="social__item social--twitter">
+          <a class="social__link" href="http://twitter.com/museelouvre" target="_blank"></a>
+        </li>
+        <li class="social__item social--pinterest">
+          <a class="social__link" href="https://www.pinterest.fr/museedulouvre/" target="_blank"></a>
+        </li>
       </ul>
     </div>
   </div>
