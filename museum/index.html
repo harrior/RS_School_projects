@@ -119,6 +119,7 @@
           </div>
         </div>
       </div>
+    </div>
   </section>
   <!-- Explore -->
   <section id="explore">
@@ -174,21 +175,21 @@
           <div class="playlist__slider">
             <div class="playlist__preview">
               <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen frameborder="0"
+                      allowfullscreen
                       loading="lazy"
                       src="https://www.youtube.com/embed/aWmJ5DgyWPI"
                       title="YouTube video player"></iframe>
             </div>
             <div class="playlist__preview">
               <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen frameborder="0"
+                      allowfullscreen
                       loading="lazy"
                       src="https://www.youtube.com/embed/Vi5D6FKhRmo"
                       title="YouTube video player"></iframe>
             </div>
             <div class="playlist__preview">
               <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen frameborder="0"
+                      allowfullscreen
                       loading="lazy"
                       src="https://www.youtube.com/embed/NOhDysLnTvY"
                       title="YouTube video player"></iframe>
@@ -271,7 +272,8 @@
                   <label class="tickets__amount-text" for="basic-amount">Basic 18+</label>
                   <div class="tickets__amount">
                     <button class="tickets__amount-minus js-minus">–</button>
-                    <input class="tickets__amount-value js-value" disabled id="basic-amount" max="20" min="0" name="basic-amount"
+                    <input class="tickets__amount-value js-value" disabled id="basic-amount" max="20" min="0"
+                           name="basic-amount"
                            readonly
                            type="number" value="0">
                     <button class="tickets__amount-plus js-plus">+</button>
@@ -295,10 +297,11 @@
         </form>
       </div>
     </div>
+    <!--    booking form -->
     <div class="booking">
       <div class="container">
         <button class="booking__close"></button>
-        <form action="" class="booking__form" method="post">
+        <form class="booking__form" method="post">
           <div class="booking__left">
             <div class="booking__logo">
               <p class="booking__header">Booking tickets</p>
@@ -306,8 +309,8 @@
             </div>
             <div class="booking__fields">
               <div class="booking__date-wrap">
-                <input class="booking__field booking__fields-date" name="date" placeholder="Date" required type="date">
-                <input class="booking__field booking__fields-time" name="time" placeholder="Time" required type="time">
+                <input class="booking__field booking__fields-date" name="date" required type="date">
+                <input class="booking__field booking__fields-time" name="time" required type="time">
               </div>
               <input class="booking__field booking__fields-name" name="name" placeholder="Name" required type="text">
               <input class="booking__field booking__fields-email" name="email" placeholder="E-mail" required
@@ -326,7 +329,7 @@
                     <p class="booking__amount-text">Basic 18+ (20 €)</p>
                     <div class="booking__amount-number">
                       <button class="booking__amount-minus js-minus">–</button>
-                      <input class="booking__amount-value js-value" disabled id="basic-amount" max="20" min="0"
+                      <input class="booking__amount-value js-value" disabled max="20" min="0"
                              name="basic-amount"
                              readonly
                              type="number" value="2">
@@ -337,7 +340,7 @@
                     <p class="booking__amount-text">Senior 65+ (10 €)</p>
                     <div class="booking__amount-number">
                       <button class="booking__amount-minus js-minus">–</button>
-                      <input class="booking__amount-value js-value" disabled id="basic-amount" max="20" min="0"
+                      <input class="booking__amount-value js-value" disabled max="20" min="0"
                              name="basic-amount"
                              readonly
                              type="number" value="2">
@@ -381,30 +384,31 @@
                       <img alt="MasterCard" class="booking__card-mc" src="assets/svg/booking/mastercard.png">
                     </div>
 
-                    <label>
-                      <p class="booking__card-text">Card number</p>
-                      <input type="text" name="card-number" class="booking__card-number">
-                    </label>
-                    <label>
-                      <p class="booking__card-text">Expiration date</p>
-                      <input type="number" name="card-month" class="booking__card-month">
-                      <input type="number" name="card-year" class="booking__card-year">
-                    </label>
-                    <label>
-                      <p class="booking__card-text">Cardholder name</p>
-                      <input type="text" name="card-holder" class="booking__card-holder">
-                    </label>
+                    <label class="booking__card-text" for="card-number">Card number</label>
+                    <input class="booking__card-number" id="card-number" name="card-number" type="text">
+
+                    <label class="booking__card-text" for="card-experience">Expiration date</label>
+                    <div>
+                        <input class="booking__card-month" id="card-experience" name="card-month" type="number"
+                               value="03">
+                        <input class="booking__card-year" name="card-year" type="number" value="2024">
+                    </div>
+
+                    <label class="booking__card-text" for="card-holder">Cardholder name</label>
+                    <input class="booking__card-holder" id="card-holder" name="card-holder" type="text">
                   </div>
                   <div class="booking__card-back">
                     <div class="booking__card-magnet"></div>
-                    <label class="booking__card-wrap">
-                      <p class="booking__card-text">CVC/CVV</p>
-                      <input type="text" name="card-cvv" class="booking__card-cvv">
+                    <div class="booking__card-wrap">
+                      <label class="booking__card-text">
+                        CVC/CVV</label>
+                      <input class="booking__card-cvv" name="card-cvv" type="text">
+
                       <p class="booking__card-hint">The last<br>
-                      3 or 4 digits<br>
-                      on back<br>
-                      of the card</p>
-                    </label>
+                        3 or 4 digits<br>
+                        on back<br>
+                        of the card</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -433,7 +437,6 @@
           <div class="contacts__map">
             <img alt="" src="assets/jpg/map.jpg">
           </div>
-
         </div>
       </div>
     </div>
@@ -467,7 +470,7 @@
         <li class="social__item social--facebook">
           <a class="social__link" href="https://www.facebook.com/museedulouvre" target="_blank"></a>
         <li class="social__item social--twitter">
-          <a class="social__link" href="http://twitter.com/museelouvre" target="_blank"></a>
+          <a class="social__link" href="https://twitter.com/museelouvre" target="_blank"></a>
         </li>
         <li class="social__item social--pinterest">
           <a class="social__link" href="https://www.pinterest.fr/museedulouvre/" target="_blank"></a>

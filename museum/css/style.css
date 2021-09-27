@@ -1015,10 +1015,12 @@ video[poster]{
 }
 
 .booking__fields-date {
+  width: 190px;
   background: transparent url("../assets/svg/booking/date.svg") no-repeat left 15px center;
 }
 
 .booking__fields-time {
+  width: 190px;
   background: transparent url("../assets/svg/booking/time.svg") no-repeat left 15px center;
 }
 .booking__fields-name {
@@ -1031,8 +1033,29 @@ video[poster]{
   background: transparent url("../assets/svg/booking/tel.svg") no-repeat left 15px center;
 }
 .booking__fields-type {
+  position: relative;
   background:  url("../assets/svg/booking/ballot.svg") no-repeat left 15px center;
 }
+
+.booking__fields-type:after {
+  content: "фывфывфыв";
+  position: absolute;
+  left: 200px;
+  top: 0px;
+
+  width: 25px;
+  height: 25px;
+
+  background-image: url('../assets/svg/booking/arrow.svg');
+background-color: black;
+  z-index: 4;
+}
+/*.booking__fields-date::-webkit-calendar-picker-indicator{*/
+/*  -webkit-appearance: none;*/
+/*  display: block;*/
+/*  opacity: 1;*/
+
+/*}*/
 
 .booking__amount {
   padding: 10px 15px 15px 15px;
@@ -1076,31 +1099,30 @@ video[poster]{
   display: flex;
   border: 1px solid #030303;
   background-color: #030303;
-  width: 105px;
+  max-width: 105px;
   height: 25px;
 }
 
 .booking__amount-minus,
 .booking__amount-plus {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 33.3%;
+  display: block;
+  min-width: 35px;
   border: none;
   background-color: #030303;
   color: #ffffff;
 }
 
 .booking__amount-value {
-  width: 33.3%;
-
+  max-width: 35px;
   background-color: #ffffff;
-  padding: 0 0 0 12px;
-  border: none;
-
+  padding: 0 0 0 10px;
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
   font-weight: normal;
   font-size: 18px;
   line-height: 21px;
+  text-align: center;
 
   color: #030303;
 }
@@ -1241,8 +1263,11 @@ video[poster]{
 }
 
 .booking__card-text {
+  /*display: flex;*/
+  /*flex-direction: column;*/
   margin-bottom: 5px;
 }
+
 
 .booking__card-number,
 .booking__card-month,
@@ -1312,7 +1337,26 @@ video[poster]{
   margin-top: auto;
   color: #FFFFFF;
   border: none;
+  transition: background-color 0.3s;
+
+  position: relative;
+  overflow: hidden;
 }
+
+.booking__submit:hover {
+  background-color: #9D8665;
+}
+
+.booking__submit .circle {
+  position: absolute;
+  background-color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: scale 0.5s ease-out;
+}
+
 /* PARALLAX */
 .parallax {
   width: 100%;
@@ -1320,6 +1364,12 @@ video[poster]{
   background-image: url("../assets/img/parallax.jpg");
   background-size: cover;
   background-attachment: fixed;
+}
+@keyframes scale {
+  to {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
 }
 
 /* CONTACTS */

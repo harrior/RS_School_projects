@@ -49,3 +49,28 @@ openButton.addEventListener('click', e => {
 closeButton.addEventListener('click', hideBookingForm)
 
 bookingSection.addEventListener('click', hideBookingForm)
+
+const bookingSubmit = document.querySelector('.booking__submit')
+
+bookingSubmit.addEventListener('click', function (e) {
+    e.preventDefault()
+    const x = e.clientX
+    const y = e.clientY
+
+    const br=this.getBoundingClientRect()
+
+    const buttonTop = br.top
+    const buttonLeft = br.left
+
+    const xInside = x - buttonLeft
+    const yInside = y - buttonTop
+
+    const circle = document.createElement('span')
+    circle.classList.add('circle')
+    circle.style.top = yInside + 'px'
+    circle.style.left = xInside + 'px'
+
+    this.appendChild(circle)
+
+    setTimeout(() => circle.remove(), 500)
+})
