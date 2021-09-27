@@ -30,14 +30,16 @@ let openButton = document.querySelector('.tickets__submit-button')
 let closeButton = document.querySelector('.booking__close')
 let bookingSection = document.querySelector('.booking')
 
-let hideBookingForm = (evt) => {
-    evt.preventDefault();
-    bookingSection.style.background = "rgba(0, 0, 0, 0)"
-    booking.classList.remove('booking--show')
+let hideBookingForm = (e) => {
+    if ((e.target === closeButton) || (e.target === bookingSection)) {
+        e.preventDefault();
+        bookingSection.style.background = "rgba(0, 0, 0, 0)"
+        booking.classList.remove('booking--show')
+    }
 }
 
-openButton.addEventListener('click', evt => {
-    evt.preventDefault();
+openButton.addEventListener('click', e => {
+    e.preventDefault();
     booking.classList.add('booking--show')
     bookingSection.addEventListener("transitionend", evt => {
         bookingSection.style.background = "rgba(0, 0, 0, 0.5)"
