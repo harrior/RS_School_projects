@@ -1,9 +1,16 @@
 // +- button
-const amountBoxes = document.querySelectorAll('.tickets__amount-box')
+let amountBoxes = Array(...document.querySelectorAll('.tickets__amount-box'))
+amountBoxes.push(...Array(...document.querySelectorAll('.booking__amount-number')))
+
 for (let box of amountBoxes) {
-    let minusButton = box.querySelector('.tickets__amount-minus');
-    let plusButton = box.querySelector('.tickets__amount-plus');
-    let amountValue = box.querySelector('.tickets__amount-value');
+    console.log(box)
+    numberAddEvents(box);
+}
+
+function numberAddEvents(box) {
+    let minusButton = box.querySelector('.js-minus');
+    let plusButton = box.querySelector('.js-plus');
+    let amountValue = box.querySelector('.js-value');
     minusButton.addEventListener('click', (evt) => {
         evt.preventDefault();
         if (amountValue.value > 0)
