@@ -1413,9 +1413,6 @@ footer {
 }
 
 .social__link {
-}
-
-.social__item {
   display: block;
   width: 48px;
   height: 48px;
