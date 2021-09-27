@@ -1428,15 +1428,19 @@ footer {
 .social--instagram {
   background: url("../assets/svg/social/instagram.svg") no-repeat center;
 }
+
 .social--youtube {
   background: url("../assets/svg/social/youtube.svg") no-repeat center;
 }
+
 .social--facebook {
   background: url("../assets/svg/social/facebook.svg") no-repeat center;
 }
+
 .social--twitter {
   background: url("../assets/svg/social/twitter.svg") no-repeat center;
 }
+
 .social--pinterest {
   background: url("../assets/svg/social/pinterest.svg") no-repeat center;
 }
