@@ -3,7 +3,6 @@ let amountBoxes = Array(...document.querySelectorAll('.tickets__amount-box'))
 amountBoxes.push(...Array(...document.querySelectorAll('.booking__amount-number')))
 
 for (let box of amountBoxes) {
-    console.log(box)
     numberAddEvents(box);
 }
 
