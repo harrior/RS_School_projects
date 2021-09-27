@@ -41,7 +41,7 @@ let hideBookingForm = (e) => {
 openButton.addEventListener('click', e => {
     e.preventDefault();
     booking.classList.add('booking--show')
-    bookingSection.addEventListener("transitionend", evt => {
+    bookingSection.addEventListener("transitionend", () => {
         bookingSection.style.background = "rgba(0, 0, 0, 0.5)"
     }, true);
 })
