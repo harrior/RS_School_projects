@@ -1623,6 +1623,10 @@ footer {
   }
   .section-title {
     font-size: 50px;
+    line-height: 75px;
+  }
+  .title-underline {
+    padding-bottom: 24px;
   }
   /*  HEADER */
   .header__wrapper {
@@ -1641,6 +1645,8 @@ footer {
     background: url(../assets/svg/menu.svg) no-repeat;
     border: none;
   }
+
+
   /*  WELCOME */
   .welcome__wrapper {
     height: 585px;
@@ -1648,6 +1654,10 @@ footer {
   .welcome__textbox {
     margin-top: 50px;
     padding-bottom: 120px;
+  }
+
+  .welcome__header {
+    line-height: 90px;
   }
   .welcome__text {
     font-size: 24px;
@@ -1657,6 +1667,7 @@ footer {
     width: 300px;
     height: 60px;
     margin-top: 50px;
+
     font-size: 20px;
     line-height: 23px;
   }
@@ -1678,4 +1689,63 @@ footer {
     width: 12px;
     height: 12px;
   }
+
+  /* Tour */
+  .visiting__wrapper{
+    padding: 60px 0;
+  }
+
+  .visiting__cards {
+    gap: 60px 108px;
+    padding-top: 60px;
+    max-width: 768px;
+    margin: 0 auto;
+  }
+
+  .visiting__card-image {
+    width: 330px;
+    height: 215px;
+  }
+  .visiting__card-title {
+    font-size: 28px;
+    line-height: 31px;
+    letter-spacing: 3px;
+    padding-bottom: 13px;
+  }
+  .visiting__card-title::after {
+    min-width: 150px;
+  }
+
+  .visiting__card-subtitle1 {
+    font-size: 20px;
+    line-height: 23px;
+  }
+
+  .visiting__card-subtitle2 {
+    font-size: 16px;
+    line-height: 19px;
+  }
+  /* EXPLORE */
+  .explore__wrapper{
+    flex-direction: column;
+    padding: 60px 0;
+    gap:0;
+  }
+  .explore__textbox {
+    margin: 58px 0;
+  }
+  .explore__textbox-text {
+    font-size: 20px;
+    padding-bottom: 0;
+  }
+
+  .explore__image {
+    height: 700px;
+    margin: 0 auto;
+  }
+  .explore__textbox-hide {
+    display: none;
+  }
+  /*  VIDEO */
+
 }
