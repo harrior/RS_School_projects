@@ -194,6 +194,9 @@ section {
   filter: invert(54%) sepia(3%) saturate(3332%) hue-rotate(356deg) brightness(99%) contrast(93%);
 }
 
+.nav__button {
+  display: none;
+}
 .nav__list {
   display: flex;
   flex-wrap: nowrap;
@@ -1601,4 +1604,25 @@ footer {
 
 .separator {
   border-bottom: #666666 solid 3px;
+}
+
+@media (max-width: 1024px){
+  .container {
+    width: 984px;
+  }
+/*  HEADER */
+  .header__wrapper {
+    height: 130px;
+    padding-top: 17px;
+  }
+  .nav__list {
+    display: none;
+  }
+  .nav__button {
+    display: block;
+    width: 32px;
+    height: 18px;
+    background: url(../assets/svg/menu.svg) no-repeat;
+    border: none;
+  }
 }
