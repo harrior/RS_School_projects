@@ -498,15 +498,15 @@ section {
 
 .explore__image {
   margin-top: 15px;
-  width: calc(50% - 60px);
+  line-height: 0;
 }
 
 .explore__image img {
   max-width: 720px;
   width: 100%;
   height: auto;
-  /*width: auto\9;*/
 }
+
 /* VIDEO */
 .video__wrapper {
   display: flex;
@@ -815,20 +815,36 @@ video[poster]{
 }
 
 .tickets__image {
-  max-width: 100%;
+  /*max-width: 720px;*/
+  width: 100%;
+  /*height: auto;*/
+}
+
+.tickets__image-wrap {
+  /*max-width: 720px;*/
+  width: calc(50% - 60px);
+  height: auto;
+
 }
 
 .tickets__form-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 100%;
+  width: 660px;
 }
 
 .tickets__left-column {
   display: flex;
   flex-direction: column;
 }
+
+.tickets__right-column {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
 
 .tickets__form-header {
   font-weight: bold;
@@ -878,11 +894,6 @@ video[poster]{
   background: url("../assets/svg/radio-checked.svg") 0 0 no-repeat;
 }
 
-.tickets__right-column {
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-}
 
 .tickets__amount-header {
   margin-bottom: 25px;
@@ -1745,6 +1756,9 @@ footer {
   .explore__textbox {
     margin: 60px 0;
   }
+  .explore__textbox-text:first-child {
+    line-height: 38px;
+  }
   .explore__textbox-text {
     font-size: 20px;
     line-height: 35px;
@@ -1759,6 +1773,8 @@ footer {
     max-width: 720px;
     width: 100%;
     margin: 0 auto;
+
+    line-height: 0;
   }
   .explore__textbox-hide {
     display: none;
