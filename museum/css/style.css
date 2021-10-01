@@ -1796,11 +1796,11 @@ footer {
     margin: 60px 0;
   }
   .explore__textbox-text:first-child {
-    line-height: 38px;
+    line-height: 40px;
   }
   .explore__textbox-text {
     font-size: 20px;
-    line-height: 35px;
+    line-height: 36px;
     padding-bottom: 0;
   }
 
@@ -1815,6 +1815,7 @@ footer {
 
     line-height: 0;
   }
+
   .explore__textbox-hide {
     display: none;
   }
@@ -1936,6 +1937,20 @@ footer {
     font-size: 16px;
     line-height: 19px;
   }
+
+  /* EXPLORE */
+  .explore__wrapper{
+    padding: 40px 0;
+    width: 100%;
+
+  }
+  .explore__textbox {
+    display: none;
+  }
+  .explore__image {
+    margin-top: 40px;
+  }
+
 }
 
 @media (max-width: 420px) {
