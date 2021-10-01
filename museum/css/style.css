@@ -1693,8 +1693,8 @@ footer {
   }
   /*  HEADER */
   .header__wrapper {
-    height: 136px;
-    padding-top: 10px;
+    height: 130px;
+    /*padding-top: 2px;*/
   }
   .nav__list {
     display: none;
@@ -1708,7 +1708,6 @@ footer {
     background: url(../assets/svg/menu.svg) no-repeat;
     border: none;
   }
-
 
   /*  WELCOME */
   .welcome__wrapper {
@@ -1831,4 +1830,48 @@ footer {
   .player {
     margin-top: 40px;
   }
+  
+  
+  .booking {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  /* GLOBAL SETTINGS */
+  .container {
+    width: 768px;
+  }
+  /* HEADER */
+  .header__wrapper {
+    height: 110px;
+  }
+  .logo__link {
+    /*margin-top: 10px; */
+  }
+
+}
+
+@media (max-width: 420px) {
+  .container {
+    width: 420px;
+  }
+  /* HEADER */
+  .header__wrapper {
+    height: 90px;
+  }
+
+  .logo__link {
+    padding-left: 54px;
+    margin-top: 0;
+
+    font-size: 16px;
+    line-height: 18px;
+
+    background: transparent url("../assets/svg/logo2.svg") no-repeat left top;
+  }
+
+
+
+
 }
