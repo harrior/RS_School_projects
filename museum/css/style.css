@@ -410,21 +410,24 @@ section {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  gap: 77px 60px;
+  justify-content: center;
+  gap: 75px 60px;
   padding-top: 75px;
+
+  line-height: 0;
 }
 
 .visiting__card-title {
   position: relative;
 
-  padding-top: 20px;
-  padding-bottom: 12px;
+  padding-top: 25px;
+  padding-bottom: 10px;
 
   font-family: Forum, serif;
   font-style: normal;
   font-weight: normal;
   font-size: 32px;
-  line-height: 35px;
+  line-height: 37px;
   letter-spacing: 5px;
   text-transform: uppercase;
   color: #000000;
@@ -1692,7 +1695,7 @@ footer {
     line-height: 75px;
   }
   .title-underline {
-    padding-bottom: 24px;
+    padding-bottom: 22px;
   }
   /*  HEADER */
   .header__wrapper {
@@ -1756,8 +1759,7 @@ footer {
   .visiting__cards {
     gap: 60px 108px;
     padding-top: 60px;
-    max-width: 768px;
-    margin: 0 auto;
+    justify-content: center;
   }
 
   .visiting__card-image {
@@ -1781,8 +1783,9 @@ footer {
 
   .visiting__card-subtitle2 {
     font-size: 16px;
-    line-height: 19px;
+    line-height: 18px;
   }
+
   /* EXPLORE */
   .explore__wrapper{
     flex-direction: column;
@@ -1844,7 +1847,7 @@ footer {
     line-height: 60px;
   }
   .title-underline {
-    padding-bottom: 20px;
+    padding-bottom: 23px;
   }
   /* HEADER */
   .header__wrapper {
@@ -1900,6 +1903,39 @@ footer {
     height: 100px;
     padding: 0;
   }
+
+  /* Tour */
+  .visiting__wrapper{
+    padding: 40px 0;
+  }
+  .visiting__cards {
+    gap: 40px 56px;
+    padding: 40px 0;
+    justify-content: center;
+  }
+
+  .visiting__card-image {
+    width: 280px;
+    height: 180px;
+  }
+  .visiting__card-title {
+    font-size: 22px;
+    line-height: 23px;
+    letter-spacing: 3px;
+  }
+  .visiting__card-title::after {
+    min-width: 150px;
+  }
+
+  .visiting__card-subtitle1 {
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+  .visiting__card-subtitle2 {
+    font-size: 16px;
+    line-height: 19px;
+  }
 }
 
 @media (max-width: 420px) {
@@ -1912,7 +1948,7 @@ footer {
     line-height: 40px;
   }
   .title-underline {
-    padding-bottom: 20px;
+    padding-bottom: 23px;
   }
   /* HEADER */
   .header__wrapper {
@@ -1964,6 +2000,32 @@ footer {
   }
   .slider__arrows {
     gap: 15px;
+  }
+
+  /* Tour */
+  .visiting__wrapper{
+    padding: 40px 0;
+  }
+  .visiting__cards {
+    row-gap: 40px;
+    padding: 40px 0 0;
+    justify-content: center;
+  }
+
+  .visiting__card-title {
+    font-size: 18px;
+    line-height: 19px;
+    letter-spacing: 5px;
+  }
+
+  .visiting__card-subtitle1 {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .visiting__card-subtitle2 {
+    font-size: 16px;
+    line-height: 19px;
   }
 
 }
