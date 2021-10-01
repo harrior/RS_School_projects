@@ -101,8 +101,10 @@ h1 {
   position: relative;
 
   display: flex;
-  width: 1440px;
-  margin: auto;
+  /*width: 1440px;*/
+  width: 1480px;
+  padding: 0 20px;
+  margin: 0 auto;
 }
 
 header,
@@ -286,7 +288,7 @@ section {
   position: relative;
   max-width: 1000px;
   max-height: 750px;
-  width: 70%;
+  width: 71%;
   margin-left: auto;
 }
 
@@ -686,7 +688,7 @@ video[poster]{
 
   max-width: 452px;
   max-height: 254px;
-  width: 30%;
+  width: 33.333%;
   height: auto;
   line-height: 0;
 }
@@ -1680,7 +1682,7 @@ footer {
 
 @media (max-width: 1024px){
   .container {
-    width: 984px;
+    width: 1024px;
   }
   .section-title {
     font-size: 50px;
