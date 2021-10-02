@@ -566,12 +566,8 @@ section {
 .player__video {
   max-width: 1440px;
   width: 100%;
-  padding-bottom: 75%;
-
   max-height: 650px;
   height: auto;
-  /*padding-bottom: 75%;*/
-
 }
 
 video[poster]{
@@ -696,6 +692,7 @@ video[poster]{
 
 .playlist__slider {
   display: flex;
+  gap: 42px;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: nowrap;
@@ -706,24 +703,22 @@ video[poster]{
 
   max-width: 452px;
   max-height: 254px;
-  width: 33.333%;
+  width: 100%;
   height: auto;
+
   line-height: 0;
 }
+
 .playlist__preview img {
   width: 100%;
+  z-index: 0;
 }
-.playlist__preview:hover iframe {
-  display: block;
-  z-index: 3;
-}
+
 
 .playlist__preview iframe {
   position: absolute;
   top: 0;
   left: 0;
-
-  display: none;
 
   width: 100%;
   height: 100%;
@@ -1850,18 +1845,30 @@ footer {
     height: 60px;
     padding: 0 40px;
   }
+  .player__screen-button {
+    top: calc(50% - 105px);
+    left: calc(50% - 76px);
+
+    width: 152px;
+    height: 152px;
+
+    background: transparent url("../assets/svg/player/screen-button2.svg") no-repeat;
+  }
 
   .player__range {
     height: 5px;
   }
 
   .player__progress {
-    flex-grow: 4;
-    flex-basis: 336px;
+    flex-grow: 6;
+    /*width: 564px;*/
+    flex-basis: 564px;
   }
 
   .player__volume {
-    flex-basis: 81px;
+    flex-grow: 1;
+    /*width: 143px;*/
+    flex-basis: 143px;
   }
 
   .player__mute {
@@ -1876,6 +1883,15 @@ footer {
     height: 26px;
 
     background: transparent url("../assets/svg/player/fullscreen2.svg");
+  }
+
+  .player__range::-webkit-slider-thumb {
+    width: 13px;
+    height: 13px;
+  }
+
+  .playlist__slider {
+    gap: 41px;
   }
 
   /**/
@@ -1995,25 +2011,38 @@ footer {
   }
   .explore__image {
     margin-top: 40px;
+    margin-bottom: 4px; /*  */
   }
 
   /* VIDEO */
-
+  .video__wrapper {
+    padding: 40px 0 80px;
+  }
   .player {
-    margin-top: 40px;
+    margin: 20px 0;
+  }
+
+  .player__screen-button {
+    top: calc(50% - 65px);
+    left: calc(50% - 40px);
+
+    width: 80px;
+    height: 80px;
+
+    background: transparent url("../assets/svg/player/screen-button3.svg") no-repeat;
   }
 
   .player__controls {
     position: relative;
 
     gap: 35px;
-    height: 53px;
-    padding: 0 30px;
+    height: 58px;
+    padding: 5px 30px 0;
   }
 
   .player__progress {
     position: absolute;
-    top:-5px;
+    top:0;
     left:0;
     width: 100%;
   }
@@ -2036,6 +2065,26 @@ footer {
     width: 27px;
     height: 27px;
   }
+
+  .player__range::-webkit-slider-thumb {
+    width: 13px;
+    height: 13px;
+  }
+
+  .playlist {
+    row-gap: 20px;
+  }
+  .playlist__slider {
+    gap: 20px;
+  }
+  .playlist__preview:nth-child(3) {
+    display: none;
+  }
+  .playlist__item {
+    width: 10px;
+    height: 10px;
+  }
+
 }
 
 @media (max-width: 420px) {
@@ -2128,31 +2177,38 @@ footer {
     line-height: 19px;
   }
 
-  /* VIDEO */
+  /* Explore*/
+  .explore__image {
+    margin-bottom: 0;
+  }
 
+  /* VIDEO */
+  .video__wrapper {
+    padding: 36px 0 40px;
+  }
   .player {
-    margin-top: 40px;
+    margin-top: 20px;
+    margin-bottom: 40px;
   }
 
   .player__controls {
     position: relative;
 
     gap: 30px;
-    height: 50px;
+    height: 54px;
     padding: 0 20px;
   }
 
-  .player__progress {
-    position: absolute;
-    top: -4px;
+  .player__screen-button {
+    top: calc(50% - 52.5px);
+    left: calc(50% - 25px);
 
-    left: 0;
-    width: 100%;
+    width: 50px;
+    height: 50px;
+
+    background: transparent url("../assets/svg/player/screen-button4.svg") no-repeat;
   }
 
-  .player__range {
-    height: 4px;
-  }
 
   .player__volume {
     flex-basis: 200px;
@@ -2176,6 +2232,41 @@ footer {
     height: 18px;
 
     background: transparent url("../assets/svg/player/fullscreen4.svg");
+  }
+
+  .player__range::-webkit-slider-thumb {
+    width: 10px;
+    height: 10px;
+  }
+
+  .playlist {
+    row-gap: 40px;
+  }
+  .playlist__slider {
+    gap: 20px;
+  }
+  .playlist__preview:nth-child(3) {
+    display: none;
+  }
+  .playlist__item {
+    width: 8px;
+    height: 8px;
+  }
+
+  .playlist__arrow-left,
+  .playlist__arrow-right {
+    height: 7px;
+    width: 8px;
+
+    border: none;
+  }
+
+  .playlist__arrow-left {
+    background: transparent url("../assets/svg/player/arrow-left.svg") no-repeat left;
+  }
+
+  .playlist__arrow-right {
+    background: transparent url("../assets/svg/player/arrow-right.svg") no-repeat right;
   }
 
 }
