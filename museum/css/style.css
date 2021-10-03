@@ -1565,9 +1565,12 @@ video[poster]{
   flex-direction: row;
   justify-content: space-between;
   margin-top: 75px;
+  gap: 10px;
 }
 
 .contacts__textbox {
+  flex-shrink: 0;
+
   font-weight: 300;
   font-size: 22px;
   line-height: 26px;
@@ -1598,6 +1601,11 @@ video[poster]{
 }
 .contacts__textbox-text a:active {
   color: var(--link-active);
+}
+
+.contacts__map {
+  max-width: 960px;
+  line-height: 0;
 }
 
 .contacts__map img {
@@ -2006,6 +2014,28 @@ footer {
   .tickets__amount-value {
     margin-left: 0;
   }
+
+    /* CONTACTS */
+  .contacts__wrapper {
+    padding: 60px 0 67px;
+  }
+  .contacts__inner {
+    margin-top: 60px;
+  }
+  .contacts__textbox-text {
+    font-size: 20px;
+    line-height: 23px;
+    margin-bottom: 15px;
+  }
+  .contacts__textbox-header {
+    margin-bottom: 35px;
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .contacts__map {
+  max-width: 694px;
+  }
     /**/
   .booking {
     display: none;
@@ -2257,6 +2287,33 @@ footer {
     height: 300px;
   }
 
+  /* CONTACTS */
+  .contacts__wrapper {
+    padding: 40px 0 72px; /*  ???? */
+  }
+
+  .contacts__inner {
+    flex-direction: column;
+    margin-top: 40px;
+    gap: 25px;
+  }
+  .contacts__textbox-text {
+    margin-bottom: 15px;
+
+    font-size: 18px;
+    line-height: 21px;
+  }
+  .contacts__textbox-header {
+    margin-bottom: 40px;
+
+    font-size: 20px;
+    line-height: 23px;
+  }
+
+  .contacts__map {
+    max-width: 100%;
+    max-height: 476px;
+  }
 }
 
 @media (max-width: 420px) {
@@ -2380,7 +2437,6 @@ footer {
 
     background: transparent url("../assets/svg/player/screen-button4.svg") no-repeat;
   }
-
 
   .player__volume {
     flex-basis: 200px;
@@ -2510,4 +2566,33 @@ footer {
     margin-top: 20px;
     font-size: 16px;
   }
+
+  /* CONTACTS */
+  .contacts__wrapper {
+    padding: 40px 0 42px; /*  ???? */
+  }
+
+  .contacts__inner {
+    flex-direction: column;
+    margin-top: 40px;
+    gap: 25px;
+  }
+  .contacts__textbox-text {
+    margin-bottom: 15px;
+
+    font-size: 16px;
+    line-height: 19px;
+  }
+  .contacts__textbox-header {
+    margin-bottom: 40px;
+
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .contacts__map {
+    max-width: 100%;
+    max-height: 248px;
+  }
 }
+
