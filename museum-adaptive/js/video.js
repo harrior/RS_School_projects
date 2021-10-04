@@ -18,3 +18,19 @@ function playerResize() {
 playerResize()
 
 new ResizeObserver(playerResize).observe(playerScreen)
+
+
+playlistPreviews = document.querySelectorAll('.playlist__preview')
+playlistPreviews.forEach(item => {
+    item.addEventListener('click', evt => {
+        const imgPreview = evt.target
+        const wrapPreview = imgPreview.parentNode
+        let videoId = imgPreview.getAttribute('data-video');
+        console.log(wrapPreview.innerHTML)
+        wrapPreview.innerHTML += `<iframe allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen src="https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1" title="YouTube video player"></iframe>`;
+
+        // .innerHTML = '<iframe src="//www.youtube.com/embed/' + videoId + '?autoplay=1" scrolling="no" style="width: 100%; height: 100%;" allow="autoplay"></iframe>';
+    })
+    //
+     }
+)
