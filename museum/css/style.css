@@ -2716,14 +2716,14 @@ footer {
     margin: 0;
   }
   .footer-nav__list {
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 45px;
-    grid-row-gap: 30px;
+    max-width: 400px;
+    gap: 30px 80px;
   }
 
   .footer-nav__list .nav__item__text {
     font-size: 16px;
-    line-height: 19px;
+    line-height: 20px;
+    width: 70px;
   }
 
   .social {
