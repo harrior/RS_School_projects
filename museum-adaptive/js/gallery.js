@@ -1,7 +1,8 @@
 function makeImage(n){
     let imgTemplate = document.querySelector('#gallery__image-template').content.cloneNode(true);
     let img = imgTemplate.querySelector('img');
-    img.src = `assets/img/galery/galery${n}.jpg`;
+    // img.src = `assets/img/galery/galery${n}.jpg`;
+    img.src = `assets/img/galery/galery${n}.webp`;
     img.alt = `galery${n}`;
     return imgTemplate;
 }
