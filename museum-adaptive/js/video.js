@@ -13,7 +13,6 @@ playerVolume.addEventListener('input', function() {
 })
 
 function playerResize() {
-    console.log(playerScreen.offsetWidth)
     playerScreen.style.height = `${playerScreen.offsetWidth * 0.4513}px`
 }
 playerResize()
