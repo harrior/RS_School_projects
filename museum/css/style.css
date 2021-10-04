@@ -2745,3 +2745,9 @@ footer {
     line-height: 22px;
   }
 }
+
+@media (max-width: 350px) {
+  .player__controls {
+    gap: 20px;
+  }
+}
