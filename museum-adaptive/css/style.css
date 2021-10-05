@@ -340,6 +340,9 @@ section {
 .slider__image {
   width: 100%;
   height: auto;
+
+  transition: all 2s ease-out;
+
 }
 
 .slider__position {

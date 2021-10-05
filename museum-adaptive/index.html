@@ -71,13 +71,13 @@
           <div class="slider__shadow"></div>
           <img class="slider__image" src="assets/img/welcome-slider/1.webp">
           <div class="slider__control">
-            <p class="slider__position">01&nbsp;&nbsp;|&nbsp;&nbsp;05</p>
+            <p class="slider__position"><span class="slider__current">01</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="slider__total">05</span></p>
             <ul class="slider__list">
-              <li class="slider__item slider--checked"></li>
-              <li class="slider__item"></li>
-              <li class="slider__item"></li>
-              <li class="slider__item"></li>
-              <li class="slider__item"></li>
+              <li class="slider__item slider--checked" data-id="0" data-image="assets/img/welcome-slider/1.webp"></li>
+              <li class="slider__item" data-id="1" data-image="assets/img/welcome-slider/2.webp"></li>
+              <li class="slider__item" data-id="2" data-image="assets/img/welcome-slider/3.webp"></li>
+              <li class="slider__item" data-id="3" data-image="assets/img/welcome-slider/4.webp"></li>
+              <li class="slider__item" data-id="4" data-image="assets/img/welcome-slider/5.webp"></li>
             </ul>
             <div class="slider__arrows">
               <button class="slider__arrow-left"></button>
@@ -511,7 +511,8 @@
 
 <!-- end Footer -->
 
-<script src="js/script.js"></script>
+<!--<script src="js/script.js"></script>-->
 <script src="js/menu.js"></script>
+<script src="js/welcome-slider.js"></script>
 </body>
 </html>
