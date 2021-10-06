@@ -5,13 +5,15 @@ const wSliderItems = wSlider.querySelector('.slider__slides')
 const wSliderLeftArrow = wSlider.querySelector('.slider__arrow-left')
 const wSliderRightArrow = wSlider.querySelector('.slider__arrow-right')
 const wSliderBullets = wSlider.querySelectorAll('.slider__item')
+
 const wSliderCurrentText = wSlider.querySelector('.slider__current')
 const wSliderTotalText = wSlider.querySelector('.slider__total')
 
 const wSliderAmount = wSliderBullets.length
-wSliderTotalText.textContent = String(wSliderAmount).padStart(2,'0')
+
 let wSliderCurrentPosition = 0
 let wSliderCurrentOffset = 0
+let wSliderTouchStart = 0
 
 wSliderInit()
 
@@ -25,14 +27,12 @@ wSliderBullets.forEach(item => {
 })
 
 // function
-
-function wSliderCreateSlide(url){
-    let slide = document.createElement('div')
-    let img = document.createElement('img')
-    img.src = url;
-    img.classList.add('slider__image')
-    slide.appendChild(img)
-    return slide
+function wSliderInit(){
+    for (let image of wSliderBullets){
+        wSliderItems.appendChild(wSliderCreateSlide(image.dataset.image))
+    }
+    wSliderItems.style.display = "flex"
+    wSliderTotalText.textContent = String(wSliderAmount).padStart(2,'0')
 }
 
 function wSliderSetSlide(position){
@@ -53,6 +53,7 @@ function wSliderSetSlide(position){
     wSliderCurrentText.textContent = String(wSliderCurrentPosition + 1).padStart(2,'0')
 }
 
+// Next-previous sliding
 function wSliderNextSlide(){
     if (wSliderCurrentPosition + 1 === wSliderAmount) {
         wSliderSetSlide( 0)
@@ -64,7 +65,7 @@ function wSliderNextSlide(){
 }
 
 function wSliderPreviewSlide(){
-    if (wSliderCurrentPosition - 1 === -1) {
+    if (wSliderCurrentPosition === 0) {
         wSliderSetSlide( wSliderAmount - 1)
     }
     else {
@@ -72,6 +73,34 @@ function wSliderPreviewSlide(){
     }
 }
 
-function wSliderInit(){
-    wSliderItems.style.display = "flex"
+// Touch
+wSlider.addEventListener('touchstart', evt => {
+    // evt.preventDefault();
+    // evt.stopPropagation();
+    wSliderTouchStart = evt.changedTouches[0];
+})
+wSlider.addEventListener('touchend', evt => {
+    // evt.preventDefault();
+    // evt.stopPropagation();
+    let wSliderTouchEnd = evt.changedTouches[0];
+    console.log(wSliderTouchStart, wSliderTouchEnd)
+    let swipeLength = wSliderTouchStart.pageX - wSliderTouchEnd.pageX
+    if (Math.abs(swipeLength) > 20){
+        if (swipeLength > 30){
+            wSliderNextSlide()
+        }
+        else {
+            wSliderPreviewSlide()
+        }
+    }
+})
+
+function wSliderCreateSlide(url){
+    let slide = document.createElement('div')
+    let img = document.createElement('img')
+    img.src = url;
+    img.classList.add('slider__image')
+    slide.appendChild(img)
+    return slide
 }
+
