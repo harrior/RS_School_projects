@@ -30,9 +30,9 @@
           <li class="nav__item"><a class="nav__item__text" href="#contacts">Contacts</a></li>
         </ul>
         <div class="nav__images">
-          <div class="nav__image1"><img src="assets/jpg/menu/menu1.webp" alt="louvre"></div>
-          <div class="nav__image2"><img src="assets/jpg/menu/menu2.webp" alt="louvre"></div>
-          <div class="nav__image3"><img src="assets/jpg/menu/menu3.webp" alt="louvre"></div>
+          <div class="nav__image1"><img alt="louvre" src="assets/jpg/menu/menu1.webp"></div>
+          <div class="nav__image2"><img alt="louvre" src="assets/jpg/menu/menu2.webp"></div>
+          <div class="nav__image3"><img alt="louvre" src="assets/jpg/menu/menu3.webp"></div>
         </div>
         <div class="nav__social">
           <li class="social__item social--youtube">
@@ -69,9 +69,19 @@
         </div>
         <div class="slider">
           <div class="slider__shadow"></div>
-          <img class="slider__image" src="assets/img/welcome-slider/1.webp">
+          <div class="slider__container">
+            <img class="slider__static-image" src="assets/img/welcome-slider/1.webp">
+            <div class="slider__slides">
+              <div><img class="slider__image" src="assets/img/welcome-slider/1.webp"></div>
+              <div><img class="slider__image" src="assets/img/welcome-slider/2.webp"></div>
+              <div><img class="slider__image" src="assets/img/welcome-slider/3.webp"></div>
+              <div><img class="slider__image" src="assets/img/welcome-slider/4.webp"></div>
+              <div><img class="slider__image" src="assets/img/welcome-slider/5.webp"></div>
+            </div>
+          </div>
           <div class="slider__control">
-            <p class="slider__position"><span class="slider__current">01</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span class="slider__total">05</span></p>
+            <p class="slider__position"><span class="slider__current">01</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span
+                    class="slider__total">05</span></p>
             <ul class="slider__list">
               <li class="slider__item slider--checked" data-id="0" data-image="assets/img/welcome-slider/1.webp"></li>
               <li class="slider__item" data-id="1" data-image="assets/img/welcome-slider/2.webp"></li>
@@ -202,13 +212,13 @@
         <div class="playlist">
           <div class="playlist__slider">
             <div class="playlist__preview">
-              <img src="assets/img/player/preview1.webp" data-video="aWmJ5DgyWPI">
+              <img data-video="aWmJ5DgyWPI" src="assets/img/player/preview1.webp">
             </div>
             <div class="playlist__preview">
-              <img src="assets/img/player/preview2.webp" data-video="Vi5D6FKhRmo">
+              <img data-video="Vi5D6FKhRmo" src="assets/img/player/preview2.webp">
             </div>
             <div class="playlist__preview">
-              <img src="assets/img/player/preview3.webp" data-video="NOhDysLnTvY">
+              <img data-video="NOhDysLnTvY" src="assets/img/player/preview3.webp">
             </div>
           </div>
           <ul class="playlist__items">
@@ -316,118 +326,119 @@
           <button class="booking__close"></button>
           <div class="booking__wrapper">
             <div class="booking__left">
-            <div class="booking__logo">
-              <p class="booking__header">Booking tickets</p>
-              <p class="booking__subheader">Tour to Louvre</p>
-            </div>
-            <div class="booking__fields">
-              <div class="booking__date-wrap">
-                <input class="booking__field booking__fields-date" name="date" required type="date">
-                <input class="booking__field booking__fields-time" name="time" required type="time">
+              <div class="booking__logo">
+                <p class="booking__header">Booking tickets</p>
+                <p class="booking__subheader">Tour to Louvre</p>
               </div>
-              <input class="booking__field booking__fields-name" name="name" placeholder="Name" required type="text">
-              <input class="booking__field booking__fields-email" name="email" placeholder="E-mail" required
-                     type="email">
-              <input class="booking__field booking__fields-phone" name="email" placeholder="Phone" required type="tel">
-              <select class="booking__field booking__fields-type" name="type" required>
-                <option disabled hidden selected value="">Ticket Type</option>
-                <option value="permanent">Permanent exhibition</option>
-                <option value="temporary">Temporary exhibition</option>
-                <option value="combined">Combined Admission</option>
-              </select>
-              <div class="booking__amount">
-                <p class="booking__amount-header">Entry ticket</p>
-                <div class="booking__amount-inner">
-                  <div class="booking__amount-option">
-                    <p class="booking__amount-text">Basic 18+ (20 €)</p>
-                    <div class="booking__amount-number">
-                      <button class="booking__amount-minus js-minus">–</button>
-                      <input class="booking__amount-value js-value" disabled max="20" min="0"
-                             name="basic-amount"
-                             readonly
-                             type="number" value="2">
-                      <button class="booking__amount-plus js-plus">+</button>
+              <div class="booking__fields">
+                <div class="booking__date-wrap">
+                  <input class="booking__field booking__fields-date" name="date" required type="date">
+                  <input class="booking__field booking__fields-time" name="time" required type="time">
+                </div>
+                <input class="booking__field booking__fields-name" name="name" placeholder="Name" required type="text">
+                <input class="booking__field booking__fields-email" name="email" placeholder="E-mail" required
+                       type="email">
+                <input class="booking__field booking__fields-phone" name="email" placeholder="Phone" required
+                       type="tel">
+                <select class="booking__field booking__fields-type" name="type" required>
+                  <option disabled hidden selected value="">Ticket Type</option>
+                  <option value="permanent">Permanent exhibition</option>
+                  <option value="temporary">Temporary exhibition</option>
+                  <option value="combined">Combined Admission</option>
+                </select>
+                <div class="booking__amount">
+                  <p class="booking__amount-header">Entry ticket</p>
+                  <div class="booking__amount-inner">
+                    <div class="booking__amount-option">
+                      <p class="booking__amount-text">Basic 18+ (20 €)</p>
+                      <div class="booking__amount-number">
+                        <button class="booking__amount-minus js-minus">–</button>
+                        <input class="booking__amount-value js-value" disabled max="20" min="0"
+                               name="basic-amount"
+                               readonly
+                               type="number" value="2">
+                        <button class="booking__amount-plus js-plus">+</button>
+                      </div>
                     </div>
-                  </div>
-                  <div class="booking__amount-option">
-                    <p class="booking__amount-text">Senior 65+ (10 €)</p>
-                    <div class="booking__amount-number">
-                      <button class="booking__amount-minus js-minus">–</button>
-                      <input class="booking__amount-value js-value" disabled max="20" min="0"
-                             name="basic-amount"
-                             readonly
-                             type="number" value="2">
-                      <button class="booking__amount-plus js-plus">+</button>
+                    <div class="booking__amount-option">
+                      <p class="booking__amount-text">Senior 65+ (10 €)</p>
+                      <div class="booking__amount-number">
+                        <button class="booking__amount-minus js-minus">–</button>
+                        <input class="booking__amount-value js-value" disabled max="20" min="0"
+                               name="basic-amount"
+                               readonly
+                               type="number" value="2">
+                        <button class="booking__amount-plus js-plus">+</button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
             <div class="booking__right">
-            <div class="booking__overview">
-              <p class="booking__overview-header">Overview</p>
-              <p class="booking__overview-subheader">Tour to Louvre</p>
-              <img alt="Louvre" class="booking__overview-image" src="assets/svg/booking/louvre.jpg">
-              <ul class="booking__overview-detail">
-                <li class="booking__overview-date">Friday, August 19</li>
-                <li class="booking__overview-time">16 : 30</li>
-                <li class="booking__overview-type">Temporary exhibition</li>
-              </ul>
-              <div class="booking__overview-wrap">
-                <div class="booking__overview-option">
-                  <p class="booking__overview-count">2</p>
-                  <p class="booking__overview-text">Basic (20 €)</p>
-                  <p class="booking__overview-total">40 €</p>
-                </div>
-                <div class="booking__overview-option">
-                  <p class="booking__overview-count">2</p>
-                  <p class="booking__overview-text">Senior (10 €)</p>
-                  <p class="booking__overview-total">20 €</p>
-                </div>
-                <div class="booking__overview-line"></div>
-                <div class="booking__total">
-                  <p class="booking__total-text">Total:</p>
-                  <p class="booking__total-value">60 €</p>
-                </div>
-                <div class="booking__card">
-                  <div class="booking__card-front">
-                    <div class="booking__card-images">
-                      <img alt="Visa" class="booking__card-visa" src="assets/svg/booking/visa.png">
-                      <img alt="MasterCard" class="booking__card-mc" src="assets/svg/booking/mastercard.png">
-                    </div>
-
-                    <label class="booking__card-text" for="card-number">Card number</label>
-                    <input class="booking__card-number" id="card-number" name="card-number" type="text">
-
-                    <label class="booking__card-text" for="card-experience">Expiration date</label>
-                    <div>
-                      <input class="booking__card-month" id="card-experience" name="card-month" type="number"
-                             value="03">
-                      <input class="booking__card-year" name="card-year" type="number" value="2024">
-                    </div>
-
-                    <label class="booking__card-text" for="card-holder">Cardholder name</label>
-                    <input class="booking__card-holder" id="card-holder" name="card-holder" type="text">
+              <div class="booking__overview">
+                <p class="booking__overview-header">Overview</p>
+                <p class="booking__overview-subheader">Tour to Louvre</p>
+                <img alt="Louvre" class="booking__overview-image" src="assets/svg/booking/louvre.jpg">
+                <ul class="booking__overview-detail">
+                  <li class="booking__overview-date">Friday, August 19</li>
+                  <li class="booking__overview-time">16 : 30</li>
+                  <li class="booking__overview-type">Temporary exhibition</li>
+                </ul>
+                <div class="booking__overview-wrap">
+                  <div class="booking__overview-option">
+                    <p class="booking__overview-count">2</p>
+                    <p class="booking__overview-text">Basic (20 €)</p>
+                    <p class="booking__overview-total">40 €</p>
                   </div>
-                  <div class="booking__card-back">
-                    <div class="booking__card-magnet"></div>
-                    <div class="booking__card-wrap">
-                      <label class="booking__card-text">
-                        CVC/CVV</label>
-                      <input class="booking__card-cvv" name="card-cvv" type="text">
+                  <div class="booking__overview-option">
+                    <p class="booking__overview-count">2</p>
+                    <p class="booking__overview-text">Senior (10 €)</p>
+                    <p class="booking__overview-total">20 €</p>
+                  </div>
+                  <div class="booking__overview-line"></div>
+                  <div class="booking__total">
+                    <p class="booking__total-text">Total:</p>
+                    <p class="booking__total-value">60 €</p>
+                  </div>
+                  <div class="booking__card">
+                    <div class="booking__card-front">
+                      <div class="booking__card-images">
+                        <img alt="Visa" class="booking__card-visa" src="assets/svg/booking/visa.png">
+                        <img alt="MasterCard" class="booking__card-mc" src="assets/svg/booking/mastercard.png">
+                      </div>
 
-                      <p class="booking__card-hint">The last<br>
-                        3 or 4 digits<br>
-                        on back<br>
-                        of the card</p>
+                      <label class="booking__card-text" for="card-number">Card number</label>
+                      <input class="booking__card-number" id="card-number" name="card-number" type="text">
+
+                      <label class="booking__card-text" for="card-experience">Expiration date</label>
+                      <div>
+                        <input class="booking__card-month" id="card-experience" name="card-month" type="number"
+                               value="03">
+                        <input class="booking__card-year" name="card-year" type="number" value="2024">
+                      </div>
+
+                      <label class="booking__card-text" for="card-holder">Cardholder name</label>
+                      <input class="booking__card-holder" id="card-holder" name="card-holder" type="text">
+                    </div>
+                    <div class="booking__card-back">
+                      <div class="booking__card-magnet"></div>
+                      <div class="booking__card-wrap">
+                        <label class="booking__card-text">
+                          CVC/CVV</label>
+                        <input class="booking__card-cvv" name="card-cvv" type="text">
+
+                        <p class="booking__card-hint">The last<br>
+                          3 or 4 digits<br>
+                          on back<br>
+                          of the card</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <button class="booking__submit" type="submit">Book</button>
             </div>
-            <button class="booking__submit" type="submit">Book</button>
-          </div>
           </div>
         </form>
       </div>
@@ -492,7 +503,7 @@
           <a class="social__link" href="https://www.pinterest.fr/museedulouvre/" target="_blank"></a>
         </li>
       </ul>
-<!--      <div class="footer__space2"></div>-->
+      <!--      <div class="footer__space2"></div>-->
     </div>
   </div>
 </footer>

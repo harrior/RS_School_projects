@@ -1,5 +1,7 @@
 const wSlider = document.querySelector(".slider")
-const wSliderImage = wSlider.querySelector('.slider__image')
+
+const wSliderItems = wSlider.querySelector('.slider__slides')
+
 const wSliderLeftArrow = wSlider.querySelector('.slider__arrow-left')
 const wSliderRightArrow = wSlider.querySelector('.slider__arrow-right')
 const wSliderBullets = wSlider.querySelectorAll('.slider__item')
@@ -8,41 +10,68 @@ const wSliderTotalText = wSlider.querySelector('.slider__total')
 
 const wSliderAmount = wSliderBullets.length
 wSliderTotalText.textContent = String(wSliderAmount).padStart(2,'0')
-let wCurrentPosition = 0
+let wSliderCurrentPosition = 0
+let wSliderCurrentOffset = 0
 
-wSliderUpdateState()
+wSliderInit()
 
-// add listeners
-wSliderRightArrow.addEventListener('click', wSliderMoveToRight)
-wSliderLeftArrow.addEventListener('click', wSliderMoveToLeft)
-
+// Listeners
+wSliderLeftArrow.addEventListener('click', wSliderPreviewSlide)
+wSliderRightArrow.addEventListener('click', wSliderNextSlide)
 wSliderBullets.forEach(item => {
-    item.addEventListener('click', (event) => {
-        wCurrentPosition = +event.target.dataset.id
-        wSliderUpdateState()
+    item.addEventListener('click', () => {
+        wSliderSetSlide(Number(item.dataset.id))
     })
 })
 
-// functions
-function wSliderMoveToRight(){
-    wCurrentPosition = (wCurrentPosition + 1) === wSliderAmount ? 0 : wCurrentPosition + 1;
-    wSliderUpdateState()
-}
-function wSliderMoveToLeft(){
-    wCurrentPosition = (wCurrentPosition - 1) < 0 ? wSliderAmount - 1 : wCurrentPosition - 1;
-    wSliderUpdateState()
+// function
+
+function wSliderCreateSlide(url){
+    let slide = document.createElement('div')
+    let img = document.createElement('img')
+    img.src = url;
+    img.classList.add('slider__image')
+    slide.appendChild(img)
+    return slide
 }
 
-function wSliderUpdateState(){
-    // change img
-    wSliderImage.src = wSliderBullets[wCurrentPosition].dataset.image;
+function wSliderSetSlide(position){
+    // change position
+    wSliderCurrentPosition = position
+    wSliderCurrentOffset = wSliderCurrentPosition * 100
+    wSliderItems.style.transform = `translateX(-${wSliderCurrentOffset}%)`
+
     // change bullet
-    for (let i=0; i < wSliderAmount; i++){
-        if (i === wCurrentPosition)
-            wSliderBullets[i].classList.add('slider--checked')
+    wSliderBullets.forEach(item => {
+        if (+item.dataset.id === position)
+            item.classList.add('slider--checked')
         else
-            wSliderBullets[i].classList.remove('slider--checked');
+            item.classList.remove('slider--checked')
+    })
+
+    // change text position value
+    wSliderCurrentText.textContent = String(wSliderCurrentPosition + 1).padStart(2,'0')
+}
+
+function wSliderNextSlide(){
+    if (wSliderCurrentPosition + 1 === wSliderAmount) {
+        wSliderSetSlide( 0)
     }
-    // change text
-    wSliderCurrentText.textContent = String(wCurrentPosition + 1).padStart(2,'0')
+    else {
+        wSliderSetSlide(wSliderCurrentPosition + 1)
+    }
+
+}
+
+function wSliderPreviewSlide(){
+    if (wSliderCurrentPosition - 1 === -1) {
+        wSliderSetSlide( wSliderAmount - 1)
+    }
+    else {
+        wSliderSetSlide(wSliderCurrentPosition - 1)
+    }
+}
+
+function wSliderInit(){
+    wSliderItems.style.display = "flex"
 }
