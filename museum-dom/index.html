@@ -269,23 +269,25 @@
                 <p class="tickets__form-header">Ticket Type</p>
                 <ul class="tickets__type-items">
                   <li class="tickets__type-item">
-                    <input checked class="tickets__type-checkbox" id="type-1" name="ticket-type" type="radio"
-                           value="permanent">
+                    <input checked class="tickets__type-checkbox" data-price="20" id="type-1" name="ticket-type"
+                           type="radio" value="permanent">
                     <label class="tickets__type-text" for="type-1">Permanent exhibition</label>
                   </li>
                   <li class="tickets__type-item">
-                    <input class="tickets__type-checkbox" id="type-2" name="ticket-type" type="radio" value="temporary">
+                    <input class="tickets__type-checkbox" data-price="25" id="type-2" name="ticket-type" type="radio"
+                           value="temporary">
                     <label class="tickets__type-text" for="type-2">Temporary exhibition</label>
                   </li>
                   <li class="tickets__type-item">
-                    <input class="tickets__type-checkbox" id="type-3" name="ticket-type" type="radio" value="combined">
+                    <input class="tickets__type-checkbox" data-price="40" id="type-3" name="ticket-type" type="radio"
+                           value="combined">
                     <label class="tickets__type-text" for="type-3">Combined Admission</label>
                   </li>
                 </ul>
               </div>
               <div class="tickets__right-column">
                 <p class="tickets__amount-header">Amount</p>
-                <div class="tickets__amount-box">
+                <div class="tickets__amount-box tickets-basic">
                   <label class="tickets__amount-text" for="basic-amount">Basic 18+</label>
                   <div class="tickets__amount">
                     <button class="tickets__amount-minus js-minus">–</button>
@@ -296,7 +298,7 @@
                     <button class="tickets__amount-plus js-plus">+</button>
                   </div>
                 </div>
-                <div class="tickets__amount-box">
+                <div class="tickets__amount-box  tickets-senior">
                   <label class="tickets__amount-text" for="senior-amount">Senior 65+</label>
                   <div class="tickets__amount">
                     <button class="tickets__amount-minus js-minus">–</button>
@@ -306,7 +308,7 @@
                     <button class="tickets__amount-plus js-plus">+</button>
                   </div>
                 </div>
-                <p class="tickets__total-text">Total €220</p>
+                <p class="tickets__total-text">Total €<span class="tickets__total-value">0</span></p>
                 <button class="tickets__submit-button" type="submit">Buy Now</button>
               </div>
             </div>
@@ -327,15 +329,40 @@
               </div>
               <div class="booking__fields">
                 <div class="booking__date-wrap">
-                  <input class="booking__field booking__fields-date" name="date" required type="date">
-                  <input class="booking__field booking__fields-time" name="time" required type="time">
+                  <input class="booking__field booking__fields-date" id="booking-date" name="date" required type="date">
+                  <input class="booking__field booking__fields-time" id="booking-time" name="time" required type="time"
+                  list="time-list">
+                  <datalist id="time-list">
+                    <option value="09:00">
+                    <option value="09:30">
+                    <option value="10:00">
+                    <option value="10:30">
+                    <option value="11:00">
+                    <option value="11:30">
+                    <option value="12:00">
+                    <option value="12:30">
+                    <option value="13:00">
+                    <option value="13:30">
+                    <option value="14:00">
+                    <option value="14:30">
+                    <option value="15:00">
+                    <option value="15:30">
+                    <option value="16:00">
+                    <option value="16:30">
+                    <option value="17:00">
+                    <option value="17:30">
+<!--                    <option value="18:00">-->
+                  </datalist>
                 </div>
-                <input class="booking__field booking__fields-name" name="name" placeholder="Name" required type="text">
-                <input class="booking__field booking__fields-email" name="email" placeholder="E-mail" required
+                <input class="booking__field booking__fields-name" id="booking-name" name="name" placeholder="Name"
+                       required type="text">
+                <input class="booking__field booking__fields-email" id="booking-email" name="email" placeholder="E-mail"
+                       required
                        type="email">
-                <input class="booking__field booking__fields-phone" name="email" placeholder="Phone" required
+                <input class="booking__field booking__fields-phone" id="booking-phone" name="phone" placeholder="Phone"
+                       required
                        type="tel">
-                <select class="booking__field booking__fields-type" name="type" required>
+                <select class="booking__field booking__fields-type" id="booking-type" name="type" required>
                   <option disabled hidden selected value="">Ticket Type</option>
                   <option value="permanent">Permanent exhibition</option>
                   <option value="temporary">Temporary exhibition</option>
@@ -345,24 +372,26 @@
                   <p class="booking__amount-header">Entry ticket</p>
                   <div class="booking__amount-inner">
                     <div class="booking__amount-option">
-                      <p class="booking__amount-text">Basic 18+ (20 €)</p>
+                      <p class="booking__amount-text">Basic 18+ (<span class="booking__basic-price-text">20 €</span>)
+                      </p>
                       <div class="booking__amount-number">
                         <button class="booking__amount-minus js-minus">–</button>
-                        <input class="booking__amount-value js-value" disabled max="20" min="0"
+                        <input class="booking__amount-value js-value" disabled id="booking-count-basic" max="20"
+                               min="0"
                                name="basic-amount"
-                               readonly
-                               type="number" value="2">
+                               readonly type="number" value="2">
                         <button class="booking__amount-plus js-plus">+</button>
                       </div>
                     </div>
                     <div class="booking__amount-option">
-                      <p class="booking__amount-text">Senior 65+ (10 €)</p>
+                      <p class="booking__amount-text">Senior 65+ (<span class="booking__senior-price-text">10 €</span>)
+                      </p>
                       <div class="booking__amount-number">
                         <button class="booking__amount-minus js-minus">–</button>
-                        <input class="booking__amount-value js-value" disabled max="20" min="0"
+                        <input class="booking__amount-value js-value" disabled id="booking-count-senior" max="20"
+                               min="0"
                                name="basic-amount"
-                               readonly
-                               type="number" value="2">
+                               readonly type="number" value="2">
                         <button class="booking__amount-plus js-plus">+</button>
                       </div>
                     </div>
@@ -376,20 +405,20 @@
                 <p class="booking__overview-subheader">Tour to Louvre</p>
                 <img alt="Louvre" class="booking__overview-image" src="assets/svg/booking/louvre.jpg">
                 <ul class="booking__overview-detail">
-                  <li class="booking__overview-date">Friday, August 19</li>
-                  <li class="booking__overview-time">16 : 30</li>
-                  <li class="booking__overview-type">Temporary exhibition</li>
+                  <li class="booking__overview-date">-</li>
+                  <li class="booking__overview-time">-</li>
+                  <li class="booking__overview-type">-</li>
                 </ul>
                 <div class="booking__overview-wrap">
                   <div class="booking__overview-option">
-                    <p class="booking__overview-count">2</p>
-                    <p class="booking__overview-text">Basic (20 €)</p>
-                    <p class="booking__overview-total">40 €</p>
+                    <p class="booking__overview-count booking__count-basic-text">2</p>
+                    <p class="booking__overview-text">Basic (<span class="booking__basic-price-text">20 €</span>)</p>
+                    <p class="booking__overview-total"><span id="booking__basic-total-text">40 €</span></p>
                   </div>
                   <div class="booking__overview-option">
-                    <p class="booking__overview-count">2</p>
-                    <p class="booking__overview-text">Senior (10 €)</p>
-                    <p class="booking__overview-total">20 €</p>
+                    <p class="booking__overview-count booking__count-senior-text">2</p>
+                    <p class="booking__overview-text">Senior (<span class="booking__senior-price-text">10 €</span>)</p>
+                    <p class="booking__overview-total"><span id="booking__senior-total-text">20 €</span></p>
                   </div>
                   <div class="booking__overview-line"></div>
                   <div class="booking__total">

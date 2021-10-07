@@ -10,7 +10,6 @@ const wSliderCurrentText = wSlider.querySelector('.slider__current')
 const wSliderTotalText = wSlider.querySelector('.slider__total')
 
 const wSliderAmount = wSliderBullets.length
-
 let wSliderCurrentPosition = 0
 let wSliderCurrentOffset = 0
 let wSliderTouchStart = 0
