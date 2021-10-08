@@ -330,8 +330,8 @@
               <div class="booking__fields">
                 <div class="booking__date-wrap">
                   <input class="booking__field booking__fields-date" id="booking-date" name="date" required type="date">
-                  <input class="booking__field booking__fields-time" id="booking-time" name="time" required type="time"
-                  list="time-list">
+                  <input class="booking__field booking__fields-time" id="booking-time" list="time-list" name="time" required
+                         type="time" min="09:00" max="18:00" step="1800">
                   <datalist id="time-list">
                     <option value="09:00">
                     <option value="09:30">
@@ -351,17 +351,18 @@
                     <option value="16:30">
                     <option value="17:00">
                     <option value="17:30">
-<!--                    <option value="18:00">-->
+                    <option value="18:00">
                   </datalist>
                 </div>
-                <input class="booking__field booking__fields-name" id="booking-name" name="name" placeholder="Name"
-                       required type="text">
+                <input class="booking__field booking__fields-name" id="booking-name" maxlength="15" minlength="3"
+                       name="name" placeholder="Name" required type="text" pattern="[A-Za-zА-Яа-я ]{3,15}">
+                <p id="error-message-name"></p>
                 <input class="booking__field booking__fields-email" id="booking-email" name="email" placeholder="E-mail"
-                       required
-                       type="email">
+                       required type="email">
+                <p id="error-message-email"></p>
                 <input class="booking__field booking__fields-phone" id="booking-phone" name="phone" placeholder="Phone"
-                       required
-                       type="tel">
+                       required type="tel">
+                <p id="error-message-phone"></p>
                 <select class="booking__field booking__fields-type" id="booking-type" name="type" required>
                   <option disabled hidden selected value="">Ticket Type</option>
                   <option value="permanent">Permanent exhibition</option>

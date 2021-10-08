@@ -1214,6 +1214,22 @@ video[poster]{
   appearance: none;
 }
 
+#error-message-name,
+#error-message-email,
+#error-message-phone {
+  display: none;
+  font-size: 14px;
+  color: red;
+}
+
+.booking__field-error {
+  border: 3px solid red;
+}
+.booking__field-error:focus {
+  outline: none !important;
+}
+
+
 .booking__field::placeholder {
   color: #030303;
 }

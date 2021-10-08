@@ -143,6 +143,32 @@ bookingDate.addEventListener('change', evt => {
 
 bookingTime.addEventListener('change', bookingUpdate)
 
+bookingName.addEventListener('keyup', evt => {
+    bookingCheckInput(evt.target, 'error-message-name', /[^a-zA-ZА-Яа-я ]/g ,'Incorrect symbol. The name must contain only Russian and English letters and spaces.')
+})
+
+bookingPhone.addEventListener('keyup', evt => {
+    bookingCheckInput(evt.target, 'error-message-phone', /[^0-9 -]/g ,'Incorrect symbol. The phone can contain numbers, spaces and dashes.')
+})
+
+bookingEmail.addEventListener('keyup', evt => {
+    bookingCheckInput(evt.target, 'error-message-email', /[^a-zA-Z0-9@_.-]/g ,'Incorrect symbol. Email should consist of latin letters, numbers, @, . , - and _.')
+})
+
+function bookingCheckInput(element, idErrorElement, pattern, message){
+    const errorMsg = booking.querySelector(`#${idErrorElement}`)
+    if(element.value.match(pattern) !== null){
+        errorMsg.style['display'] = 'block'
+        element.classList.add('booking__field-error')
+        errorMsg.textContent = message
+    } else {
+        element.classList.remove('booking__field-error')
+        errorMsg.style['display'] = 'none'
+        errorMsg.textContent = ''
+    }
+}
+
+
 // functions
 function bookingInit() {
     bookingCountBasic.value = +localStorage.getItem('CountBasic') || 0
@@ -221,12 +247,11 @@ function hideBookingForm(evt) {
     }
 }
 
-bookingSubmit.addEventListener('click', function (evt) {
-    evt.preventDefault()
+function bookingRippleEffect(evt) {
     const x = evt.clientX
     const y = evt.clientY
 
-    const br = this.getBoundingClientRect()
+    const br = evt.target.getBoundingClientRect()
 
     const buttonTop = br.top
     const buttonLeft = br.left
@@ -239,7 +264,51 @@ bookingSubmit.addEventListener('click', function (evt) {
     circle.style.top = yInside + 'px'
     circle.style.left = xInside + 'px'
 
-    this.appendChild(circle)
+    evt.target.appendChild(circle)
 
     setTimeout(() => circle.remove(), 500)
+}
+
+function bookingValidateName() {
+    let regexp = /^[a-zA-Zа-яА-Я ]{3,15}$/
+    let name = bookingName.value
+    if ((name.match(regexp) === null) || ((name.length < 3) || (name.length > 15))) {
+        bookingName.setCustomValidity('The name must contain only Russian and English letters and spaces.\nThe name must be between 3 and 15 characters long')
+        return false
+    }
+    bookingName.setCustomValidity('')
+    return true
+}
+
+function bookingValidateEmail() {
+    let regexp = /^([a-zA-Z _-]{3,15})@([a-zA-Z]{4,})\.[a-zA-Z]{2,}$/
+    let email = bookingEmail.value
+    if (email.match(regexp) === null) {
+        bookingEmail.setCustomValidity('Incorrect e-mail.\nExample username@example.com')
+        return false
+    }
+    bookingEmail.setCustomValidity('')
+    return true
+}
+
+function bookingValidatePhone() {
+    let phone = bookingPhone.value
+    if (phone.match(/([^\d -])/g) === null) {
+        let partNumber = phone.match(/(\d{2,3})/g)
+        let joinedNumber = partNumber !== null ? partNumber.join('') : ''
+        if ((joinedNumber.match(/^\d{1,10}$/) !== null) || (phone.match(/^\d{1,10}$/) !== null)) {
+            bookingPhone.setCustomValidity('')
+            return true
+        }
+    }
+    bookingPhone.setCustomValidity('Incorrect phone.\nThe phone number must contain no more than 10 digits, as well as spaces and dashes.')
+    return false
+}
+
+bookingSubmit.addEventListener('click', function (evt) {
+    // evt.preventDefault()
+    bookingRippleEffect(evt)
+    bookingValidateName()
+    bookingValidateEmail()
+    bookingValidatePhone()
 })
