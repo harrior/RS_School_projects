@@ -55,6 +55,7 @@ function wSliderSetSlide(position){
 // Next-previous sliding
 function wSliderNextSlide(){
     if (wSliderCurrentPosition + 1 === wSliderAmount) {
+        wSlider.style.left = 0
         wSliderSetSlide( 0)
     }
     else {
@@ -73,17 +74,12 @@ function wSliderPreviewSlide(){
 }
 
 // Touch
-wSlider.addEventListener('touchstart', evt => {
-    // evt.preventDefault();
-    // evt.stopPropagation();
-    wSliderTouchStart = evt.changedTouches[0];
+wSlider.addEventListener('mousedown', evt => {
+    wSliderTouchStart = evt
 })
-wSlider.addEventListener('touchend', evt => {
-    // evt.preventDefault();
-    // evt.stopPropagation();
-    let wSliderTouchEnd = evt.changedTouches[0];
-    console.log(wSliderTouchStart, wSliderTouchEnd)
-    let swipeLength = wSliderTouchStart.pageX - wSliderTouchEnd.pageX
+
+wSlider.addEventListener('mouseup', evt => {
+    let swipeLength = wSliderTouchStart.pageX - evt.pageX
     if (Math.abs(swipeLength) > 20){
         if (swipeLength > 30){
             wSliderNextSlide()
