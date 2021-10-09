@@ -72,6 +72,9 @@
   --link-active: #7e6c51;
 
   --dark-red: #710707;
+
+  --progress-bar-full: #710707;
+  --progress-bar-empty: #C4C4C4;
 }
 
 html {
@@ -611,12 +614,28 @@ section {
   width: 100%;
   max-height: 650px;
   height: auto;
+
+  object-fit:scale-down;
 }
 
 video[poster]{
   width:100%;
+}
 
-  object-fit:cover;
+.player__screen-text{
+  position: absolute;
+  display: inline-block;
+
+  left: calc(50% - 50px);
+  top: 10%;
+  width: 100px;
+  padding: 10px;
+  background-color: #9a9a9a;
+  border-radius: 50px;
+  opacity: 0;
+  color: #ffffff;
+  text-align: center;
+  transition: opacity 0.5s linear;
 }
 
 .player__screen-button {
@@ -655,6 +674,15 @@ video[poster]{
   background: transparent url("../assets/svg/player/play.svg");
 }
 
+.player__pause {
+  width: 23px;
+  height: 31px;
+  flex-shrink: 0;
+
+  border: none;
+  background: transparent url("../assets/svg/player/pause.svg");
+}
+
 .player__range {
   height: 8px;
 
@@ -691,7 +719,16 @@ video[poster]{
   height: 31px;
   flex-shrink: 0;
 
-  background: transparent url("../assets/svg/player/mute.svg");
+  background: transparent url("../assets/svg/player/mute.svg") no-repeat center;
+  border: 0;
+}
+
+.player__mute__on {
+  width: 38px;
+  height: 31px;
+  flex-shrink: 0;
+
+  background: transparent url("../assets/svg/player/mute-on.svg") no-repeat center;
   border: 0;
 }
 
@@ -700,8 +737,21 @@ video[poster]{
   height: 35px;
   flex-shrink: 0;
 
-  background: transparent url("../assets/svg/player/fullscreen.svg");
+  background: transparent url("../assets/svg/player/fullscreen.svg") no-repeat center;
+
   border: none;
+}
+
+.player__fullscreen__exit {
+  background: transparent url("../assets/svg/player/fullscreen-exit.svg") no-repeat center;
+  border: none;
+}
+
+
+.player__video-fullscreen {
+  max-width: 100%;
+  max-height: calc(100% - 85px);
+  object-fit: contain;
 }
 
 .player__range::-webkit-slider-thumb:hover {
@@ -2446,8 +2496,11 @@ footer {
     padding: 40px 0 80px;
   }
   .player {
+    position: relative;
     margin: 20px 0;
   }
+
+
 
   .player__screen-button {
     top: calc(50% - 65px);
