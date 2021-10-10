@@ -70,7 +70,7 @@
         <div class="slider">
           <div class="slider__shadow"></div>
           <div class="slider__container">
-            <img class="slider__static-image" src="assets/img/welcome-slider/1.webp" alt="">
+            <img alt="" class="slider__static-image" src="assets/img/welcome-slider/1.webp">
             <div class="slider__slides">
             </div>
           </div>
@@ -178,10 +178,16 @@
           </div>
         </div>
         <div class="explore__image">
-          <img alt="Picture Explore" src="assets/img/explore-slider/before.webp">
+          <div class="explore__image-before">
+            <img src="assets/img/explore-slider/after.webp" alt="after">
+          </div>
+          <div class="explore__image-after explore__image-overlay">
+            <img src="assets/img/explore-slider/before.webp" alt="before">
+          </div>
         </div>
       </div>
     </div>
+    <script src="js/explore.js"></script>
   </section>
   <!-- Video  -->
   <section id="video">
@@ -208,13 +214,13 @@
         <div class="playlist">
           <div class="playlist__slider">
             <div class="playlist__preview">
-              <img data-video="aWmJ5DgyWPI" src="assets/img/player/preview1.webp" alt="">
+              <img alt="" data-video="aWmJ5DgyWPI" src="assets/img/player/preview1.webp">
             </div>
             <div class="playlist__preview">
-              <img data-video="Vi5D6FKhRmo" src="assets/img/player/preview2.webp" alt="">
+              <img alt="" data-video="Vi5D6FKhRmo" src="assets/img/player/preview2.webp">
             </div>
             <div class="playlist__preview">
-              <img data-video="NOhDysLnTvY" src="assets/img/player/preview3.webp" alt="">
+              <img alt="" data-video="NOhDysLnTvY" src="assets/img/player/preview3.webp">
             </div>
           </div>
           <ul class="playlist__items">
@@ -331,8 +337,9 @@
               <div class="booking__fields">
                 <div class="booking__date-wrap">
                   <input class="booking__field booking__fields-date" id="booking-date" name="date" required type="date">
-                  <input class="booking__field booking__fields-time" id="booking-time" list="time-list" name="time" required
-                         type="time" min="09:00" max="18:00" step="1800">
+                  <input class="booking__field booking__fields-time" id="booking-time" list="time-list" max="18:00"
+                         min="09:00"
+                         name="time" required step="1800" type="time">
                   <datalist id="time-list">
                     <option value="09:00">
                     <option value="09:30">
@@ -356,7 +363,7 @@
                   </datalist>
                 </div>
                 <input class="booking__field booking__fields-name" id="booking-name" maxlength="15" minlength="3"
-                       name="name" placeholder="Name" required type="text" pattern="[A-Za-zА-Яа-я ]{3,15}">
+                       name="name" pattern="[A-Za-zА-Яа-я ]{3,15}" placeholder="Name" required type="text">
                 <p id="error-message-name"></p>
                 <input class="booking__field booking__fields-email" id="booking-email" name="email" placeholder="E-mail"
                        required type="email">
