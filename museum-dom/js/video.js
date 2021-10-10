@@ -18,6 +18,14 @@ const playlistItems = document.querySelectorAll('.playlist__video')
 let volumeLevel = Number(playerVolume.value);
 let playbackRate = 100;
 
+const playerVideos= {
+    '1': {'file': 'assets/video/video0.mp4', 'poster': 'assets/video/poster0.jpg'},
+    '2': {'file': 'assets/video/video1.mp4', 'poster': 'assets/video/poster1.jpg'},
+    '3': {'file': 'assets/video/video2.mp4', 'poster': 'assets/video/poster2.jpg'},
+    '4': {'file': 'assets/video/video3.mp4', 'poster': 'assets/video/poster3.jpg'},
+    '5': {'file': 'assets/video/video4.mp4', 'poster': 'assets/video/poster4.jpg'},
+}
+
 //load first video from playlist
 let currentVideoNumber = 0
 playerVideo.src = "assets/video/video0.mp4"
@@ -258,9 +266,9 @@ function help() {
         '8) Клавиша F — включение/выключение полноэкранного режима, \n' +
         '9) Клавиша Shift + > — ускорение воспроизведения ролика, \n' +
         '10) Клавиша Shift + < — замедление воспроизведения ролика, \n' +
-        '11) Клавиша / - стандартная скорость воспроизведения ролика,\n')
-        // +'12) Клавиша N - включить следующий ролик,\n' +
-        //'13) Клавиша P - включить предыдущий ролик')
+        '11) Клавиша / - стандартная скорость воспроизведения ролика,\n'+
+        '12) Клавиша N - включить следующий ролик,\n' +
+        '13) Клавиша P - включить предыдущий ролик')
 }
 
 //Playlist
@@ -272,15 +280,14 @@ function playVideoFromPlaylist(position){
 }
 
 function playPreviousVideo(){
-    let newNumber = currentVideoNumber - 1;
-    newNumber = newNumber < 0 ? 0 : newNumber;
-    playVideoFromPlaylist(newNumber);
+    setSlide(currentSlide - 1)
+    // let newNumber = currentVideoNumber - 1;
+    // newNumber = newNumber < 0 ? 0 : newNumber;
+    // playVideoFromPlaylist(newNumber);
 }
 
 function PlayNextVideo(){
-    let newNumber = currentVideoNumber + 1;
-    newNumber = newNumber > 2 ? 2 : newNumber;
-    playVideoFromPlaylist(newNumber);
+    setSlide(currentSlide + 1 > 5 ? 1 : currentSlide + 1)
 }
 
 playlistItems.forEach((item)=>{
@@ -294,23 +301,114 @@ playlistItems.forEach((item)=>{
         playVideoFromPlaylist(item.dataset.position);
     })
 })
+// Playlist
 
-/* */
-// function playerResize() {
-//     playerVideo.style.height = `${playerVideo.offsetWidth * 0.4513}px`
-// }
-// playerResize()
-//
-// new ResizeObserver(playerResize).observe(playerVideo)
+const playlistSlider = document.querySelector('.playlist__slider')
+const playlistBullets = document.querySelectorAll('.playlist__item')
+const playlistLeftButton = document.querySelector('.playlist__arrow-left')
+const playlistRightButton = document.querySelector('.playlist__arrow-right')
 
-playlistPreviews = document.querySelectorAll('.playlist__preview')
-playlistPreviews.forEach(item => {
-        item.addEventListener('click', evt => {
-            const imgPreview = evt.target
-            const wrapPreview = imgPreview.parentNode
-            let videoId = imgPreview.getAttribute('data-video');
-            console.log(wrapPreview.innerHTML)
-            wrapPreview.innerHTML += `<iframe allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen src="https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1" title="YouTube video player"></iframe>`;
-        })
+let currentSlide = 1
+let currentOffset = 0
+let offset = -(452 + 42)
+
+
+playlistBullets.forEach(item => {
+    item.addEventListener('click', evt => {
+        currentSlide = + evt.target.dataset.id
+        setSlide(currentSlide)
+    })
+})
+
+playlistLeftButton.addEventListener('click', evt => {
+    setSlide(currentSlide - 1)
+})
+playlistRightButton.addEventListener('click', evt => {
+    setSlide(currentSlide + 1 > 5 ? 1 : currentSlide + 1)
+})
+
+playlistSlider.addEventListener('transitionend', evt => {
+    if (currentSlide === 5) {
+        playlistSlider.style['transition'] = 'none';
+        if (currentOffset < 0) {
+            playlistSlider.style['transform'] = `translateX(0)`
+        } else {
+            playlistSlider.style['transform'] = `translateX(${offset * (5)}px)`
+        }
     }
-)
+
+})
+
+function setSlide(n) {
+    currentSlide = n
+    console.log(currentSlide)
+    playlistSlider.style['transition'] = 'transform 0.5s linear';
+    currentOffset = offset * (currentSlide)
+    playlistSlider.style['transform'] = `translateX(${currentOffset}px)`
+
+    currentSlide = currentSlide === 0 ? 5 : currentSlide
+
+    playlistBullets.forEach(item => {
+        item.classList.remove('playlist__item--checked')
+    })
+    playlistBullets[currentSlide - 1].classList.add('playlist__item--checked')
+
+    playlistPauseAll()
+
+    // load new video
+    playerVideo.src = playerVideos[currentSlide].file
+    playerVideo.load();
+    stopPlayback()
+
+    playerVideo.setAttribute('poster',playerVideos[currentSlide].poster);
+}
+
+// YouTube. Dynamical creation slides ans other stuff
+const vidWrapper = document.querySelector('.playlist__slider')
+const ytIDs = ['2OR0OCr6uRE', 'zp1BXPX8jcU', 'Vi5D6FKhRmo', 'NOhDysLnTvY', 'aWmJ5DgyWPI', '2OR0OCr6uRE', 'zp1BXPX8jcU', 'Vi5D6FKhRmo']
+const ytPlayers = []
+
+for (let i = 0; i < ytIDs.length; i++) {
+    vidWrapper.appendChild(playlistCreateVideo(ytIDs[i], `YTplayer${i}`))
+}
+
+function playlistCreateVideo(divID, ytID) {
+    let elWrap = document.createElement('div')
+    elWrap.classList.add('playlist__preview')
+    let player = document.createElement('div')
+    player.setAttribute('id', ytID)
+    let img = document.createElement('img')
+    img.src = "assets/img/player/preview1.webp"
+    elWrap.appendChild(player)
+    elWrap.appendChild(img)
+    return elWrap
+}
+
+function playlistPauseAll(except = '') {
+    for (let i of ytPlayers) {
+        if (except === i.h.id) {
+            continue
+        }
+        i.pauseVideo()
+    }
+}
+
+function onYouTubeIframeAPIReady() {
+    for (let i = 0; i < ytIDs.length; i++) {
+
+        let player = new YT.Player(`YTplayer${i}`, {
+            videoId: ytIDs[i],
+            playerVars: {
+                'playsinline': 1
+            },
+            events: {
+                'onStateChange': (evt) => {
+                    if (evt.data === 1) {
+                        playlistPauseAll(evt.target.h.id)
+                    }
+                }
+            }
+        });
+        ytPlayers.push(player)
+    }
+}
