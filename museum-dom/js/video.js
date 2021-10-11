@@ -18,7 +18,7 @@ const playlistItems = document.querySelectorAll('.playlist__video')
 let volumeLevel = Number(playerVolume.value);
 let playbackRate = 100;
 
-const playerVideos= {
+const playerVideos = {
     '1': {'file': 'assets/video/video0.mp4', 'poster': 'assets/video/poster0.jpg'},
     '2': {'file': 'assets/video/video1.mp4', 'poster': 'assets/video/poster1.jpg'},
     '3': {'file': 'assets/video/video2.mp4', 'poster': 'assets/video/poster2.jpg'},
@@ -88,69 +88,77 @@ playerFullscreenButton.addEventListener('click', function () {
 
 // keyboard listener
 document.addEventListener('keydown', (e) => {
-    switch (e.key) {
-        case ' ' :
-            e.preventDefault();
-            switchPlayback();
-            break;
-        case 'f':
-        case 'F':
-        case 'а':
-        case 'А':
-            switchFullscreen();
-            break;
-        case 'm':
-        case 'M':
-        case 'ь':
-        case 'Ь':
-            switchMute();
-            break;
-        case 'Home':
-            setVideoPosition(0);
-            break;
-        case 'End':
-            setVideoPosition(100);
-            break;
-        case '1':
-        case '2':
-        case '3':
-        case '4':
-        case '5':
-        case '6':
-        case '7':
-        case '8':
-        case '9':
-            setVideoPosition(Number(e.key * 10));
-            break;
-        case "ArrowUp":
-            setVolumeLevel(volumeLevel + 10)
-            break;
-        case "ArrowDown":
-            setVolumeLevel(volumeLevel - 10)
-            break;
-        case "<":
-        case ",":
-            if (e.shiftKey){
-                setPlaybackRate(playbackRate - 10);
-            }
-            break;
-        case ">":
-        case ".":
-            if (e.shiftKey) {
-                setPlaybackRate(playbackRate + 10);
-            }
-            break;
-        case "/":
-            setPlaybackRate(100);
-            break;
-        case "p":
-            playPreviousVideo();
-            break;
-        case "n":
-            PlayNextVideo();
-            break;
-        default:
+    const video = document.querySelector('#video').getBoundingClientRect();
+    if ((document.fullscreenElement === player) || (
+        (video.top - document.documentElement.clientHeight < 0) &&
+        (video.bottom - document.documentElement.clientHeight > 0))
+    ) {
+        e.preventDefault()
+
+        switch (e.key) {
+            case ' ' :
+                e.preventDefault();
+                switchPlayback();
+                break;
+            case 'f':
+            case 'F':
+            case 'а':
+            case 'А':
+                switchFullscreen();
+                break;
+            case 'm':
+            case 'M':
+            case 'ь':
+            case 'Ь':
+                switchMute();
+                break;
+            case 'Home':
+                setVideoPosition(0);
+                break;
+            case 'End':
+                setVideoPosition(100);
+                break;
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+                setVideoPosition(Number(e.key * 10));
+                break;
+            case "ArrowUp":
+                setVolumeLevel(volumeLevel + 10)
+                break;
+            case "ArrowDown":
+                setVolumeLevel(volumeLevel - 10)
+                break;
+            case "<":
+            case ",":
+                if (e.shiftKey) {
+                    setPlaybackRate(playbackRate - 10);
+                }
+                break;
+            case ">":
+            case ".":
+                if (e.shiftKey) {
+                    setPlaybackRate(playbackRate + 10);
+                }
+                break;
+            case "/":
+                setPlaybackRate(100);
+                break;
+            case "p":
+                playPreviousVideo();
+                break;
+            case "n":
+                PlayNextVideo();
+                break;
+            default:
             // console.log(e)
+        }
     }
 })
 
@@ -214,7 +222,7 @@ function setVideoPosition(position) {
     position = Number(position);
     position = position > 100 ? 100 : position < 0 ? 0 : position;
 
-    playerVideo.currentTime = playerVideo.duration / 100 * position ;
+    playerVideo.currentTime = playerVideo.duration / 100 * position;
 
     updateBarPosition(playerProgress, position);
 }
@@ -233,14 +241,16 @@ function switchFullscreen() {
 }
 
 // set playback speed
-function setPlaybackRate(rate){
+function setPlaybackRate(rate) {
     rate = Number(rate);
     rate = rate < 0 ? 0 : rate;
     playbackRate = rate;
-    playerVideo.playbackRate = rate/100;
+    playerVideo.playbackRate = rate / 100;
     playerScreenText.style['opacity'] = '0.8'
-    playerScreenText.textContent = `${rate/100}x`
-    setTimeout(() => { playerScreenText.style['opacity'] = '0' }, 1000)
+    playerScreenText.textContent = `${rate / 100}x`
+    setTimeout(() => {
+        playerScreenText.style['opacity'] = '0'
+    }, 1000)
 
 }
 
@@ -254,7 +264,7 @@ function updateBarPosition(bar, position) {
 
 function help() {
     console.log('Привет!\n ' +
-        'Реализован базовый функционал плеера + горячие клавиши + простой playlist\n' +
+        'Реализован базовый функционал плеера + горячие клавиши + playlist\n' +
         'Управление плеером с клавиатуры: \n' +
         '1) клавиша Пробел — пауза, \n' +
         '2) Клавиша Home — переход в начало видео, \n' +
@@ -266,38 +276,38 @@ function help() {
         '8) Клавиша F — включение/выключение полноэкранного режима, \n' +
         '9) Клавиша Shift + > — ускорение воспроизведения ролика, \n' +
         '10) Клавиша Shift + < — замедление воспроизведения ролика, \n' +
-        '11) Клавиша / - стандартная скорость воспроизведения ролика,\n'+
+        '11) Клавиша / - стандартная скорость воспроизведения ролика,\n' +
         '12) Клавиша N - включить следующий ролик,\n' +
         '13) Клавиша P - включить предыдущий ролик')
 }
 
 //Playlist
-function playVideoFromPlaylist(position){
+function playVideoFromPlaylist(position) {
     playerVideo.src = playlistItems[position].src;
     playerVideo.load();
     stopPlayback()
     currentVideoNumber = position
 }
 
-function playPreviousVideo(){
+function playPreviousVideo() {
     setSlide(currentSlide - 1)
     // let newNumber = currentVideoNumber - 1;
     // newNumber = newNumber < 0 ? 0 : newNumber;
     // playVideoFromPlaylist(newNumber);
 }
 
-function PlayNextVideo(){
+function PlayNextVideo() {
     setSlide(currentSlide + 1 > 5 ? 1 : currentSlide + 1)
 }
 
-playlistItems.forEach((item)=>{
-    item.addEventListener('mouseover',()=>{
+playlistItems.forEach((item) => {
+    item.addEventListener('mouseover', () => {
         item.play();
     })
-    item.addEventListener('mouseout',()=>{
+    item.addEventListener('mouseout', () => {
         item.pause();
     })
-    item.addEventListener('click',()=>{
+    item.addEventListener('click', () => {
         playVideoFromPlaylist(item.dataset.position);
     })
 })
@@ -315,7 +325,7 @@ let offset = -(452 + 42)
 
 playlistBullets.forEach(item => {
     item.addEventListener('click', evt => {
-        currentSlide = + evt.target.dataset.id
+        currentSlide = +evt.target.dataset.id
         setSlide(currentSlide)
     })
 })
@@ -360,7 +370,7 @@ function setSlide(n) {
     playerVideo.load();
     stopPlayback()
 
-    playerVideo.setAttribute('poster',playerVideos[currentSlide].poster);
+    playerVideo.setAttribute('poster', playerVideos[currentSlide].poster);
 }
 
 // YouTube. Dynamical creation slides ans other stuff
