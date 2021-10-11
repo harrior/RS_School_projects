@@ -46,8 +46,6 @@ function showVisible() {
             }
         }
     }
-
-    // return coords.top > 0 && coords.top < windowHeight;
 }
 
 window.addEventListener('scroll', showVisible)
