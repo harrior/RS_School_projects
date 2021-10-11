@@ -985,7 +985,18 @@ video[poster]{
   height: auto;
 
   overflow-x: hidden;
+  transform: translateY(400px) scale(0.8);
+  opacity: 0;
+
+
+  transition: all 0.8s linear;
 }
+
+.gallery__image-show {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
 
 .gallery__image-container img {
   width: 100%;
@@ -993,6 +1004,8 @@ video[poster]{
 
   object-fit: contain;
 }
+
+
 
 .gallery__shadow {
   position: absolute;
