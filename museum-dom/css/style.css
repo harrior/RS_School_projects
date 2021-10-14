@@ -850,6 +850,7 @@ video[poster]{
   flex-direction: column;
   row-gap: 40px;
   overflow: hidden;
+  width: 100%
   /*border: 1px black dotted;*/
 }
 
