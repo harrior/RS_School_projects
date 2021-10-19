@@ -1,11 +1,10 @@
 import {STRINGS} from './strings.js'
 
 export function init(){
-    setDateTime();
-    setInterval(setDateTime, 1000);
+    setInterval(updateDateTime, 1000);
 }
 
-function setDateTime(){
+function updateDateTime(){
     const date = new Date();
     const timeString = document.querySelector('.time');
     const dateString = document.querySelector('.date');
