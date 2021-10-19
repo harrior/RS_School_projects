@@ -24,6 +24,20 @@ export const STRINGS = {
     greetingPlaceholder : {
         'ru': '[Введите имя]',
         'en': '[Enter name]'
-    }
+    },
+    weather : {
+        'ru': {
+            'humidity': 'Влажность',
+            'wind_speed': 'Скорость ветра',
+            'wind_unit': 'м/c',
+            'error': 'Ошибка! Город не найден ',
+        },
+        'en': {
+            'humidity': 'Humidity',
+            'wind_speed': 'Wind speed',
+            'wind_unit': 'm/s',
+            'error': 'Error! city not found for ',
+        }
+    },
 
 }
