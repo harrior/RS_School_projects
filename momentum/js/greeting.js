@@ -1,4 +1,5 @@
 import {STRINGS} from './strings.js'
+import * as Clock from './clock.js';
 
 export function init(){
     setInterval(updateGreeting, 1000)
@@ -11,19 +12,8 @@ export function init(){
 function updateGreeting(){
     const lang = localStorage.getItem('lang')
 
-    const date = new Date();
-    const hour = date.getHours();
-
-    let greeting;
-    if ((hour >= 6) && (hour < 12)){
-        greeting = STRINGS.greetings[lang].morning;
-    } else if ((hour >= 12) && (hour < 18)) {
-        greeting = STRINGS.greetings[lang].afternoon;
-    } else if ((hour >= 18) && (hour <= 23)) {
-        greeting = STRINGS.greetings[lang].evening;
-    } else {
-        greeting = STRINGS.greetings[lang].night;
-    }
+    const timesOfDay = Clock.getTimesOfDay()
+    let greeting = STRINGS.greetings[lang][timesOfDay]
 
     const greetingText = document.querySelector('.greeting');
     greetingText.textContent = greeting;
