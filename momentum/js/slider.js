@@ -2,9 +2,10 @@ import * as Clock from "./clock.js";
 
 export default class Slider{
     constructor() {
-        this.current = Math.floor(20 * Math.random()) + 1
         this.setListeners()
-        this.setSlide(this.current)
+
+        this.current = Math.floor(20 * Math.random()) + 1
+        this.updateImage()
     }
 
     setListeners() {
@@ -20,24 +21,24 @@ export default class Slider{
         });
 
         document.addEventListener('changeTimesOfDay', () => {
-            this.setSlide()
+            this.updateImage()
         });
 
         document.addEventListener('changeImage', () => {
-            this.setSlide()
+            this.updateImage()
         });
     }
 
-    setSlide() {
+    updateImage() {
         const timesOfDay = Clock.getTimesOfDay();
         const imgSource = localStorage.getItem('imgSource')
 
         switch (imgSource){
             case 'flickr':
-                this.getFlickrImage();
+                this.setFlickrImage();
                 break;
             case 'unsplash':
-                this.getUnsplashImage();
+                this.setUnsplashImage();
                 break;
             default:
                 let imageUrl = `https://harrior.github.io/stage1-tasks/images/${timesOfDay}/${this.current.toString().padStart(2,'0')}.jpg`
@@ -58,7 +59,7 @@ export default class Slider{
         return response.json()
     }
 
-    getUnsplashImage(){
+    setUnsplashImage(){
         const API_KEY = 'ONENqNjJ2MN7oESbVXkCSAVBc14sZmJjNBL65CKvrs4'
         let categories = Clock.getTimesOfDay()
         let tags = localStorage.getItem('tag')
@@ -75,19 +76,36 @@ export default class Slider{
         })
     }
 
-    getFlickrImage() {
-        //fetch('https://source.unsplash.com/1920x1200/?morning')
-        return undefined;
+    setFlickrImage() {
+        const API_KEY = 'f4bc45776245ae7bc86b6afe1a53d350'
+        let categories = Clock.getTimesOfDay()
+        let tags = localStorage.getItem('tag')
+        if (tags){
+            categories = tags.split(' ').join(',')
+        }
+        let url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&tags=${categories}&media=photos&privacy_filter=1&api_key=${API_KEY}&format=json&nojsoncallback=?`
+
+        this.request(url).then(date => {
+            let photosInfo = date.photos.photo
+            let randPhoto = photosInfo[Math.floor(Math.random()* photosInfo.length)]
+
+            this.setImage(makeUrl(randPhoto))
+        })
+        function makeUrl(photo){
+            url = `https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`
+            return url
+        }
     }
+
 
     prev() {
         this.current = this.current - 1 > 0 ? this.current - 1 : 20;
-        this.setSlide()
+        this.updateImage()
     }
 
     next() {
         this.current = this.current + 1 <= 20 ? this.current + 1 : 1
-        this.setSlide()
+        this.updateImage()
     }
 
 }
