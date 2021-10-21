@@ -32,28 +32,47 @@ export default class Slider{
         const timesOfDay = Clock.getTimesOfDay();
         const imgSource = localStorage.getItem('imgSource')
 
-        let imageUrl;
         switch (imgSource){
             case 'flickr':
-                imageUrl = this.getFlickrImage();
+                this.getFlickrImage();
                 break;
             case 'unsplash':
-                imageUrl = this.getUnsplashImage();
+                this.getUnsplashImage();
                 break;
             default:
-                imageUrl = `https://harrior.github.io/stage1-tasks/images/${timesOfDay}/${this.current.toString().padStart(2,'0')}.jpg`
+                let imageUrl = `https://harrior.github.io/stage1-tasks/images/${timesOfDay}/${this.current.toString().padStart(2,'0')}.jpg`
+                this.setImage(imageUrl)
         }
+    }
 
+    setImage(url){
         const image = new Image();
-        image.src = imageUrl
+        image.src = url
         image.addEventListener('load',()=>{
-            document.body.style.backgroundImage = `url(${imageUrl})`;
+            document.body.style.backgroundImage = `url(${url})`;
         })
     }
 
-    getUnsplashImage() {
-        //fetch('https://source.unsplash.com/1920x1200/?morning')
-        return undefined;
+    async request(url){
+        const response = await fetch(url)
+        return response.json()
+    }
+
+    getUnsplashImage(){
+        const API_KEY = 'ONENqNjJ2MN7oESbVXkCSAVBc14sZmJjNBL65CKvrs4'
+        let categories = Clock.getTimesOfDay()
+        let tags = localStorage.getItem('tag')
+        if (tags){
+            categories = tags.split(' ').join(',')
+        }
+        let url = `https://api.unsplash.com/search/photos/?orientation=landscape&query=${categories}&per_page=30&client_id=${API_KEY}`
+        this.request(url).then(date => {
+            let results = date.results
+            let links = results.map(item => {
+                return item.urls.full + '&w=1440'
+            })
+            this.setImage(links[Math.floor(Math.random()*30)])
+        })
     }
 
     getFlickrImage() {
