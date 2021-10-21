@@ -12,12 +12,15 @@
 body {
   position: relative;
   min-width: 480px;
+  max-width: 100%;
   min-height: 100vh;
   font-family: 'Arial', sans-serif;
   font-size: 16px;
   color: #fff;
   text-align: center;
-
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-color: rgba(0, 0, 0, 0.5);
   background-blend-mode: multiply;
   transition: background-image 1s ease-in-out;
@@ -47,8 +50,7 @@ body {
 
 .play-item {
   position: relative;
-  padding: 5px;
-  padding-left: 20px;
+  padding: 5px 5px 5px 20px;
   list-style: none;
   opacity: .8;
   cursor: pointer;
