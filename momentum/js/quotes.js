@@ -4,6 +4,10 @@ export function init() {
         updateQuote()
     })
 
+    document.addEventListener('changeLang', () => {
+        updateQuote()
+    });
+
     updateQuote()
 }
 function updateQuote(){

@@ -1,54 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="assets/favicon.ico" rel="shortcut icon" />
-  <link rel="stylesheet" href="css/owfont-regular.css" />
-  <link rel="stylesheet" href="css/style.css" />
-  <title>momentum</title>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="assets/favicon.ico" rel="shortcut icon"/>
+    <link href="css/owfont-regular.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+    <title>momentum</title>
 </head>
 <body>
-  <header class="header">
+<header class="header">
     <div class="player">
-      <div class="player-controls">
-        <button class="play-prev player-icon"></button>
-        <button class="play player-icon"></button>
-        <button class="play-next player-icon"></button>
-      </div>
-      <ul class="play-list"></ul>
+        <div class="player-controls">
+            <button class="play-prev player-icon"></button>
+            <button class="play player-icon"></button>
+            <button class="play-next player-icon"></button>
+        </div>
+        <ul class="play-list"></ul>
     </div>
     <div class="weather">
-      <input type="text" class="city" />
-      <i class="weather-icon owf"></i>
-      <div class="weather-error"></div>
-      <div class="description-container">
-        <span class="temperature"></span>
-        <span class="weather-description"></span>
-      </div>
-      <div class="wind"></div>
-      <div class="humidity"></div>
+        <input class="city" type="text"/>
+        <i class="weather-icon owf"></i>
+        <div class="weather-error"></div>
+        <div class="description-container">
+            <span class="temperature"></span>
+            <span class="weather-description"></span>
+        </div>
+        <div class="wind"></div>
+        <div class="humidity"></div>
     </div>
-  </header>
-  <main class="main">
+</header>
+<main class="main">
     <div class="slider-icons">
-      <button class="slide-prev slider-icon"></button>
-      <button class="slide-next slider-icon"></button>
+        <button class="slide-prev slider-icon"></button>
+        <button class="slide-next slider-icon"></button>
     </div>
     <time class="time"></time>
     <date class="date"></date>
     <div class="greeting-container">
-      <span class="greeting"></span>
-      <input type="text" class="name" />
+        <span class="greeting"></span>
+        <input class="name" type="text"/>
     </div>
-  </main>
-  <footer class="footer">
-    <button class="change-quote"></button>
-    <div>
-      <div class="quote"></div>
-      <div class="author"></div>
+</main>
+<footer class="footer">
+    <div class="quote-wrap">
+        <button class="change-quote"></button>
+        <div>
+            <div class="quote"></div>
+            <div class="author"></div>
+        </div>
     </div>
-  </footer>
-  <script src="js/script.js" type="module"></script>
+    <div class="todo-list"></div>
+</footer>
+<button class="open-settings"></button>
+<div class="settings">
+    <button class="close-settings"></button>
+    <fieldset class="language">
+        <legend class="language-text">Язык</legend>
+        <ul>
+            <li><label><input id="lang-ru" name="lang" type="radio" value="ru"> Русский </label></li>
+            <li><label><input id="lang-en" name="lang" type="radio" value="en"> English </label></li>
+        </ul>
+    </fieldset>
+    <fieldset class="background">
+        <legend class="background-text">Источник картинок</legend>
+        <ul>
+            <li><label><input id="image-git" name="image" type="radio" value="git"> Git </label></li>
+            <li><label><input id="image-flickr" name="image" type="radio" value="flickr"> Flickr </label></li>
+            <li><label><input id="image-unsplash" name="image" type="radio" value="unsplash"> Unsplash </label></li>
+        </ul>
+        <label>Тег <input id="tag" name="tag" type="text"></label>
+    </fieldset>
+    <fieldset class="modules">
+        <legend class="modules-text">Модули</legend>
+        <ul>
+            <li><input id="time-module" type="checkbox"> <label class="time-module-text" for="time-module"></label></li>
+            <li><input id="date-module" type="checkbox"><label class="data-module-text" for="date-module"> </label></li>
+            <li><input id="greeting-module" type="checkbox"><label class="greeting-module-text"
+                                                                   for="greeting-module"></label></li>
+            <li><input id="quotes-module" type="checkbox"><label class="quotes-module-text" for="quotes-module"></label>
+            </li>
+            <li><input id="weather-module" type="checkbox"><label class="weather-module-text"
+                                                                  for="weather-module"></label></li>
+            <li><input id="player-module" type="checkbox"><label class="player-module-text" for="player-module"></label>
+            </li>
+            <li><input id="todo-module" type="checkbox"><label class="todo-module-text" for="todo-module"></label></li>
+        </ul>
+    </fieldset>
+</div>
+<script src="js/script.js" type="module"></script>
 </body>
 </html>

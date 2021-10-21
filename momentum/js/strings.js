@@ -1,13 +1,13 @@
 export const STRINGS = {
-    daysOfWeek : {
+    daysOfWeek: {
         'ru': ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
         'en': ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
     },
-    months : {
+    months: {
         'ru': ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'],
         'en': ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     },
-    greetings : {
+    greetings: {
         'ru': {
             'morning': 'Доброе утро',
             'afternoon': 'Добрый день',
@@ -21,11 +21,11 @@ export const STRINGS = {
             'night': 'Good night'
         }
     },
-    greetingPlaceholder : {
+    greetingPlaceholder: {
         'ru': '[Введите имя]',
         'en': '[Enter name]'
     },
-    weather : {
+    weather: {
         'ru': {
             'humidity': 'Влажность',
             'wind_speed': 'Скорость ветра',
@@ -37,6 +37,32 @@ export const STRINGS = {
             'wind_speed': 'Wind speed',
             'wind_unit': 'm/s',
             'error': 'Error! city not found for ',
+        }
+    },
+    settings: {
+        'ru': {
+            'lang_section': 'Язык',
+            'bg_section': 'Источник картинок',
+            'modules_section': 'Модули',
+            'time_module': 'Время',
+            'date_module': 'Дата',
+            'greeting_module': 'Приветствие',
+            'quotes_module': 'Цитаты',
+            'weather_module': 'Погода',
+            'player_module': 'Плеер',
+            'todo_module': 'Список дел',
+        },
+        'en': {
+            'lang_section': 'Language',
+            'bg_section': 'Images source',
+            'modules_section': 'Modules',
+            'time_module': 'Time',
+            'date_module': 'Date',
+            'greeting_module': 'Greeting',
+            'quotes_module': 'Quotes',
+            'weather_module': 'Weather',
+            'player_module': 'Player',
+            'todo_module': 'ToDo List',
         }
     },
 

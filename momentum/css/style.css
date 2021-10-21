@@ -10,6 +10,7 @@
 }
 
 body {
+  position: relative;
   min-width: 480px;
   min-height: 100vh;
   font-family: 'Arial', sans-serif;
@@ -262,6 +263,100 @@ body {
 
 .author {
   min-height: 20px;
+}
+
+.open-settings{
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  width: 30px;
+  height: 30px;
+  background: transparent url("../assets/svg/settings.svg") no-repeat;
+  border: none;
+  opacity: 0.8;
+  transition: all 0.3s linear;
+}
+
+.open-settings:hover {
+  opacity: 1;
+  cursor: pointer;
+  transform: rotate(45deg);
+}
+
+.settings {
+  position: absolute;
+  left: 50%;
+  top: -100%;
+
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  padding: 15px;
+
+  border-radius: 10px;
+  background-color: rgb(203, 203, 203);
+  color: black;
+  opacity: 0.9;
+
+  transform: translate(-50%, -50%);
+  transition: all 1s ease-in-out;
+}
+
+.settings-show {
+  top: 50%;
+}
+
+.language,
+.background,
+.modules {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 1px black dashed;
+  padding: 10px;
+  margin: 10px;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.language ul,
+.background ul,
+.modules ul{
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.close-settings {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 25px;
+  height: 25px;
+  background: transparent url("../assets/svg/close.svg") no-repeat;
+  border: none;
+}
+
+.close-settings:hover{
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.player,
+.weather,
+.time,
+.date,
+.greeting-container,
+.quote-wrap,
+.todo-list {
+
+  transition: all 0.8s ease-in-out;
+}
+
+.hide-block {
+  opacity: 0;
+  visibility: hidden;
 }
 
 @media (max-width: 768px) {

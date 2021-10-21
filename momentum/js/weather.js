@@ -13,7 +13,13 @@ function init(){
         localStorage.setItem('city', cityField.value)
         updateWeather(cityField.value)
     })
+
+    document.addEventListener('changeLang', () => {
+        const city = localStorage.getItem('city')
+        updateWeather(city)
+    });
 }
+
 function updateWeather(city){
     const lang = localStorage.getItem('lang')
 

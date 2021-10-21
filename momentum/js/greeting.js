@@ -2,11 +2,18 @@ import {STRINGS} from './strings.js'
 import * as Clock from './clock.js';
 
 export function init(){
-    setInterval(updateGreeting, 1000)
-    setInterval(updateUsername, 1000)
+    document.addEventListener('changeLang', () => {
+        updateGreeting()
+        updateUsername()
+    });
 
     const name = document.querySelector('.name');
     name.addEventListener('input', saveUsername);
+
+    // setInterval(updateGreeting, 1000) // ToDo добавить изменение времени суток
+
+    updateGreeting()
+    updateUsername()
 }
 
 function updateGreeting(){
