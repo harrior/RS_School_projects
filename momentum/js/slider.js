@@ -1,9 +1,13 @@
+import * as Clock from "./clock.js";
+
 export default class Slider{
-
     constructor() {
-        this.slides = [];
-        this.current = -1;
+        this.current = Math.floor(20 * Math.random()) + 1
+        this.setListeners()
+        this.setSlide(this.current)
+    }
 
+    setListeners() {
         const nextButton = document.querySelector('.slide-next');
         const prevButton = document.querySelector('.slide-prev');
 
@@ -14,36 +18,57 @@ export default class Slider{
         prevButton.addEventListener('click', ()=>{
             this.prev();
         });
+
+        document.addEventListener('changeTimesOfDay', () => {
+            this.setSlide()
+        });
+
+        document.addEventListener('changeImage', () => {
+            this.setSlide()
+        });
     }
 
-    add(url) {
-        this.slides.push(url);
-    }
+    setSlide() {
+        const timesOfDay = Clock.getTimesOfDay();
+        const imgSource = localStorage.getItem('imgSource')
 
-    clear() {
-        this.slides = [];
-        this.current = -1;
-    }
+        let imageUrl;
+        switch (imgSource){
+            case 'flickr':
+                imageUrl = this.getFlickrImage();
+                break;
+            case 'unsplash':
+                imageUrl = this.getUnsplashImage();
+                break;
+            default:
+                imageUrl = `https://harrior.github.io/stage1-tasks/images/${timesOfDay}/${this.current.toString().padStart(2,'0')}.jpg`
+        }
 
-    setSlide(position) {
-        this.current = position;
         const image = new Image();
-        image.src = `${this.slides[position]}`
+        image.src = imageUrl
         image.addEventListener('load',()=>{
-            document.body.style.backgroundImage = `url(${this.slides[position]})`;
+            document.body.style.backgroundImage = `url(${imageUrl})`;
         })
     }
 
+    getUnsplashImage() {
+        //fetch('https://source.unsplash.com/1920x1200/?morning')
+        return undefined;
+    }
+
+    getFlickrImage() {
+        //fetch('https://source.unsplash.com/1920x1200/?morning')
+        return undefined;
+    }
+
     prev() {
-        this.setSlide( this.current - 1 >= 0 ? this.current - 1 : this.slides.length - 1)
+        this.current = this.current - 1 > 0 ? this.current - 1 : 20;
+        this.setSlide()
     }
 
     next() {
-        this.setSlide( this.current + 1 < this.slides.length ? this.current + 1 : 0 )
+        this.current = this.current + 1 <= 20 ? this.current + 1 : 1
+        this.setSlide()
     }
 
-    random(){
-        const position = Math.floor(Math.random() * this.slides.length);
-        this.setSlide(position);
-    }
 }
