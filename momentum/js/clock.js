@@ -1,7 +1,12 @@
 import {STRINGS} from './strings.js'
 
+let currentTimesOfDay;
+
 export function init(){
-    setInterval(updateDateTime, 1000);
+    setInterval(() => {
+        updateDateTime();
+        updateTimesOfDay();
+    }, 1000);
 }
 
 function updateDateTime(){
@@ -31,6 +36,13 @@ function updateDateTime(){
     }
 
     dateString.textContent = currentDate
+}
+
+function updateTimesOfDay(){
+    if (currentTimesOfDay !== getTimesOfDay()){
+        currentTimesOfDay = getTimesOfDay();
+        document.dispatchEvent(new CustomEvent('changeTimesOfDay'))
+    }
 }
 
 export function getTimesOfDay(){

@@ -18,6 +18,11 @@ function init(){
         const city = localStorage.getItem('city')
         updateWeather(city)
     });
+
+    document.addEventListener('changeTimesOfDay', () => {
+        const city = localStorage.getItem('city')
+        updateWeather(city)
+    });
 }
 
 function updateWeather(city){

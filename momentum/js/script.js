@@ -5,15 +5,9 @@ import * as Wallpapers from './wallpapers.js';
 import * as Weather from './weather.js';
 import * as Quotes from './quotes.js'
 
-
 Settings.init();
 Clock.init();
 Greeting.init();
 Wallpapers.init();
 Weather.init();
 Quotes.init();
-
-
-
-
-//TODO rewrite with using  custom EventS!!!!!!! (Time)

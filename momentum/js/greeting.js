@@ -7,10 +7,13 @@ export function init(){
         updateUsername()
     });
 
+    document.addEventListener('changeTimesOfDay', () => {
+        updateGreeting()
+        updateUsername()
+    });
+
     const name = document.querySelector('.name');
     name.addEventListener('input', saveUsername);
-
-    // setInterval(updateGreeting, 1000) // ToDo добавить изменение времени суток
 
     updateGreeting()
     updateUsername()

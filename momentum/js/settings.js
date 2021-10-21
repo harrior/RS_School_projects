@@ -72,19 +72,19 @@ function setListeners() {
     const tag = document.querySelector('#tag')
     imageGit.addEventListener('click', () => {
         localStorage.setItem('imgSource', 'git')
-        document.dispatchEvent(new CustomEvent('changeSource'))
+        document.dispatchEvent(new CustomEvent('changeImage'))
     })
     imageFlickr.addEventListener('click', () => {
         localStorage.setItem('imgSource', 'flickr')
-        document.dispatchEvent(new CustomEvent('changeSource'))
+        document.dispatchEvent(new CustomEvent('changeImage'))
     })
     imageUnsplash.addEventListener('click', () => {
         localStorage.setItem('imgSource', 'unsplash')
-        document.dispatchEvent(new CustomEvent('changeSource'))
+        document.dispatchEvent(new CustomEvent('changeImage'))
     })
     tag.addEventListener('change', () => {
         localStorage.setItem('tag', tag.value)
-        document.dispatchEvent(new CustomEvent('changeSource'))
+        document.dispatchEvent(new CustomEvent('changeImage'))
     })
 
     // modules
@@ -119,10 +119,8 @@ function hideModules() {
     for (let module in modules){
         let value = localStorage.getItem(module);
         if (value === 'true') {
-            console.log(1 , module, value)
             document.querySelector(`.${modules[module]}`).classList.remove('hide-block')
         } else {
-            console.log(2, module, value)
             document.querySelector(`.${modules[module]}`).classList.add('hide-block')
         }
     }
