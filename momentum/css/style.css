@@ -299,7 +299,7 @@ body {
   border-radius: 10px;
   background-color: rgb(203, 203, 203);
   color: black;
-  opacity: 0.9;
+  opacity: 0;
 
   transform: translate(-50%, -50%);
   transition: all 1s ease-in-out;
@@ -307,6 +307,7 @@ body {
 
 .settings-show {
   top: 50%;
+  opacity: 0.9;
 }
 
 .language,
