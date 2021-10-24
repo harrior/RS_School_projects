@@ -11,10 +11,16 @@
 <body>
 <header class="header">
     <div class="player">
+        <audio id="player"></audio>
+        <div class="player-current-song"></div>
         <div class="player-controls">
             <button class="play-prev player-icon"></button>
             <button class="play player-icon"></button>
             <button class="play-next player-icon"></button>
+            <input class="player-progress" type="range">
+            <span class="player-time"></span>
+            <button class="mute player-icon"></button>
+            <input class="player-volume" type="range">
         </div>
         <ul class="play-list"></ul>
     </div>
