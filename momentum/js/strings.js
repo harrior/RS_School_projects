@@ -65,5 +65,12 @@ export const STRINGS = {
             'todo_module': 'ToDo List',
         }
     },
-
+    todo: {
+        'ru': {
+            'todo_placeholder': '[Новая задача]'
+        },
+        'en': {
+            'todo_placeholder': '[New ToDo]'
+        },
+    }
 }

@@ -114,7 +114,7 @@ function hideModules() {
         'quotes-module': 'quote-wrap',
         'weather-module': 'weather',
         'player-module': 'player',
-        'todo-module': 'todo-list',
+        'todo-module': 'todo',
     }
     for (let module in modules){
         let value = localStorage.getItem(module);
