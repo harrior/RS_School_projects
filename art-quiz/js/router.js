@@ -45,6 +45,7 @@ Router.prototype = {
       }
     }
   },
+
   goToRoute: function (htmlName) {
     (function (scope) {
       let url = 'views/' + htmlName,
@@ -52,10 +53,23 @@ Router.prototype = {
       xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
           scope.rootElem.innerHTML = this.responseText;
+          let scripts = Array.prototype.slice.call(scope.rootElem.getElementsByTagName("script"));
+          for (let i = 0; i < scripts.length; i++) {
+            if (scripts[i].src !== "") {
+              let tag = document.createElement("script");
+              tag.src = scripts[i].src;
+              document.getElementsByTagName("main")[0].appendChild(tag);
+            } else {
+              eval(scripts[i].innerHTML);
+            }
+          }
         }
       };
       xhttp.open('GET', url, true);
       xhttp.send();
     })(this);
-  }
+  },
+
+
 };
+
