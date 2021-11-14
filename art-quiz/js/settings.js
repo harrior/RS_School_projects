@@ -1,4 +1,4 @@
-class Settings {
+export default class Settings {
   constructor() {
     this.mute = false;
     this.volume = 50;
@@ -30,5 +30,4 @@ class Settings {
   }
 }
 
-let settings = new Settings();
-settings.load()
+
