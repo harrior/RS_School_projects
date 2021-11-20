@@ -1,0 +1,202 @@
+/* quiz */
+.header .container {
+    display: flex;
+    flex-direction: row;
+}
+
+.container .task {
+    display: flex;
+    flex-direction: column;
+}
+
+.question {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0;
+}
+
+.answers {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+
+    border: none;
+    padding: 0;
+}
+
+.answers .artists {
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    border-radius: 10px;
+    line-height: 0;
+}
+
+.answers .artists img {
+    width: 155px;
+    height: 155px;
+    transition: opacity 0.2s linear;
+}
+
+.answers .artists img:hover {
+    opacity: 0.9;
+}
+
+.answers .btn {
+    width: 160px;
+    height: 50px;
+}
+
+/**/
+.question.artists img {
+    max-width: 328px;
+    max-height: 328px;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+/**/
+.showAnswer {
+    width: 360px;
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: 15px;
+    border-radius: 5%;
+    gap: 10px;
+
+    left: 50%;
+    top: 50px;
+    margin-left: -180px;
+    background-color: white;
+    color: black;
+    z-index: 10;
+}
+
+.showAnswer .answer-wrap {
+    position: relative;
+    max-width: 320px;
+}
+
+.showAnswer .answer-image {
+    width: 100%;
+    border-radius: 5%;
+}
+
+.showAnswer .answer-icon {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.showAnswer .answer-title {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.showAnswer .answer-artist {
+    font-size: 1.5rem;
+    font-style: italic;
+    text-align: center;
+}
+
+.exitButton {
+    border: none;
+    width: 36px;
+    height: 36px;
+    background: url("../assets/svg/close.svg") transparent no-repeat center;
+    cursor: pointer;
+}
+
+.showAnswer .answer-button,
+.stopQuiz .stopQuiz-cancel,
+.stopQuiz .stopQuiz-yes,
+.finish-next {
+    border-color: black;
+    color: black;
+    width: 150px;
+    height: 50px;
+}
+
+.stopQuiz .button-wrap {
+    display: flex;
+    gap: 10px;
+    margin: 10px;
+}
+
+.stopQuiz,
+.finish {
+    width: 360px;
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: 15px;
+    border-radius: 10px;
+    gap: 10px;
+
+    left: 50%;
+    top: 50px;
+    margin-left: -180px;
+    background-color: white;
+    color: black;
+    z-index: 10;
+}
+
+@media (min-width: 768px) {
+    .answers .artists img {
+        width: 320px;
+        height: 320px;
+        border-radius: 10px;
+    }
+
+    .answers .btn {
+        width: 320px;
+        height: 50px;
+    }
+
+    .question.artists img {
+        max-width: 665px;
+        max-height: 665px;
+    }
+
+    .showAnswer {
+        width: 530px;
+        margin-left: -265px;
+    }
+}
+
+
+@media (min-width: 1440px) {
+    .container {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .header .container {
+        justify-content: space-between;
+
+    }
+
+    .answers .btn {
+        width: 500px;
+
+    }
+
+    .question.artists img {
+        max-width: 825px;
+        max-height: 825px;
+    }
+
+}

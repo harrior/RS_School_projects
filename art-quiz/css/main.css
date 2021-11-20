@@ -1,0 +1,42 @@
+/*main*/
+body {
+    background: url("../assets/png/main_img520.png") #010101 no-repeat center;
+}
+
+.main-settings {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background-image: url("../assets/svg/settings.svg");
+    display: block;
+    width: 34px;
+    height: 34px;
+    transition: transform 0.5s linear;
+}
+
+.main-settings:hover {
+    transform: rotate(180deg);
+}
+
+.logo {
+    margin-top: 300px;
+}
+
+.main-menu .btn {
+    height: 56px;
+    width: 268px;
+}
+
+@media (min-width: 768px) {
+    body {
+        background: url("../assets/png/main_img720.png") #010101 no-repeat center 0;
+    }
+
+}
+
+@media (min-width: 1440px) {
+    body {
+        background: url("../assets/png/main_img1024.png") #010101 no-repeat center 0;
+    }
+
+}

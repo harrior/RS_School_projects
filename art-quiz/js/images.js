@@ -1439,12 +1439,7 @@ const images = [
     year: '1889',
     imageNum: '239',
   },
-  {
-    author: 'Эжен Делакруа',
-    name: 'Автопортрет',
-    year: '1837',
-    imageNum: '240',
-  },
+
 ];
 
 export default images;
