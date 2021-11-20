@@ -154,6 +154,38 @@
     z-index: 10;
 }
 
+/**/
+.counter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.counter-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    list-style: none;
+}
+
+.counter-item {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: grey;
+    border-radius: 50%;
+}
+
+.counter-true {
+    background-color: green;
+}
+
+.counter-false {
+    background-color: darkred;
+}
+
+/**/
 @media (min-width: 768px) {
     .answers .artists img {
         width: 320px;

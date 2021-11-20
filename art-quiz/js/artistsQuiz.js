@@ -1,4 +1,3 @@
-import images from "./images.js";
 import * as Quiz from './quiz.js'
 
 function createCategory(id, result, type) {
@@ -33,12 +32,13 @@ function createCategory(id, result, type) {
   return category;
 }
 
-function init(type) {
+function init() {
   let container = document.querySelector('.category');
   const quizzes = JSON.parse(localStorage.getItem('results'));
   for (let i in quizzes.artists) {
-    container.append(createCategory(i, quizzes.artists[i], type));
+    console.log(quizzes.artists[i].solved)
+    container.append(createCategory(i, quizzes.artists[i].solved, "artists"));
   }
 }
 
-init("artists")
+init()

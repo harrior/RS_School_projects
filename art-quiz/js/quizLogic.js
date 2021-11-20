@@ -1,4 +1,6 @@
 // Task.
+import {quizResults} from "./quiz.js";
+
 function createTaskForm(type, task) {
   const question = createQuestion(type, task);
   const answers = createAnswers(type, task);
@@ -10,6 +12,7 @@ function createTaskForm(type, task) {
 
   container.append(question);
   container.append(answers);
+  updateProgressbar()
   updateAnswerForm(task)
 }
 
@@ -58,12 +61,29 @@ function createAnswers(type, task) {
   return answers;
 }
 
+function updateProgressbar() {
+  const counterList = document.querySelector('.counter-list');
+  let j = 0;
+  console.log(document.activeQuiz.solvedArray)
+  for (let li of counterList.children) {
+    li.classList.remove('counter-false')
+    li.classList.remove('counter-true')
+    if (document.activeQuiz.solvedArray[j] === null)
+      continue
+    if (document.activeQuiz.solvedArray[j] === true) {
+      li.classList.add('counter-true')
+    } else if (document.activeQuiz.solvedArray[j] === false) {
+      li.classList.add('counter-false')
+    }
+    j++;
+  }
+}
+
 // Results
 
 
 // Answer form
 function updateAnswerForm(task) {
-  console.log(task)
   const answerImage = document.querySelector('.answer-image');
   const answerTitle = document.querySelector('.answer-title');
   const answerArtist = document.querySelector('.answer-artist');
@@ -100,6 +120,11 @@ function checkAnswer(evt) {
 
 // entry point
 function init() {
+  try {
+    document.activeQuiz.type;
+  } catch (err) {
+    document.location = '#';
+  }
   createTaskForm(document.activeQuiz.type, document.activeQuiz.getTask())
 
   const nextButton = document.querySelector('.answer-button');
@@ -109,11 +134,27 @@ function init() {
     if (nextTask !== null) {
       createTaskForm(document.activeQuiz.type, nextTask);
     } else {
+      //finish
       const finish = document.querySelector('.finish')
       const finishRate = document.querySelector('.finish-rate')
       const finishNext = document.querySelector('.finish-next')
       finish.style.display = 'flex';
       finishRate.textContent = `${document.activeQuiz.solved}/10`;
+
+      //save results
+      let results = JSON.parse(localStorage.getItem('results'))
+      let cat;
+      if (+document.activeQuiz.type === 1){
+        cat = 'artists'
+      } else {
+        cat = 'pictures'
+      }
+      results[cat][document.activeQuiz.id].solved = document.activeQuiz.solved;
+      for (let i=0; i<10; i++){
+        results[cat][document.activeQuiz.id].arr[i] = document.activeQuiz.solvedArray[i];
+      }
+      // if (localStorage.getItem('results') === null) {
+      localStorage.setItem('results', JSON.stringify(results));
 
       finishNext.addEventListener('click', evt => {
         if (document.activeQuiz.type === 1)
@@ -131,12 +172,12 @@ function init() {
     stopQuiz.style.display = 'flex';
   })
   const stopQuizCancel = document.querySelector('.stopQuiz-cancel');
-  stopQuizCancel.addEventListener('click', ()=>{
+  stopQuizCancel.addEventListener('click', () => {
     const stopQuiz = document.querySelector('.stopQuiz');
     stopQuiz.style.display = 'none';
   })
   const stopQuizYes = document.querySelector('.stopQuiz-yes');
-  stopQuizYes.addEventListener('click', ()=>{
+  stopQuizYes.addEventListener('click', () => {
     document.location = '#'
   })
 }

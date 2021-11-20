@@ -7,6 +7,7 @@ export class Quiz {
     this._tasks = Array(10).fill().map((element, index) => index + startId * 10).map(item => new Task(images, item))
     this.current = this._tasks.shift()
     this.solved = 0;
+    this.solvedArray = [null, null, null, null, null, null, null, null, null, null]
     this.count = 0;
   }
 
@@ -15,7 +16,7 @@ export class Quiz {
   }
 
   getTask() {
-    if (this._tasks.length === 0){
+    if (this._tasks.length === 0) {
       return null
     }
     if (this?.current.solved) {
@@ -24,15 +25,16 @@ export class Quiz {
     return this.current.getTask();
   }
 
-  getResult(){
+  getResult() {
     return this.solved;
   }
 
   checkSolve(id) {
     this.count += 1;
-    console.log(this.count)
     const result = this.current.checkAnswer(id);
     this.solved += Number(result);
+    this.solvedArray[this.count - 1] = result;
+    // console.log(this.solvedArray)
     return result;
   }
 }
@@ -55,11 +57,15 @@ export class Task {
 
   _generateAnswers() {
     let answers = [this._task]
-    while (answers.length !== 4) {
+    l: while (answers.length !== 4) {
       let id = Math.floor(Math.random() * images.length);
-      if ((this._id !== id) && (this._task.author !== images[id].author)) {
-        answers.push(images[id])
+      for (let i = 0; i < answers.length; i++) {
+        if ((this._id === id) || (answers[i].author === images[id].author)) {
+          continue l;
+        }
       }
+
+      answers.push(images[id])
     }
     return answers;
   }
@@ -89,8 +95,14 @@ export class quizResults {
   _fill() {
     const countCategories = Math.floor(images.length / 10) - 1
     for (let i = 0; i <= countCategories; i++) {
-      this.artists[i] = 0;
-      this.pictures[i] = 0;
+      this.artists[i] = {
+        solved: 0,
+        arr: [0,0,0,0,0,0,0,0,0,0],
+      };
+      this.pictures[i] = {
+        solved: 0,
+        arr: [0,0,0,0,0,0,0,0,0,0],
+      };
     }
   }
 }
