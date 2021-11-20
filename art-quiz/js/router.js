@@ -56,7 +56,7 @@ Router.prototype = {
           for (let i = 0; i < scripts.length; i++) {
             if (scripts[i].src !== "") {
               let tag = document.createElement("script");
-              tag.src = scripts[i].src + `?${Math.ceil(Math.random()*100)}`;
+              tag.src = scripts[i].src + `?${Math.ceil(Math.random()*100000)}`;
               tag.type = 'module';
               document.getElementsByTagName("main")[0].appendChild(tag);
             } else {

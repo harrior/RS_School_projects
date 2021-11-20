@@ -1,4 +1,4 @@
-import Settings from './Settings.js';
+import Settings from './settings.js';
 import * as Router from './router.js'
 
 import * as Quiz from './quiz.js';
