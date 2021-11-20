@@ -1,78 +1,234 @@
-.container {
-    margin: 0 auto;
-    /*border: 1px black solid;*/
-    padding: 1rem 0;
+* {
+    box-sizing: border-box;
 }
 
 body {
-    background-color: #f6f6f6;
+    position: relative;
+    font-size: 16px;
+    color: #FFFFFF;
+    background: url("../assets/png/main_img520.png") #010101 no-repeat center;
 }
 
-/*main*/
-.logo {
-    text-align: center;
-    color: #5c5cce;
-    font-size: 3rem;
-}
-
-.footer .container {
+/* buttons */
+.btn {
     display: flex;
-    justify-content: space-between;
-    font-size: 1.5rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 60px;
+
+    position: relative;
+    /*width: 250px;*/
+    /*height: 60px;*/
+    text-align: center;
+    font-family: Gilroy;
+    text-decoration: none;
+    font-weight: 500;
+
+    font-size: 22px;
+    line-height: 22px;
+
+    border: 1.5px solid #FFFFFF;
+    border-radius: 60px;
+    color: #FFFFFF;
+    transition: all 0.3s linear;
 }
 
-.main .menu {
+.btn:hover {
+    color: #000000;
+    background-color: #FFFFFF;
+}
+
+.btn:active {
+    color: #000000;
+    background-color: #FFBCA2;
+}
+
+/* containers */
+.container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
     align-items: center;
-    gap: 1rem;
+    margin: 0 auto;
+    /*border: 1px white solid;*/
+    padding: 1rem 0;
+    width: 360px;
 }
 
-.main .menu .btn {
-    display: block;
-    border-radius: 20px;
-    border: none;
-    padding: 1rem;
-    width: 320px;
-
-    color: #FFFFFF;
-    text-shadow: black 2px 2px;
-    font-size: 2rem;
-    text-align: center;
-    text-decoration: none;
-
-    background-color: #e5e521;
-    transition: background-color 0.3s linear;
-    box-shadow: black 2px 2px;
-}
-
-.main .menu .btn:hover {
-    background-color: #ffff8b;
-    cursor: pointer;
+/* footer */
+.footer {
+    display: flex;
+    position: absolute;
+    top: calc(100vh - 80px);
+    width: 100%;
+    height: 80px;
+    left: 0;
+    padding: 10px 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    flex: 0 0 auto;
 }
 
 .footer a {
-    color: black;
+    color: #FFFFFF;
     text-decoration: none;
+    transition: opacity 0.3s linear;
 }
 
 .footer a:hover {
-    color: #006fff;
+    color: #FFFFFF;
+    opacity: 0.9;
+    text-decoration: underline;
+}
+
+/*main*/
+.main-settings {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background-image: url("../assets/svg/settings.svg");
+    display: block;
+    width: 34px;
+    height: 34px;
+    transition: transform 0.5s linear;
+}
+
+.main-settings:hover {
+    transform: rotate(180deg);
+}
+
+.logo {
+    margin-top: 300px;
+}
+
+.main-menu .btn {
+    height: 56px;
+    width: 268px;
 }
 
 /* settings */
 
-/* */
+/* quiz */
+.question {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.question.artists img {
+    width: 320px;
+    border-radius: 10px;
+}
+
+.answers.artists {
+    display: flex;
+    gap: 10px;
+}
+
+.answer.artists {
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+
+.answers .artists:hover {
+    opacity: 0.9;
+}
+
+.answers .artists img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.question.picture img {
+    max-width: 328px;
+    max-height: 328px;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.answer.picture {
+    width: 158px;
+    height: 48px;
+    border: black 2px solid;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s linear;
+}
+
+.answer.picture:hover {
+    background-color: #ffff8b;
+}
+
+.showAnswer {
+    display: none;
+    position: absolute;
+    /*display: flex;*/
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    border-radius: 5%;
+
+    left: 50%;
+    top: 50px;
+    margin-left: -160px;
+    background-color: white;
+    z-index: 10;
+}
+
+.showAnswer .answer-wrap {
+    position: relative;
+    max-width: 320px;
+}
+
+.showAnswer .answer-image {
+    width: 100%;
+    border-radius: 5%;
+}
+
+.showAnswer .answer-icon {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.showAnswer .answer-title {
+    font-size: 2rem;
+}
+
+.showAnswer .answer-artist {
+    font-size: 1.5rem;
+    font-style: italic;
+}
 
 
-@media (min-width: 320px) {
+@media (min-width: 768px) {
+    body {
+        background: url("../assets/png/main_img720.png") #010101 no-repeat center 0;
+    }
     .container {
-        max-width: 320px;
+        border: 1px white solid;
+        width: 768px;
+
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1440px) {
+    body {
+        background: url("../assets/png/main_img1024.png") #010101 no-repeat center 0;
+    }
     .container {
-        max-width: 1024px;
+        border: 2px white solid;
+        width: 1440px;
+        flex-direction: row;
+        justify-content: center;
     }
 }
