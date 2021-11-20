@@ -12,6 +12,7 @@ function init() {
     new Router.Route('quiz', 'quiz.html'),
     new Router.Route('artists', 'artists.html'),
     new Router.Route('pictures', 'pictures.html'),
+    new Router.Route('results', 'results.html'),
   ]);
   document.settings = new Settings();
   document.settings.load();

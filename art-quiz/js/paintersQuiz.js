@@ -20,6 +20,11 @@ function createCategory(id, result, type) {
     p.classList.add('cat-text')
     p.innerText = `${result}/10`
     category.append(p)
+
+    p.addEventListener('click', (evt)=>{
+      document.location = `#results$2$${evt.target.parentNode.dataset.id}`
+      evt.stopPropagation()
+    })
   }
 
 

@@ -20,11 +20,13 @@ function createCategory(id, result, type) {
     p.classList.add('cat-text')
     p.innerText = `${result}/10`
     category.append(p)
+    p.addEventListener('click', (evt)=>{
+      document.location = `#results$1$${evt.target.parentNode.dataset.id}`
+      evt.stopPropagation()
+    })
   }
 
-
   category.addEventListener('click', evt => {
-    console.log(evt)
     document.activeQuiz = new Quiz.Quiz(evt.target.parentNode.dataset.id, 1);
     document.location = '#quiz'
   })
@@ -36,7 +38,6 @@ function init() {
   let container = document.querySelector('.category');
   const quizzes = JSON.parse(localStorage.getItem('results'));
   for (let i in quizzes.artists) {
-    console.log(quizzes.artists[i].solved)
     container.append(createCategory(i, quizzes.artists[i].solved, "artists"));
   }
 }
