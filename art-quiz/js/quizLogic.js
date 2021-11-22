@@ -10,7 +10,6 @@ function createTaskForm(type, task) {
     container.removeChild(container.firstChild);
   }
 
-
   container.append(question);
   container.append(answers);
   setTimeLimit();
@@ -22,10 +21,14 @@ function setTimeLimit() {
   const settings = JSON.parse(localStorage.getItem('settings'))
   if (settings.timeLimit) {
     const timerText = document.querySelector('.timer')
+    const timerProgress = document.querySelector('.timer-progress')
     let delay = +settings.quizInterval
     timerText.textContent = delay;
+
     document.timer = setInterval(() => {
       timerText.textContent = delay;
+      let position = Math.ceil((delay * 100) / +settings.quizInterval);
+      timerProgress.style.background = `linear-gradient(to left, #010101 0%, #010101 ${position}%, darkred ${position}%, darkred 100%)`;
       delay -= 1;
       if (delay < 0) {
         checkAnswer(-1);
@@ -193,9 +196,10 @@ function init() {
       }
 
       localStorage.setItem('results', JSON.stringify(results));
-
+      // reset Timer
       clearInterval(document.timer)
 
+      // return too main category
       finishNext.addEventListener('click', evt => {
         if (document.activeQuiz.type === 1)
           document.location = '#artists';
@@ -206,6 +210,7 @@ function init() {
     }
   });
 
+  // set listeners
   const stopQuizBtn = document.querySelector('.exitButton')
   stopQuizBtn.addEventListener('click', () => {
     const stopQuiz = document.querySelector('.stopQuiz');

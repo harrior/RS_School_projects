@@ -185,6 +185,12 @@
     background-color: darkred;
 }
 
+.timer-progress {
+    flex-grow: 1;
+    background: linear-gradient(to right, darkred 0%, darkred 0%,#010101 0%, #010101 100%);
+    height: 3px;
+}
+
 /**/
 @media (min-width: 768px) {
     .answers .artists img {
