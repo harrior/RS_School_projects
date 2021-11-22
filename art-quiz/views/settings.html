@@ -1,29 +1,33 @@
+<link href="css/settings.css" rel="stylesheet">
+
 <header class="header">
     <div class="container">
-        <a class="btn" href="#">Назад</a>
-        <h1 class="logo">Настройки</h1>
+        <a href="#"><div class="logo"></div></a>
     </div>
 </header>
 <main class="main">
     <div class="container">
         <div class="settings">
-            <div>
+            <h1>Настройки</h1>
+            <div class="option">
                 <label for="volume">Громкость</label>
                 <input id="volume" max="100" min="0" name="volume" type="range">
+            </div>
+            <div class="option">
                 <input id="mute" name="mute" type="checkbox">
                 <label for="mute">Выключить звук</label>
             </div>
-            <div>
+            <div class="option">
                 <label for="timeLimit">Игра на время</label>
                 <input id="timeLimit" name="timeLimit" type="checkbox">
             </div>
-            <div>
+            <div class="option">
                 <label for="quizInterval">Время на ответ</label>
-                <input id="quizInterval" max="30" min="5" name="quizInterval" step="5" type="number">
+                <input id="quizInterval" max="30" min="5" name="quizInterval" step="5" type="range">
             </div>
-            <div>
-                <button id="default">По умолчанию</button>
-                <button id="save">Сохранить</button>
+            <div class="option">
+                <button class="btn btn-small" id="default">По умолчанию</button>
+                <button class="btn btn-small" id="save">Сохранить</button>
             </div>
         </div>
     </div>

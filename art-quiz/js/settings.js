@@ -15,7 +15,6 @@ export default class Settings {
 
   save() {
     localStorage.setItem('settings', JSON.stringify(this))
-    console.log(this)
   }
 
   load() {

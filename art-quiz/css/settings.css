@@ -1,0 +1,14 @@
+.logo {
+    width: 166px;
+    height: 62px;
+    background: url("../assets/svg/logo2.svg") no-repeat left;
+}
+
+.option {
+    margin: 15px 0;
+}
+
+.btn-small {
+    display: inline-block;
+    padding: 10px 20px;
+}

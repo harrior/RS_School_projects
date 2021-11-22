@@ -34,7 +34,6 @@ export class Quiz {
     const result = this.current.checkAnswer(id);
     this.solved += Number(result);
     this.solvedArray[this.count - 1] = result;
-    // console.log(this.solvedArray)
     return result;
   }
 }
