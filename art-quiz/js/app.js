@@ -16,6 +16,8 @@ function init() {
   ]);
   document.settings = new Settings();
   document.settings.load();
+  document.settings.save();
+
 }
 
 function showComment(){

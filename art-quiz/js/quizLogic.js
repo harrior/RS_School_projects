@@ -159,7 +159,7 @@ function checkAnswer(id) {
 
 // entry point
 function init() {
-  if (document.activeQuiz.type === undefined)
+  if (!document.activeQuiz)
     document.location = '#';
 
   createTaskForm(document.activeQuiz.type, document.activeQuiz.getTask())

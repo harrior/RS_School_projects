@@ -1,4 +1,4 @@
-import Settings from './Settings.js';
+import Settings from './settings.js';
 
 const volumeItem = document.querySelector('#volume');
 const muteItem = document.querySelector('#mute');
