@@ -10,18 +10,37 @@ function createTaskForm(type, task) {
     container.removeChild(container.firstChild);
   }
 
+
   container.append(question);
   container.append(answers);
+  setTimeLimit();
   updateProgressbar()
   updateAnswerForm(task)
 }
 
-function playResultSound(result){
+function setTimeLimit() {
+  const settings = JSON.parse(localStorage.getItem('settings'))
+  if (settings.timeLimit) {
+    const timerText = document.querySelector('.timer')
+    let delay = +settings.quizInterval
+    timerText.textContent = delay;
+    document.timer = setInterval(() => {
+      timerText.textContent = delay;
+      delay -= 1;
+      if (delay < 0) {
+        checkAnswer(-1);
+      }
+    }, 1000)
+  }
+}
+
+
+function playResultSound(result) {
   const player = document.querySelector('#player');
   // const player = new Audio();
   const settings = JSON.parse(localStorage.getItem('settings'));
   player.muted = settings.mute;
-  player.volume = settings.volume/100;
+  player.volume = settings.volume / 100;
   if (result) {
     player.src = 'assets/sound/correct.mp3';
   } else {
@@ -68,7 +87,7 @@ function createAnswers(type, task) {
       answer.classList.add('btn');
       answer.textContent = task.answers[i].author;
     }
-    answer.addEventListener('click', checkAnswer)
+    answer.addEventListener('click', checkAnswerEvent)
     answers.append(answer);
   }
 
@@ -92,9 +111,6 @@ function updateProgressbar() {
     j++;
   }
 }
-
-// Results
-
 
 // Answer form
 function updateAnswerForm(task) {
@@ -126,11 +142,17 @@ function hideAnswerForm() {
 }
 
 // Check answer
-function checkAnswer(evt) {
+function checkAnswerEvent(evt) {
   const answer = evt.target.dataset.id || evt.target.parentNode.dataset.id;
-  const result = document.activeQuiz.checkSolve(answer);
-  playResultSound(result)
+  checkAnswer(answer)
+}
+
+function checkAnswer(id) {
+  const result = document.activeQuiz.checkSolve(id);
+
+  playResultSound(result);
   showAnswerForm(result);
+  clearInterval(document.timer)
 }
 
 // entry point
@@ -147,6 +169,7 @@ function init() {
     hideAnswerForm()
     const nextTask = document.activeQuiz.getTask();
     if (nextTask !== null) {
+
       createTaskForm(document.activeQuiz.type, nextTask);
     } else {
       //finish
@@ -159,17 +182,19 @@ function init() {
       //save results
       let results = JSON.parse(localStorage.getItem('results'))
       let cat;
-      if (+document.activeQuiz.type === 1){
+      if (+document.activeQuiz.type === 1) {
         cat = 'artists'
       } else {
         cat = 'pictures'
       }
       results[cat][document.activeQuiz.id].solved = document.activeQuiz.solved;
-      for (let i=0; i<10; i++){
+      for (let i = 0; i < 10; i++) {
         results[cat][document.activeQuiz.id].arr[i] = document.activeQuiz.solvedArray[i];
       }
-      // if (localStorage.getItem('results') === null) {
+
       localStorage.setItem('results', JSON.stringify(results));
+
+      clearInterval(document.timer)
 
       finishNext.addEventListener('click', evt => {
         if (document.activeQuiz.type === 1)
@@ -193,6 +218,7 @@ function init() {
   })
   const stopQuizYes = document.querySelector('.stopQuiz-yes');
   stopQuizYes.addEventListener('click', () => {
+    clearInterval(document.timer);
     document.location = '#'
   })
 }
