@@ -26,7 +26,6 @@ export default class Settings {
       this.timeLimit = savedSettings.timeLimit;
       this.quizInterval = savedSettings.quizInterval;
     }
-    console.log(this)
   }
 }
 

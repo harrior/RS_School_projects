@@ -24,7 +24,7 @@ function setTimeLimit() {
     const timerProgress = document.querySelector('.timer-progress')
     let delay = +settings.quizInterval
     timerText.textContent = delay;
-
+    clearInterval(document.timer);
     document.timer = setInterval(() => {
       timerText.textContent = delay;
       let position = Math.ceil((delay * 100) / +settings.quizInterval);
@@ -100,7 +100,6 @@ function createAnswers(type, task) {
 function updateProgressbar() {
   const counterList = document.querySelector('.counter-list');
   let j = 0;
-  console.log(document.activeQuiz.solvedArray)
   for (let li of counterList.children) {
     li.classList.remove('counter-false')
     li.classList.remove('counter-true')
@@ -160,11 +159,9 @@ function checkAnswer(id) {
 
 // entry point
 function init() {
-  try {
-    document.activeQuiz.type;
-  } catch (err) {
+  if (document.activeQuiz.type === undefined)
     document.location = '#';
-  }
+
   createTaskForm(document.activeQuiz.type, document.activeQuiz.getTask())
 
   const nextButton = document.querySelector('.answer-button');
