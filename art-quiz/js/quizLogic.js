@@ -16,6 +16,20 @@ function createTaskForm(type, task) {
   updateAnswerForm(task)
 }
 
+function playResultSound(result){
+  const player = document.querySelector('#player');
+  // const player = new Audio();
+  const settings = JSON.parse(localStorage.getItem('settings'));
+  player.muted = settings.mute;
+  player.volume = settings.volume/100;
+  if (result) {
+    player.src = 'assets/sound/correct.mp3';
+  } else {
+    player.src = 'assets/sound/wrong.mp3';
+  }
+  player.play();
+}
+
 function createQuestion(type, task) {
   const question = document.createElement('div');
   question.classList.add('question');
@@ -115,6 +129,7 @@ function hideAnswerForm() {
 function checkAnswer(evt) {
   const answer = evt.target.dataset.id || evt.target.parentNode.dataset.id;
   const result = document.activeQuiz.checkSolve(answer);
+  playResultSound(result)
   showAnswerForm(result);
 }
 
